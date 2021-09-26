@@ -20,7 +20,7 @@ public class CamelRoutesExample extends RouteBuilder {
     @Override
     public void configure() {
 
-        from("file:///home/ahmad/camel?include=.*.test")
+        from("timer:test?delay=2s")
                 .log("the file ${header.CamelFileName} has been read")
                 .log("content:  ${body}")
                 .process(exchange -> {
