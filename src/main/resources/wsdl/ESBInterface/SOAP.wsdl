@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ESBx" targetNamespace="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="ESBMessagesSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.oab.com" xmlns:mrm="http://www.oab.com">
+      <xsd:include schemaLocation="ESBSchema_WSDLGenWrapper.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ESBRequest_in">
+    <wsdl:part element="tns:Request" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="ESBRequest_out">
+    <wsdl:part element="tns:Reply" name="Reply"/>
+  </wsdl:message>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="ESBRequest">
+      <wsdl:input message="tns:ESBRequest_in" name="ESBRequest_Input"/>
+      <wsdl:output message="tns:ESBRequest_out" name="ESBRequest_Output"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ESBMessagesSOAP_HTTP_Binding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ESBRequest">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="ESBRequest_Input">
+        <soap:body parts="Request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ESBRequest_Output">
+        <soap:body parts="Reply" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAP_HTTP_Service">
+    <wsdl:port binding="tns:ESBMessagesSOAP_HTTP_Binding" name="SOAP_HTTP_Port">
+      <soap:address location="http://10.101.46.6:7800/ESB/SOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:include schemaLocation="PaymentSchema.xsd"/>
+  <xsd:include schemaLocation="CardsSchema.xsd"/>
+  <xsd:element name="WalletRegistration">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:walletType"/>
+        <xsd:element ref="tns:walletIdType"/>
+        <xsd:element ref="tns:walletId"/>
+        <xsd:element minOccurs="0" ref="tns:walletLabel"/>
+        <xsd:element minOccurs="0" ref="tns:alias"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+        <xsd:element minOccurs="1" ref="tns:oabCustomer"/>
+        <xsd:element minOccurs="0" ref="tns:default"/>
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:documentId"/>
+            <xsd:element ref="tns:documentType"/>
+            <xsd:element ref="tns:documentIssuingCountry"/>
+            <xsd:element minOccurs="0" ref="tns:documentIssueDate"/>
+            <xsd:element minOccurs="0" ref="tns:documentExpiryDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:customerClass"/>
+        <xsd:element minOccurs="0" ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:birthDate"/>
+        <xsd:element minOccurs="0" ref="tns:placeOfBirth"/>
+        <xsd:element minOccurs="0" ref="tns:gender"/>
+        <xsd:element minOccurs="0" ref="tns:nationality"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+        <xsd:element minOccurs="0" ref="tns:customerAddress"/>
+        <xsd:element minOccurs="0" ref="tns:attachment"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="RegisteredWallet">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+        <xsd:element minOccurs="0" ref="tns:label"/>
+        <xsd:element minOccurs="0" ref="tns:processId"/>
+        <xsd:element minOccurs="0" ref="tns:flowURL"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="Wallet">
+    <xsd:choice>
+      <xsd:element ref="tns:WalletRegistration"/>
+      <xsd:element ref="tns:RegisteredWallet"/>
+      <xsd:element ref="tns:CloseRegisteredWallet"/>
+      <xsd:element ref="tns:WalletFinancialTransaction"/>
+      <xsd:element ref="tns:GetWalletInformation"/>
+      <xsd:element ref="tns:WalletInformation"/>
+      <xsd:element ref="tns:IsDefaultWallet"/>
+      <xsd:element ref="tns:DefaultWallet"/>
+      <xsd:element ref="tns:ListRegisteredWallet"/>
+      <xsd:element ref="tns:RegisteredWallets"/>
+      <xsd:element ref="tns:GetWalletTransactionCharges"/>
+      <xsd:element ref="tns:TransactionCharges"/>
+      <xsd:element ref="tns:WalletFinancialRequest"/>
+      <xsd:element ref="tns:GetWalletFinancialTransactionStatus"/>
+      <xsd:element ref="tns:WalletFinancialRefund"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="CloseRegisteredWallet">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:lineOfBusiness"/>
+        <xsd:choice>
+          <xsd:element ref="tns:externalReference"/>
+          <xsd:element ref="tns:reference"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:walletType"/>
+            <xsd:element ref="tns:walletIdType"/>
+            <xsd:element ref="tns:walletId"/>
+            <xsd:element minOccurs="0" ref="tns:walletLabel"/>
+          </xsd:sequence>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="walletFinancialLeg">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="tns:name"/>
+      <xsd:sequence minOccurs="0">
+        <xsd:element minOccurs="0" ref="tns:documentId"/>
+        <xsd:element minOccurs="0" ref="tns:documentType"/>
+        <xsd:element minOccurs="0" ref="tns:documentIssuingCountry"/>
+        <xsd:element minOccurs="0" ref="tns:documentIssueDate"/>
+        <xsd:element minOccurs="0" ref="tns:documentExpiryDate"/>
+      </xsd:sequence>
+      <xsd:element ref="tns:walletType"/>
+      <xsd:element ref="tns:walletIdType"/>
+      <xsd:element ref="tns:walletId"/>
+      <xsd:element minOccurs="0" ref="tns:walletLabel"/>
+      <xsd:element minOccurs="0" ref="tns:amount"/>
+      <xsd:element minOccurs="0" ref="tns:currency"/>
+      <xsd:element minOccurs="0" ref="tns:swift"/>
+      <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="WalletFinancialTransaction">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element name="debitWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element name="creditWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element ref="tns:purpose"/>
+        <xsd:element minOccurs="0" ref="tns:detailsOfPayment"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+        <xsd:element minOccurs="0" ref="tns:SupplementaryData"/>
+        <xsd:element minOccurs="0" name="charges" type="tns:chargesLeg"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="chargesLeg">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="charge" type="tns:chargeLeg"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="chargeLeg">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="tns:account"/>
+      <xsd:element minOccurs="0" ref="tns:amount"/>
+      <xsd:element minOccurs="0" ref="tns:deductFromAmount"/>
+      <xsd:element minOccurs="0" ref="tns:queuingCharge"/>
+      <xsd:element minOccurs="0" ref="tns:narratives"/>
+    </xsd:sequence>
+    <xsd:attribute ref="tns:code"/>
+  </xsd:complexType>
+  <xsd:element name="GetWalletInformation">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="0">
+        <xsd:element minOccurs="0" ref="tns:alias"/>
+        <xsd:element minOccurs="0" ref="tns:walletType"/>
+        <xsd:element minOccurs="0" ref="tns:walletIdType"/>
+        <xsd:element minOccurs="0" ref="tns:walletId"/>
+        <xsd:element minOccurs="0" ref="tns:walletLabel"/>
+        <xsd:element minOccurs="0" ref="tns:Requestor"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Requestor">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="0">
+        <xsd:element minOccurs="0" ref="tns:alias"/>
+        <xsd:element minOccurs="0" ref="tns:walletType"/>
+        <xsd:element minOccurs="0" ref="tns:walletIdType"/>
+        <xsd:element minOccurs="0" ref="tns:walletId"/>
+        <xsd:element minOccurs="0" ref="tns:walletLabel"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="WalletInformation">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="0">
+        <xsd:element ref="tns:customerName"/>
+        <xsd:element ref="tns:customerClass"/>
+        <xsd:element ref="tns:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="IsDefaultWallet">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="0">
+        <xsd:element minOccurs="1" ref="tns:walletType"/>
+        <xsd:element minOccurs="1" ref="tns:walletIdType"/>
+        <xsd:element minOccurs="1" ref="tns:walletId"/>
+        <xsd:element minOccurs="0" ref="tns:alias"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DefaultWallet">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="0">
+        <xsd:element ref="tns:status"/>
+        <xsd:element minOccurs="0" ref="tns:registrationCode"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="WalletSummary">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="tns:wallet">
+          <xsd:sequence maxOccurs="1" minOccurs="1"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Wallet" type="tns:wallet"/>
+  <xsd:complexType name="wallet">
+    <xsd:sequence minOccurs="0">
+      <xsd:element ref="tns:lineOfBusiness"/>
+      <xsd:element ref="tns:alias"/>
+      <xsd:element ref="tns:name"/>
+      <xsd:element ref="tns:default"/>
+      <xsd:element ref="tns:status"/>
+      <xsd:element ref="tns:account"/>
+      <xsd:element ref="tns:walletType"/>
+      <xsd:element ref="tns:walletId"/>
+      <xsd:element ref="tns:walletIdType"/>
+      <xsd:element ref="tns:walletLabel"/>
+      <xsd:element ref="tns:balance"/>
+      <xsd:element ref="tns:registrationCode"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ListRegisteredWallet">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:walletId"/>
+        <xsd:element minOccurs="0" ref="tns:walletType"/>
+        <xsd:element minOccurs="0" ref="tns:lineOfBusiness"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="RegisteredWallets">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:WalletSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetWalletTransactionCharges">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element name="debitWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element name="creditWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element minOccurs="0" ref="tns:purpose"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="TransactionCharges">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:amount"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="WalletFinancialRequest">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element name="debitWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element name="creditWallet" type="tns:walletFinancialLeg"/>
+        <xsd:element ref="tns:purpose"/>
+        <xsd:element minOccurs="0" ref="tns:detailsOfPayment"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+        <xsd:element minOccurs="0" name="charges" type="tns:chargesLeg"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetWalletFinancialTransactionStatus">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:transactionReference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="WalletFinancialRefund">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:externalReference"/>
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

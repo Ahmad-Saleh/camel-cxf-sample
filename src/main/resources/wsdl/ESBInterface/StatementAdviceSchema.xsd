@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:tns="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="accountStatement">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element ref="tns:statementDate"/>
+        <xsd:element ref="tns:statementNumber"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="cardStatementContent">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:statementDate"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListAccountArchivedStatements">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListAccountArchivedStatements;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:sequence>
+            <xsd:element ref="tns:branch"/>
+            <xsd:element ref="tns:customer"/>
+          </xsd:sequence>
+          <xsd:element ref="tns:account"/>
+        </xsd:choice>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:date"/>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:fromDate"/>
+            <xsd:element minOccurs="0" ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:statementNumber"/>
+        <xsd:element minOccurs="0" ref="tns:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountArchivedStatements">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountArchivedStatements;XSDElementDeclaration=3$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:accountStatement"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="StatementAdvice">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:AccountArchivedStatements"/>
+      <xsd:element ref="tns:ListAccountArchivedStatements"/>
+      <xsd:element ref="tns:GetAccountArchivedStatement"/>
+      <xsd:element ref="tns:AccountArchivedStatement"/>
+      <xsd:element ref="tns:CardArchivedStatements"/>
+      <xsd:element ref="tns:ListCardArchivedStatements"/>
+      <xsd:element ref="tns:GetCardArchivedStatement"/>
+      <xsd:element ref="tns:CardArchivedStatement"/>
+      <xsd:element ref="tns:ListBankArchivedReports"/>
+      <xsd:element ref="tns:BankArchivedReports"/>
+      <xsd:element ref="tns:BankArchivedReport"/>
+      <xsd:element ref="tns:GetBankArchivedReport"/>
+      <xsd:element ref="tns:ListCustomerArchivedAdvices"/>
+      <xsd:element ref="tns:GetCustomerArchivedAdvice"/>
+      <xsd:element ref="tns:CustomerArchivedAdvice"/>
+      <xsd:element ref="tns:CustomerArchivedAdvices"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="GetAccountArchivedStatement">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetAccountArchivedStatement;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountArchivedStatement">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountArchivedStatement;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:stream"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCardArchivedStatements">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCardArchivedStatements;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="1" ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:cardNumber"/>
+        <xsd:element minOccurs="0" ref="tns:cardType"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:date"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:fromDate"/>
+            <xsd:element ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardArchivedStatements">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardArchivedStatements;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:cardStatementContent"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCardArchivedStatement">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCardArchivedStatement;XSDElementDeclaration=8$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardArchivedStatement">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardArchivedStatement;XSDElementDeclaration=9$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:stream"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListBankArchivedReports">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListBankArchivedReports;XSDElementDeclaration=10$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:branch"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:date"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:fromDate"/>
+            <xsd:element ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:reportTitle"/>
+        <xsd:element minOccurs="0" ref="tns:reportName"/>
+        <xsd:element minOccurs="0" ref="tns:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="archivedReport">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element ref="tns:branch"/>
+        <xsd:element ref="tns:date"/>
+        <xsd:element ref="tns:reportTitle"/>
+        <xsd:element ref="tns:reportName"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="BankArchivedReports">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/BankArchivedReports;XSDElementDeclaration=12$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:archivedReport"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetBankArchivedReport">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetBankArchivedReport;XSDElementDeclaration=13$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="BankArchivedReport">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/BankArchivedReport;XSDElementDeclaration=14$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:stream"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomerArchivedAdvices">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerArchivedAdvices;XSDElementDeclaration=15$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:type"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:date"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:fromDate"/>
+            <xsd:element ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element minOccurs="0" ref="tns:reference"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerArchivedAdvice">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCustomerArchivedAdvice;XSDElementDeclaration=16$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:id"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerArchivedAdvice">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerArchivedAdvice;XSDElementDeclaration=17$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:stream"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerArchivedAdvices">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerArchivedAdvices;XSDElementDeclaration=18$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:advices"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="advices">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+	    <xsd:element ref="tns:id"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:type"/>
+        <xsd:element ref="tns:date"/>
+        <xsd:element ref="tns:branch"/>
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

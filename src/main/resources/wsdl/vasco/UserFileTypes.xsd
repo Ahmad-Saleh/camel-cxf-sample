@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserFileTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserFileTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="UserFileAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="USERFILEFLD_USER_FILE_NAME"/>
+            <enumeration value="USERFILEFLD_CACHE_ID"/>
+            <enumeration value="USERFILEFLD_CREATE_NEW_ACCOUNT"/>
+            <enumeration value="USERFILEFLD_ENABLE_NEW_ACCOUNT"/>
+            <enumeration value="USERFILEFLD_UPDATE_ACCOUNT"/>
+            <enumeration value="USERFILEFLD_SHOW_PASSWORD_OPTION"/>
+            <enumeration value="USERFILEFLD_UPDATE_STATIC_PASSWORD"/>
+            <enumeration value="USERFILEFLD_SHOW_ASSIGN_DP"/>
+            <enumeration value="USERFILEFLD_ASSIGN_DP"/>
+            <enumeration value="USERFILEFLD_GRACE_PERIOD_DAYS"/>
+            <enumeration value="USERFILEFLD_USERS_TOTAL"/>
+            <enumeration value="USERFILEFLD_USERS_READ"/>
+            <enumeration value="USERFILEFLD_USERS_IMPORTED"/>
+            <enumeration value="USERFILEFLD_USERS_FAILED"/>
+            <enumeration value="USERFILEFLD_RETURN_ERROR"/>
+            <enumeration value="USERFILEFLD_SCHEDULE"/>
+            <enumeration value="USERFILEFLD_SCHEDULE_TIME"/>
+            <enumeration value="USERFILEFLD_SCHEDULE_DATE"/>
+            <enumeration value="USERFILEFLD_NOTIFY"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="UserFileAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:UserFileAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserFileAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:UserFileAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserFileResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+            <element name="errorList" type="BASIC-TYPES:RecordErrorList" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserFileUploadResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+</schema>

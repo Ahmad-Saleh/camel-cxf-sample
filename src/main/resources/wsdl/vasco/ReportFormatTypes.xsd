@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFormatTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFormatTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="ReportFormatAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="REPORTFORMATFLD_DOMAIN"/>
+            <enumeration value="REPORTFORMATFLD_REPORT_ID"/>
+            <enumeration value="REPORTFORMATFLD_FORMAT_NAME"/>
+            <enumeration value="REPORTFORMATFLD_FORMAT_DEFINITION"/>
+            <enumeration value="REPORTFORMATFLD_CREATE_TIME"/>
+            <enumeration value="REPORTFORMATFLD_MODIFY_TIME"/>
+            <enumeration value="REPORTFORMATFLD_QUERY_FOR"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ReportFormatAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:ReportFormatAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:ReportFormatAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportFormatAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:ReportFormatAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:ReportFormatAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportFormatAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFormatQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:ReportFormatAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

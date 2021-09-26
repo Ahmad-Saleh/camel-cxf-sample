@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="BackEndAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="BACKENDFLD_BACKEND_SERVER_ID"/>
+            <enumeration value="BACKENDFLD_BACKEND_PROTOCOL_ID"/>
+            <enumeration value="BACKENDFLD_DOMAIN"/>
+            <enumeration value="BACKENDFLD_PRIORITY"/>
+            <enumeration value="BACKENDFLD_AUTH_IP_ADDRESS"/>
+            <enumeration value="BACKENDFLD_AUTH_PORT"/>
+            <enumeration value="BACKENDFLD_AUTH_PORT_SSL"/>
+            <enumeration value="BACKENDFLD_RADIUS_ACCT_IP_ADDRESS"/>
+            <enumeration value="BACKENDFLD_RADIUS_ACCT_PORT"/>
+            <enumeration value="BACKENDFLD_RADIUS_SHARED_SECRET"/>
+            <enumeration value="BACKENDFLD_TIMEOUT"/>
+            <enumeration value="BACKENDFLD_RETRIES"/>
+            <enumeration value="BACKENDFLD_CREATE_TIME"/>
+            <enumeration value="BACKENDFLD_MODIFY_TIME"/>
+            <enumeration value="BACKENDFLD_DIRECTORY_BASE_DN"/>
+            <enumeration value="BACKENDFLD_SECURITY_PRINCIPAL_DN"/>
+            <enumeration value="BACKENDFLD_SECURITY_PRINCIPAL_PASSWORD"/>
+            <enumeration value="BACKENDFLD_DIRECTORY_AUTH"/>
+            <enumeration value="BACKENDFLD_USER_OBJECT_CLASS"/>
+            <enumeration value="BACKENDFLD_USER_ID_ATTRIBUTE"/>
+            <enumeration value="BACKENDFLD_CHARACTER_ENCODING"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="BackEndAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:BackEndAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:BackEndAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:BackEndAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:BackEndAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:BackEndAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:BackEndAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BackEndQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:BackEndAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

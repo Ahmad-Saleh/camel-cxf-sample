@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProcessBulkPaymentsRequest" targetNamespace="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:oab="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="ProcessBulkPaymentsRequestMediationSOAP" originalBindingStyle="document"/>
+        <generatedXSD location="ProcessBulkPaymentsRequest.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.oab.com" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="ProcessBulkPaymentsRequest.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.oab.com" schemaLocation="ProcessBulkPaymentsRequest.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Request">
+    <wsdl:part element="oab:Request" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Reply">
+    <wsdl:part element="oab:Reply" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ProcessBulkPaymentsRequestMediation">
+    <wsdl:operation name="ProcessBulkPaymentsRequest">
+      <wsdl:input message="oab:Request"/>
+      <wsdl:output message="oab:Reply"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcessBulkPaymentsRequestMediationSOAP" type="oab:ProcessBulkPaymentsRequestMediation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ProcessBulkPaymentsRequest">
+      <soap:operation soapAction="http://www.oab.com/ProcessBulkPaymentsRequest"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessBulkPaymentsRequestMediation">
+    <wsdl:port binding="oab:ProcessBulkPaymentsRequestMediationSOAP" name="ProcessBulkPaymentsRequestMediationSOAP">
+      <soap:address location="http://10.101.46.107:7807/ESB/SOAP/PaymentServices/V010000/ProcessBulkPaymentsRequest"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

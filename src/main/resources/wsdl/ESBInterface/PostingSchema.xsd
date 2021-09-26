@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="SingleEntryFinancialTransaction">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/SingleEntryFinancialTransaction;XSDElementDeclaration$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:valueDate"/>
+        <xsd:element minOccurs="0" ref="tns:userReference"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="FinancialTransaction">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/FinancialTransaction;XSDElementDeclaration=1$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DoubleEntryFinancialTransaction">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/DoubleEntryFinancialTransaction;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:debit"/>
+        <xsd:element ref="tns:credit"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="FinancialLeg">
+    <xsd:sequence>
+      <xsd:element ref="tns:account"/>
+      <xsd:element ref="tns:amount"/>
+      <xsd:element ref="tns:currency"/>
+      <xsd:element minOccurs="0" ref="tns:valueDate"/>
+      <xsd:element minOccurs="0" ref="tns:userReference"/>
+      <xsd:element minOccurs="0" ref="tns:narratives"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="debit" type="tns:FinancialLeg"/>
+  <xsd:element name="credit" type="tns:FinancialLeg"/>
+  <xsd:group name="Posting">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:SingleEntryFinancialTransaction"/>
+      <xsd:element ref="tns:DoubleEntryFinancialTransaction"/>
+      <xsd:element ref="tns:FinancialTransaction"/>
+      <xsd:element ref="tns:CancelSingleEntryFinancialTransaction"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="CancelSingleEntryFinancialTransaction">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CancelSingleEntryFinancialTransaction;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:externalReference"/>
+          <xsd:element ref="tns:reference"/>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ChargeFinancialTransaction">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:choice>
+          <xsd:element ref="tns:account"/>
+          <xsd:element ref="tns:commitmentReference"/>
+          <xsd:sequence>
+            <xsd:element ref="tns:branch"/>
+            <xsd:element ref="tns:dealType"/>
+            <xsd:element ref="tns:reference"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:chargeCode"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element minOccurs="0" ref="tns:waivedAmount"/>
+        <xsd:element ref="tns:fundingAccount"/>
+        <xsd:element minOccurs="0" ref="tns:valueDate"/>
+        <xsd:element minOccurs="0" ref="tns:endDate"/>
+        <xsd:element minOccurs="0" ref="tns:frequency"/>
+        <xsd:element minOccurs="0" ref="tns:userReference"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

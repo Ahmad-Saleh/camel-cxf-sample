@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="billDetails">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:billNumber"/>
+        <xsd:element minOccurs="0" ref="tns:issueDate"/>
+        <xsd:element minOccurs="0" ref="tns:dueDate"/>
+        <xsd:element minOccurs="0" ref="tns:month"/>
+        <xsd:element minOccurs="0" ref="tns:currentAmount"/>
+        <xsd:element minOccurs="0" ref="tns:totalAmountDue"/>
+        <xsd:element minOccurs="0" ref="tns:minimumAmount"/>
+        <xsd:element minOccurs="0" ref="tns:maximumAmount"/>
+	<xsd:element minOccurs="0" ref="tns:allowPartialPayment"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="registeredBill">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:billAlias"/>
+        <xsd:element ref="tns:partnerId"/>
+        <xsd:element ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+        <xsd:element ref="tns:creationDate"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetUtilityBillInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetUtilityBillInformation;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:partnerId"/>
+        <xsd:element ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element minOccurs="0" ref="tns:billNumber"/>
+		<xsd:choice minOccurs="0">
+			<xsd:element ref="tns:amount" minOccurs="0"/>
+			<xsd:element ref="tns:categoryId" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:element ref="tns:promotionCode" minOccurs="0"></xsd:element>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UtilityBillInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/UtilityBillInformation;XSDElementDeclaration=3$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:partnerId"/>
+        <xsd:element ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element ref="tns:billDetails"/>
+        <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListRegisteredUtilityBills">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListRegisteredUtilityBills;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element minOccurs="1" ref="tns:alias"/>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:partnerId"/>
+            <xsd:element minOccurs="0" ref="tns:billType"/>
+          </xsd:sequence>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="RegisteredUtilityBills">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/RegisteredUtilityBills;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:registeredBill"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="UtilityBillsServices">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:GetUtilityBillInformation"/>
+      <xsd:element ref="tns:ListRegisteredUtilityBills"/>
+      <xsd:element ref="tns:UtilityBillInformation"/>
+      <xsd:element ref="tns:RegisteredUtilityBills"/>
+      <xsd:element ref="tns:PaidUtilityBill"/>
+      <xsd:element ref="tns:PayUtilityBill"/>
+      <xsd:element ref="tns:DeleteRegisteredUtilityBill"/>
+      <xsd:element ref="tns:UpdateRegisteredUtilityBill"/>
+      <xsd:element ref="tns:RegisterUtilityBill"/>
+      <xsd:element ref="tns:ListUtilityBillers"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="PayUtilityBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/PayUtilityBill;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:partnerId"/>
+        <xsd:element ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element minOccurs="0" ref="tns:billNumber"/>
+        <xsd:element minOccurs="1" ref="tns:paymentMethod"/>
+        <xsd:element minOccurs="1" ref="tns:paymentSource"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:currency"/>
+		<xsd:element ref="tns:categoryId" minOccurs="0"></xsd:element>
+	    <xsd:element ref="tns:promotionCode" minOccurs="0"></xsd:element>
+		<xsd:element ref="tns:fees" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+		<xsd:element ref="tns:discounts" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+		<xsd:element ref="tns:chargeAccount" minOccurs="0"></xsd:element>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="PaidUtilityBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/PaidUtilityBill;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:partnerReference"/>
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="DeleteRegisteredUtilityBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/DeleteRegisteredUtilityBill;XSDElementDeclaration=8$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:alias"/>
+          <xsd:sequence minOccurs="0">
+            <xsd:element minOccurs="0" ref="tns:partnerId"/>
+            <xsd:element minOccurs="0" ref="tns:billType"/>
+          </xsd:sequence>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UpdateRegisteredUtilityBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/UpdateRegisteredUtilityBill;XSDElementDeclaration=9$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:alias"/>
+        <xsd:element minOccurs="0" ref="tns:partnerId"/>
+        <xsd:element minOccurs="0" ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="RegisterUtilityBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/RegisterUtilityBill;XSDElementDeclaration=10$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:alias"/>
+        <xsd:element ref="tns:partnerId"/>
+        <xsd:element ref="tns:billType"/>
+        <xsd:element minOccurs="0" ref="tns:contractNumber"/>
+        <xsd:element minOccurs="0" ref="tns:accountNumber"/>
+        <xsd:element minOccurs="0" ref="tns:retrievalKey"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListUtilityBillers">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListUtilityBillers;XSDElementDeclaration=11$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:categoryId"/>
+        <xsd:element minOccurs="0" ref="tns:integrationType"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GetBulkPaymentsStatus" targetNamespace="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:oab="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="GetBulkPaymentsStatusMediationSOAP" originalBindingStyle="document"/>
+        <generatedXSD location="GetBulkPaymentsStatus.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.oab.com" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="GetBulkPaymentsStatus.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.oab.com" schemaLocation="GetBulkPaymentsStatus.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Request">
+    <wsdl:part element="oab:Request" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Reply">
+    <wsdl:part element="oab:Reply" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="GetBulkPaymentsStatusRequestMediation">
+    <wsdl:operation name="GetBulkPaymentsStatus">
+      <wsdl:input message="oab:Request"/>
+      <wsdl:output message="oab:Reply"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetBulkPaymentsStatusMediationSOAP" type="oab:GetBulkPaymentsStatusRequestMediation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetBulkPaymentsStatus">
+      <soap:operation soapAction="http://www.oab.com/GetBulkPaymentsStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetBulkPaymentsStatusMediation">
+    <wsdl:port binding="oab:GetBulkPaymentsStatusMediationSOAP" name="GetBulkPaymentsStatusMediationSOAP">
+      <soap:address location="http://10.101.46.6:8080/ESB/SOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

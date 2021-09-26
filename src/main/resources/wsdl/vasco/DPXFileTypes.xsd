@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DPXFileTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DPXFileTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="DPXFileAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="DPXFILEFLD_DPX_FILE_KEY"/>
+            <enumeration value="DPXFILEFLD_DPX_FILE_NAME"/>
+            <enumeration value="DPXFILEFLD_CACHE_ID"/>
+            <enumeration value="DPXFILEFLD_APPL_LIST"/>
+            <enumeration value="DPXFILEFLD_DP_TOTAL"/>
+            <enumeration value="DPXFILEFLD_APPLS_READ"/>
+            <enumeration value="DPXFILEFLD_APPLS_IMPORTED"/>
+            <enumeration value="DPXFILEFLD_APPLS_FAILED"/>
+            <enumeration value="DPXFILEFLD_RETURN_ERROR"/>
+            <enumeration value="DPXFILEFLD_SYNCHRONISE"/>
+            <enumeration value="DPXFILEFLD_ACTIVE"/>
+            <enumeration value="DPXFILEFLD_DIRECT_ASSIGN_ONLY"/>
+            <enumeration value="DPXFILEFLD_DOMAIN"/>
+            <enumeration value="DPXFILEFLD_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="DPXFILEFLD_SCHEDULE"/>
+            <enumeration value="DPXFILEFLD_SCHEDULE_NOTIFY"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DPXFileAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:DPXFileAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DPXFileAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:DPXFileAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DPXFileResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+            <element name="errorList" type="BASIC-TYPES:RecordErrorList" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DPXFileUploadResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+</schema>

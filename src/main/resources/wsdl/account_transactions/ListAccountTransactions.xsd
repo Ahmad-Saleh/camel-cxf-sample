@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:oab="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="Request">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element ibmSchExtn:docRoot="true" name="Reply">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data"/>
+        <xsd:element ref="oab:Fault" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Data">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:choice>
+          <xsd:element ref="oab:ListAccountTransactions"/>
+          <xsd:element ref="oab:AccountTransactions"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListAccountTransactions">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="1" maxOccurs="1">
+        <xsd:element name="Account" minOccurs="1" maxOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:minLength value="0"/>
+              <xsd:maxLength value="34"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:choice minOccurs="0">
+          <xsd:element name="statementNumber" minOccurs="1" maxOccurs="1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:minLength value="0"/>
+                <xsd:maxLength value="16"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:sequence>
+            <xsd:element name="fromDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="toDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element name="numberOfRecords" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="pageNumber" minOccurs="0" maxOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:int">
+              <xsd:minExclusive value="1"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="numberOfRecordsPerPage" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="action" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="printer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountTransactions">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:transaction"/>
+        <xsd:element name="numberOfPages" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

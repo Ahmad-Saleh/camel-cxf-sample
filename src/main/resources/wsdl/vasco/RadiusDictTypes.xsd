@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/RadiusDictTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/RadiusDictTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="RadiusDictAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="RADDCTFLD_ATTRIBUTE_NAME"/>
+            <enumeration value="RADDCTFLD_ATTRIBUTE_CODE"/>
+            <enumeration value="RADDCTFLD_DATA_TYPE"/>
+            <enumeration value="RADDCTFLD_FLAGS"/>
+            <enumeration value="RADDCTFLD_IS_MULTIVALUED"/>
+            <enumeration value="RADDCTFLD_IS_REPLY"/>
+            <enumeration value="RADDCTFLD_IS_ORDERED"/>
+            <enumeration value="RADDCTFLD_ENUMERATION_VALUES"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="RadiusDictAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1" />
+            <element name="attributeID" type="tns:RadiusDictAttributeIDEnum" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:RadiusDictAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:RadiusDictAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictEnumValueItem">
+        <sequence>
+            <element name="name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <element name="code" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:RadiusDictAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="resultEnumValueList" type="tns:RadiusDictEnumValueItem" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:RadiusDictAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:RadiusDictAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RadiusDictQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:RadiusDictAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

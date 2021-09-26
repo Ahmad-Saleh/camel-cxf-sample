@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ComponentTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ComponentTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="ComponentAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="COMPONENTFLD_COMPONENT_TYPE"/>
+            <enumeration value="COMPONENTFLD_COMPONENT_LOCATION"/>
+            <enumeration value="COMPONENTFLD_POLICY_ID"/>
+            <enumeration value="COMPONENTFLD_PROTOCOL_ID"/>
+            <enumeration value="COMPONENTFLD_RADIUS_SHARED_SECRET"/>
+            <enumeration value="COMPONENTFLD_TCP_PORT"/>
+            <enumeration value="COMPONENTFLD_VASCO_PUBLIC_KEY"/>
+            <enumeration value="COMPONENTFLD_CREATE_TIME"/>
+            <enumeration value="COMPONENTFLD_MODIFY_TIME"/>
+            <enumeration value="COMPONENTFLD_LICENSE_KEY"/>
+            <enumeration value="COMPONENTFLD_CHARACTER_ENCODING"/>
+			<enumeration value="COMPONENTFLD_ENABLED"/>
+			<enumeration value="COMPONENTFLD_REQUEST_FORWARDING"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ComponentAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:ComponentAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:ComponentAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ComponentAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:ComponentAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:ComponentAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ComponentAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ComponentQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:ComponentAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

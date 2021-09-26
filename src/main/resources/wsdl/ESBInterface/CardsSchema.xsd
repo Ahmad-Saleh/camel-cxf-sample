@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="transactionSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+        <xsd:element ref="tns:postingDate"/>
+        <xsd:element ref="tns:transactionDate"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:transactionCode"/>
+        <xsd:element minOccurs="0" ref="tns:userReference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="cardDetail">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element minOccurs="0" ref="tns:cardHolderName"/>
+        <xsd:element minOccurs="0" ref="tns:cardStatus"/>
+        <xsd:element minOccurs="0" ref="tns:cardStrata"/>
+        <xsd:element minOccurs="0" ref="tns:cardLimit"/>
+        <xsd:element minOccurs="0" ref="tns:availableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:currentBalance"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="limits">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" ref="tns:amount"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="available">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" ref="tns:amount"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="balance">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" ref="tns:amount"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomerCards">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerCards;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:cardType"/>
+        <xsd:element minOccurs="0" ref="tns:cardStatus"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerCards">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerCards;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:cardDetail"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCardInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCardInformation;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardInformation;XSDElementDeclaration=8$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:cardStrata"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:billingCurrency"/>
+        <xsd:element minOccurs="0" ref="tns:cardHolderName"/>
+        <xsd:element minOccurs="0" ref="tns:cardStatus"/>
+        <xsd:element minOccurs="0" ref="tns:cardPlan"/>
+        <xsd:element minOccurs="0" ref="tns:lastStatementDate"/>
+        <xsd:element minOccurs="0" ref="tns:lastPaymentAmount"/>
+        <xsd:element minOccurs="0" ref="tns:lastPaymentDate"/>
+        <xsd:element minOccurs="0" ref="tns:lastPurchaseAmount"/>
+        <xsd:element minOccurs="0" ref="tns:lastPurchaseDate"/>
+        <xsd:element minOccurs="0" ref="tns:membershipId"/>
+        <xsd:element minOccurs="0" ref="tns:issueDate"/>
+        <xsd:element minOccurs="1" ref="tns:expiryDate"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="Cards">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:ListCustomerCards"/>
+      <xsd:element ref="tns:CustomerCards"/>
+      <xsd:element ref="tns:GetCardInformation"/>
+      <xsd:element ref="tns:CardInformation"/>
+      <xsd:element ref="tns:CardBalance"/>
+      <xsd:element ref="tns:GetCardBalance"/>
+      <xsd:element ref="tns:ListCardTransactions"/>
+      <xsd:element ref="tns:CardTransactions"/>
+      <xsd:element ref="tns:SettleCardPayments"/>
+      <xsd:element ref="tns:CardPayments"/>
+      <xsd:element ref="tns:ChangeCardStatus"/>
+      <xsd:element ref="tns:CardStatusChanged"/>
+      <xsd:element ref="tns:FinancialRequestCardOriginated"/>
+      <xsd:element ref="tns:FinancialResponseCardOriginated"/>
+      <xsd:element ref="tns:ValidateCardPIN"/>
+      <xsd:element ref="tns:CardPIN"/>
+      <xsd:element ref="tns:IssueNewCard"/>
+      <xsd:element ref="tns:ChangeCardLimits"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="GetCardBalance">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCardBalance;XSDElementDeclaration=9$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardBalance">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardBalance;XSDElementDeclaration=10$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:limits"/>
+        <xsd:element minOccurs="0" ref="tns:available"/>
+        <xsd:element minOccurs="0" ref="tns:balance"/>
+        <xsd:element minOccurs="0" ref="tns:totalAmountDue"/>
+        <xsd:element minOccurs="0" ref="tns:dueDate"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCardTransactions">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCardTransactions;XSDElementDeclaration=11$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:choice>
+          <xsd:element ref="tns:statementNumber"/>
+          <xsd:element ref="tns:statementDate"/>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:fromDate"/>
+            <xsd:element minOccurs="0" ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardTransactions">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardTransactions;XSDElementDeclaration=12$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:transactionSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SettleCardPayments">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/SettleCardPayments;XSDElementDeclaration=13$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:valueDate"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardPayments">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardPayments;XSDElementDeclaration=14$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ChangeCardStatus">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ChangeCardStatus;XSDElementDeclaration=15$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:cardStatus"/>
+        <xsd:element ref="tns:reasonCode"/>
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardStatusChanged">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardStatusChanged;XSDElementDeclaration=16$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:cardStatus"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="track2">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="40"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="personalIdentificationNumber">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:int">
+        <xsd:totalDigits value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="cardVerification">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:int">
+        <xsd:totalDigits value="4"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="cardAcceptorTerminalIdentification" type="xsd:string"/>
+  <xsd:element name="systemTraceAuditNumber" type="xsd:int"/>
+  <xsd:element name="acquiringInstitutionIdentificationCode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:int">
+        <xsd:totalDigits value="11"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="retrievalReferenceNumber" type="xsd:string"/>
+  <xsd:element name="authorizationIdentificationResponse" type="xsd:string"/>
+  <xsd:element name="FinancialRequestCardOriginated">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/FinancialRequestCardOriginated;XSDElementDeclaration=25$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:track2"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element minOccurs="0" ref="tns:personalIdentificationNumber"/>
+        <xsd:element minOccurs="0" ref="tns:cardVerification"/>
+        <xsd:element ref="tns:cardAcceptorTerminalIdentification"/>
+        <xsd:element minOccurs="0" ref="tns:name"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="FinancialResponseCardOriginated">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/FinancialResponseCardOriginated;XSDElementDeclaration=26$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:systemTraceAuditNumber"/>
+        <xsd:element minOccurs="0" ref="tns:acquiringInstitutionIdentificationCode"/>
+        <xsd:element ref="tns:retrievalReferenceNumber"/>
+        <xsd:element minOccurs="0" ref="tns:authorizationIdentificationResponse"/>
+        <xsd:element minOccurs="0" ref="tns:cardAcceptorTerminalIdentification"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ValidateCardPIN">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ValidateCardPIN;XSDElementDeclaration=27$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element minOccurs="0" ref="tns:cardType"/>
+        <xsd:element ref="tns:pinBlock"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CardPIN">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CardPIN;XSDElementDeclaration=28$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1"/>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="IssueNewCard">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/IssueNewCard;XSDElementDeclaration=29$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:cardType"/>
+        <xsd:element ref="tns:cardStrata"/>
+        <xsd:element minOccurs="0" ref="tns:cardHolderName"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ChangeCardLimits">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ChangeCardLimits;XSDElementDeclaration=30$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:cardNumber"/>
+        <xsd:element ref="tns:cardType"/>
+        <xsd:element ref="tns:limits"/>
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

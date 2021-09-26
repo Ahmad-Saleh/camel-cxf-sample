@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/PolicyTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/PolicyTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="PolicyAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="POLICYFLD_POLICY_ID"/>
+            <enumeration value="POLICYFLD_DESCRIPTION"/>
+            <enumeration value="POLICYFLD_PARENT_POLICY_ID"/>
+            <enumeration value="POLICYFLD_DUR"/>
+            <enumeration value="POLICYFLD_AUTOLEARN"/>
+            <enumeration value="POLICYFLD_STORED_PASSWORD_PROXY"/>
+            <enumeration value="POLICYFLD_ASSIGN_MODE"/>
+            <enumeration value="POLICYFLD_ASSIGN_SEARCH_UP_OU_PATH"/>
+            <enumeration value="POLICYFLD_GRACE_PERIOD"/>
+            <enumeration value="POLICYFLD_APPL_NAMES"/>
+            <enumeration value="POLICYFLD_APPL_TYPE"/>
+            <enumeration value="POLICYFLD_DIGIPASS_TYPES"/>
+            <enumeration value="POLICYFLD_LOCAL_AUTH"/>
+            <enumeration value="POLICYFLD_BACKEND_AUTH"/>
+            <enumeration value="POLICYFLD_BACKEND_PROTOCOL_ID"/>
+            <enumeration value="POLICYFLD_DEFAULT_DOMAIN"/>
+            <enumeration value="POLICYFLD_GROUP_LIST"/>
+            <enumeration value="POLICYFLD_GROUP_CHECK_MODE"/>
+            <enumeration value="POLICYFLD_ONE_STEP_CHAL_RESP"/>
+            <enumeration value="POLICYFLD_ONE_STEP_CHAL_LENGTH"/>
+            <enumeration value="POLICYFLD_ONE_STEP_CHAL_CHECKDIGIT"/>
+            <enumeration value="POLICYFLD_BACKUP_VDP_ENABLED"/>
+            <enumeration value="POLICYFLD_BACKUP_VDP_MAX_DAYS"/>
+            <enumeration value="POLICYFLD_BACKUP_VDP_MAX_USES"/>
+            <enumeration value="POLICYFLD_PIN_CHANGE_ALLOWED"/>
+            <enumeration value="POLICYFLD_SELF_ASSIGN_SEPARATOR"/>
+            <enumeration value="POLICYFLD_CHALLENGE_REQUEST_METHOD"/>
+            <enumeration value="POLICYFLD_CHALLENGE_REQUEST_KEYWORD"/>
+            <enumeration value="POLICYFLD_PRIMARY_VDP_REQUEST_METHOD"/>
+            <enumeration value="POLICYFLD_PRIMARY_VDP_REQUEST_KEYWORD"/>
+            <enumeration value="POLICYFLD_BACKUP_VDP_REQUEST_METHOD"/>
+            <enumeration value="POLICYFLD_BACKUP_VDP_REQUEST_KEYWORD"/>
+            <enumeration value="POLICYFLD_ITIMEWINDOW"/>
+            <enumeration value="POLICYFLD_STIMEWINDOW"/>
+            <enumeration value="POLICYFLD_EVENTWINDOW"/>
+            <enumeration value="POLICYFLD_SYNCWINDOW"/>
+            <enumeration value="POLICYFLD_ITHRESHOLD"/>
+            <enumeration value="POLICYFLD_STHRESHOLD"/>
+            <enumeration value="POLICYFLD_CHECKCHALLENGE"/>
+            <enumeration value="POLICYFLD_ONLINESG"/>
+            <enumeration value="POLICYFLD_CHKINACTDAYS"/>
+            <enumeration value="POLICYFLD_CREATE_TIME"/>
+            <enumeration value="POLICYFLD_MODIFY_TIME"/>
+            <enumeration value="POLICYFLD_USER_LOCK_THRESHOLD"/>
+            <enumeration value="POLICYFLD_OFFLINE_AUTH_ENABLED"/>
+            <enumeration value="POLICYFLD_OFFLINE_TIME_INTERVAL"/>
+            <enumeration value="POLICYFLD_OFFLINE_MAX_EVENTS"/>
+            <enumeration value="POLICYFLD_DCR"/>
+            <enumeration value="POLICYFLD_CHG_WIN_PWD_ENABLED"/>
+            <enumeration value="POLICYFLD_CHG_WIN_PWD_LENGTH"/>
+            <enumeration value="POLICYFLD_CLIENT_GROUP_LIST"/>
+            <enumeration value="POLICYFLD_CLIENT_GROUP_MODE"/>
+            <enumeration value="POLICYFLD_SECOND_OTP_SYNC_ENABLED"/>
+            <enumeration value="POLICYFLD_VDP_DELIVERY_METHOD"/>
+            <enumeration value="POLICYFLD_RADIUS_REP_ATTR_ENABLED"/>
+            <enumeration value="POLICYFLD_RADIUS_REP_ATTR_GROUP_LIST"/>
+            <enumeration value="POLICYFLD_RADIUS_ALLOWED_PROTOCOLS"/>
+            <enumeration value="POLICYFLD_RADIUS_SESSION_LIFETIME"/>
+            <enumeration value="POLICYFLD_RADIUS_SESSION_TICKET_LIFETIME"/>
+            <enumeration value="POLICYFLD_RADIUS_SESSION_TICKET_REUSE"/>
+            <enumeration value="POLICYFLD_RADIUS_SESSION_GROUP_LIST"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_DIFF_TO_PREV"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_MIN_LENGTH"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_MIN_LOWER_ALPHA"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_MIN_UPPER_ALPHA"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_MIN_NUMBER"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_MIN_SYMBOL"/>
+            <enumeration value="POLICYFLD_STATIC_PWD_NOT_USERID_BASED"/>
+            <enumeration value="POLICYFLD_USER_INACT_DAYS"/>
+            <enumeration value="POLICYFLD_ACCEPTED_DOMAIN"/>
+            <enumeration value="POLICYFLD_MULTI_DP_APPL_VALIDATION_MODE"/>
+            <enumeration value="POLICYFLD_PRIVILEGED_USERS"/>
+            <enumeration value="POLICYFLD_VDP_SIGN_DELIVERY_METHOD"/>
+            <enumeration value="POLICYFLD_VDP_SIGN_ENABLED"/>
+            <enumeration value="POLICYFLD_VDP_MDC_PROFILE"/>
+            <enumeration value="POLICYFLD_VDP_SIGN_MDC_PROFILE"/>
+            <enumeration value="POLICYFLD_DP_EXPIRATION_PERIOD"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="PolicyAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:PolicyAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:PolicyAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:PolicyAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:PolicyAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:PolicyAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:PolicyAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PolicyQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:PolicyAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

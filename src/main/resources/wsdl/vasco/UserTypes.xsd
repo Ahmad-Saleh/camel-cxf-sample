@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd"/>
+
+    <simpleType name="UserAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="USERFLD_USERID"/>
+            <enumeration value="USERFLD_USERNAME"/>
+            <enumeration value="USERFLD_DESCRIPTION"/>
+            <enumeration value="USERFLD_EMAIL"/>
+            <enumeration value="USERFLD_PHONE"/>
+            <enumeration value="USERFLD_MOBILE"/>
+            <enumeration value="USERFLD_PASSWORD"/>
+            <enumeration value="USERFLD_CREATE_TIME"/>
+            <enumeration value="USERFLD_MODIFY_TIME"/>
+            <enumeration value="USERFLD_TO_USERID"/>
+            <enumeration value="USERFLD_HAS_DP"/>
+            <enumeration value="USERFLD_STATUS"/>
+            <enumeration value="USERFLD_LDAP_DN"/>
+            <enumeration value="USERFLD_DOMAIN"/>
+            <enumeration value="USERFLD_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="USERFLD_ASSIGNED_DIGIPASS"/>
+            <enumeration value="USERFLD_USE_DP_FROM_USER_ID"/>
+            <enumeration value="USERFLD_USE_DP_FROM_USER_DOMAIN"/>
+            <enumeration value="USERFLD_USE_DP_FROM_USER_LDAP_DN"/>
+            <enumeration value="USERFLD_ADMIN_PRIVILEGES"/>
+            <enumeration value="USERFLD_LOGICAL_ADMIN_PRIVILEGES"/>
+            <enumeration value="USERFLD_REQUIRED_ADMIN_PRIVILEGES"/>
+            <enumeration value="USERFLD_RELIANT_ADMIN_PRIVILEGES"/>
+            <enumeration value="USERFLD_LOCAL_AUTH"/>
+            <enumeration value="USERFLD_BACKEND_AUTH"/>
+            <enumeration value="USERFLD_DISABLED"/>
+            <enumeration value="USERFLD_UPN"/>
+            <enumeration value="USERFLD_SEARCH_DOWN_OU_PATH"/>
+            <enumeration value="USERFLD_ALWAYS_RETURN_AD_USER"/>
+            <enumeration value="USERFLD_GROUP_LIST"/>
+            <enumeration value="USERFLD_LOCK_COUNT"/>
+            <enumeration value="USERFLD_LOCKED"/>
+            <enumeration value="USERFLD_NEW_DOMAIN"/>
+            <enumeration value="USERFLD_NEW_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="USERFLD_NEW_PASSWORD"/>
+            <enumeration value="USERFLD_CONFIRM_NEW_PASSWORD"/>
+            <enumeration value="USERFLD_OFFLINE_AUTH_ENABLED"/>
+            <enumeration value="USERFLD_LAST_PASSWORD_SET_TIME"/>
+            <enumeration value="USERFLD_LASTAUTH_TIME"/>
+            <enumeration value="USERFLD_EXPIRATION_TIME"/>
+            <enumeration value="USERFLD_VDP_DELIVERY_METHOD"/>
+            <enumeration value="USERFLD_VDP_SIGN_DELIVERY_METHOD"/>
+            <enumeration value="USERFLD_VDP_MDC_PROFILE"/>
+            <enumeration value="USERFLD_VDP_SIGN_MDC_PROFILE"/>
+            <enumeration value="USERFLD_TO_DOMAIN"/>
+            <enumeration value="USERFLD_ADMIN_DOMAINS"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="UserAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:UserAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:UserAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+	
+    <complexType name="AdminDomainListItem">
+        <sequence>
+            <element name="adminDomain" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+    
+    <complexType name="AdminDomainList">
+        <sequence>
+            <element name="adminDomains" type="tns:AdminDomainListItem" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>    
+
+    <complexType name="UserResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="adminDomainInfoList" type="tns:AdminDomainList" minOccurs="0" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:UserAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:UserAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:UserAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

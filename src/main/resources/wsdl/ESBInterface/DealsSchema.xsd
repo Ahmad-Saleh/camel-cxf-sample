@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:tns="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="ListCustomerDeals">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerDeals;XSDElementDeclaration$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:dealType"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="dealSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:dealType"/>
+        <xsd:element ref="tns:dealNumber"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:startDate"/>
+        <xsd:element ref="tns:endDate"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="Deals">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:ListCustomerDeals"/>
+      <xsd:element ref="tns:CustomerDeals"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="CustomerDeals">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerDeals;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:dealSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

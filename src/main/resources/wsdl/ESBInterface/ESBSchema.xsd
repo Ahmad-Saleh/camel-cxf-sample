@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="CustomerAccountSchema.xsd"/>
+  <xsd:include schemaLocation="BankSchema.xsd"/>
+  <xsd:include schemaLocation="CardsSchema.xsd"/>
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:include schemaLocation="ChequeProcessingSchema.xsd"/>
+  <xsd:include schemaLocation="DealsSchema.xsd"/>
+  <xsd:include schemaLocation="LoanSchema.xsd"/>
+  <xsd:include schemaLocation="PaymentSchema.xsd"/>
+  <xsd:include schemaLocation="PostingSchema.xsd"/>
+  <xsd:include schemaLocation="StatementAdviceSchema.xsd"/>
+  <xsd:include schemaLocation="UtilityBillSchema.xsd"/>
+  <xsd:include schemaLocation="WalletSchema.xsd"/>
+  <xsd:element name="transactionTime" type="xsd:time">
+    <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Time\sof\sthe\srequest</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="channelReserved">
+    <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Channel\scan\sstore\sany\sdata\sin\sthis\sfield\sif\sit\sneeds\sit\sto\sbe\savailable\sin\sthe\sreply\smessage.\s\r\nBroker\swill\secho\sback\sthis\sfield\sin\sthe\sreply\smessage</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+      <xsd:annotation>
+        <xsd:documentation source="WMQI_DOCUMENTATION">Channel\scan\sstore\sany\sdata\sin\sthis\sfield\sif\sit\sneeds\sit\sto\sbe\savailable\sin\sthe\sreply\smessage.\s\r\nBroker\swill\secho\sback\sthis\sfield\sin\sthe\sreply\smessage</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="128"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="replyDate" type="xsd:date">
+    <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Broker\sreply\sdate</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="replyTime" type="xsd:time">
+    <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Broker\sreply\stime</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="replyStatus">
+    <xsd:annotation>
+      <xsd:documentation source="WMQI_DOCUMENTATION">Broker\sreply\sstatus\r\n•\tFIN:\sFin\scopy\r\n•\tREC:\sRequest\sin\sRecover\smode\r\n•\tACK:\sAcknowledgment\r\n•\tERR:\sError\r\n•\tINF:\sInformation\r\n•\tWRN:\sWarning</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+      <xsd:annotation>
+        <xsd:documentation source="WMQI_DOCUMENTATION">Broker\sreply\sstatus\r\n•\tFIN:\sFin\scopy\r\n•\tREC:\sRequest\sin\sRecover\smode\r\n•\tACK:\sAcknowledgment\r\n•\tERR:\sError\r\n•\tINF:\sInformation\r\n•\tWRN:\sWarning</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="3"/>
+        <xsd:enumeration value="FIN"/>
+        <xsd:enumeration value="REC"/>
+        <xsd:enumeration value="ACK"/>
+        <xsd:enumeration value="ERR"/>
+        <xsd:enumeration value="INF"/>
+        <xsd:enumeration value="WRN"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:group name="Services">
+    <xsd:choice>
+      <xsd:group ref="tns:CustomerAccount"/>
+      <xsd:group ref="tns:Cards"/>
+      <xsd:group ref="tns:UtilityBillsServices"/>
+      <xsd:group ref="tns:Payment"/>
+      <xsd:group ref="tns:StatementAdvice"/>
+      <xsd:group ref="tns:Posting"/>
+      <xsd:group ref="tns:Deals"/>
+      <xsd:group ref="tns:Loans"/>
+      <xsd:group ref="tns:Bank"/>
+      <xsd:group ref="tns:ChequeProcessing"/>
+      <xsd:group ref="tns:Wallet"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="workstation">
+    <xsd:simpleType>
+      <xsd:annotation>
+        <xsd:documentation source="WMQI_DOCUMENTATION">Channel\sworkstation\sId,\sthe\sstation\swhich\srequests\sthe\sservice.\sNo\sany\sspecial\svalidation\sfor\sthe\sworkstation\sid</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="channel" type="xsd:string"/>
+  <xsd:element name="Header">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:channel"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element minOccurs="0" ref="tns:user"/>
+        <xsd:element minOccurs="0" ref="tns:workstation"/>
+        <xsd:element ref="tns:transactionDate"/>
+        <xsd:element ref="tns:transactionTime"/>
+        <xsd:element minOccurs="0" ref="tns:transactionReference"/>
+        <xsd:element minOccurs="0" ref="tns:channelReserved"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+        <xsd:element minOccurs="0" ref="tns:replyDate"/>
+        <xsd:element minOccurs="0" ref="tns:replyTime"/>
+        <xsd:element minOccurs="0" ref="tns:replyStatus"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Data">
+    <xsd:complexType>
+      <xsd:choice maxOccurs="1" minOccurs="1">
+        <xsd:group ref="tns:Services"/>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Fault">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element name="faultCode" type="xsd:string"/>
+        <xsd:element name="faultString" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="detail">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="1" minOccurs="1">
+              <xsd:element minOccurs="0" name="faultNumber" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Request">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Request;XSDElementDeclaration=12$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:Header"/>
+        <xsd:element ref="tns:Data"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Reply">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Reply;XSDElementDeclaration=13$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:Header"/>
+        <xsd:element minOccurs="0" ref="tns:Data"/>
+        <xsd:element minOccurs="0" ref="tns:Fault"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

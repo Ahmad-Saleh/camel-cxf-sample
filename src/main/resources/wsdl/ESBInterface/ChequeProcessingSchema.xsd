@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:tns="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="StopChequePayment">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/StopChequePayment;XSDElementDeclaration$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:firstSerialNumber"/>
+        <xsd:element minOccurs="0" ref="tns:lastSerialNumber"/>
+        <xsd:element minOccurs="0" ref="tns:amount"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:payee"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="StoppedChequePayment">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/StoppedChequePayment;XSDElementDeclaration=1$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="ChequeProcessing">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:StopChequePayment"/>
+      <xsd:element ref="tns:StoppedChequePayment"/>
+      <xsd:element ref="tns:RequestChequeBook"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="RequestChequeBook">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/RequestChequeBook;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+        <xsd:element ref="tns:bookType"/>
+        <xsd:element minOccurs="0" ref="tns:pickupBranch"/>
+        <xsd:element minOccurs="0" ref="tns:specialInstructions"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

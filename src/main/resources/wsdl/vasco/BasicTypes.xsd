@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <simpleType name="ReturnCodeEnum">
+        <restriction base="xsd:string">
+            <enumeration value="RET_SUCCESS"/>
+            <enumeration value="RET_FAILURE"/>
+            <enumeration value="RET_CHALLENGE"/>
+            <enumeration value="RET_DENIED"/>
+            <enumeration value="RET_NOT_HANDLED"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="StatusCodeEnum">
+        <restriction base="xsd:string">
+            <enumeration value="STAT_SUCCESS"/>
+            <enumeration value="STAT_INVCREDENTIALS"/>
+            <enumeration value="STAT_DP_CHALLENGE"/>
+            <enumeration value="STAT_BACKEND_CHALLENGE"/>
+            <enumeration value="STAT_NOT_IN_GROUPS"/>
+            <enumeration value="STAT_GROUPCHK"/>
+            <enumeration value="STAT_EXP_CHALLENGE"/>
+            <enumeration value="STAT_PERMISSION"/>
+            <enumeration value="STAT_LOCALAUTH"/>
+            <enumeration value="STAT_LOCKED"/>
+            <enumeration value="STAT_REPLAY"/>
+            <enumeration value="STAT_DISABLED"/>
+            <enumeration value="STAT_USER_UNKNOWN"/>
+            <enumeration value="STAT_LOCAL_PASSWORD_MISMATCH"/>
+            <enumeration value="STAT_OTP_INCORRECT"/>
+            <enumeration value="STAT_CHALLENGE_INVALID"/>
+            <enumeration value="STAT_GRACE_PERIOD_EXPIRED"/>
+            <enumeration value="STAT_BVDP_NOT_ALLOWED"/>
+            <enumeration value="STAT_DIGIPASS_NOT_AVAILABLE"/>
+            <enumeration value="STAT_INVALID_VDP_SETTINGS"/>
+            <enumeration value="STAT_VDP_PASSWORD_MISSING"/>
+            <enumeration value="STAT_CONFIRM_PASSWORD_MISMATCH"/>
+            <enumeration value="STAT_LOCAL_AUTH_REJECT"/>
+            <enumeration value="STAT_BACKEND_PWD_EXPIRED"/>
+            <enumeration value="STAT_BACKEND_REJECT_STORED_PASS"/>
+            <enumeration value="STAT_BACKEND_REJECT_SUPPLIED_PASS"/>
+            <enumeration value="STAT_INVALID_POLICY"/>
+            <enumeration value="STAT_SELF_ASSIGN_DISABLED"/>
+            <enumeration value="STAT_HASH_PWDS_DISALLOWED"/>
+            <enumeration value="STAT_DIGIPASS_MUST_BE_USED"/>
+            <enumeration value="STAT_NO_CHALLRESP_FOR_W2K"/>
+            <enumeration value="STAT_NO_CHALLRESP_FOR_CHAP"/>
+            <enumeration value="STAT_1STEP_CR_DISABLED"/>
+            <enumeration value="STAT_AUTOLEARN_DISABLED"/>
+            <enumeration value="STAT_SOURCE_LOCATION_MISMATCH"/>
+            <enumeration value="STAT_NO_CHALLRESP_FOR_PWDPROXY"/>
+            <enumeration value="STAT_ADMIN_SESSION_STOPPED"/>
+            <enumeration value="STAT_DIGIPASS_NOT_FOUND"/>
+            <enumeration value="STAT_NO_CHALLENGE"/>
+            <enumeration value="STAT_NO_LOCAL_OR_BACKEND_AUTH"/>
+            <enumeration value="STAT_NO_BACKEND_FOR_SELF_ASSIGN"/>
+            <enumeration value="STAT_REACTIV_NOT_ALLOWED"/>
+            <enumeration value="STAT_TOO_MANY_DIGIPASS"/>
+            <enumeration value="STAT_NO_PROV_PASSWORD_DEFINED"/>
+            <enumeration value="STAT_NO_DP_FOR_ASSIGN"/>
+            <enumeration value="STAT_SIGNATURE_INCORRECT"/>
+            <enumeration value="STAT_SIGNATURE_REPLAY"/>
+            <enumeration value="STAT_DP_NOT_HOSTCONF_CAPABLE"/>
+            <enumeration value="STAT_MISSING_STATE_DATA"/>
+            <enumeration value="STAT_MISSING_BACKEND_PROTOCOL"/>
+            <enumeration value="STAT_DP_EXIST_AS_DIFF_TYPE"/>
+            <enumeration value="STAT_USER_EXPIRED"/>
+            <enumeration value="STAT_TEMP_USER_EXPIRED"/>
+            <enumeration value="STAT_DIGIPASS_EXPIRED"/>
+            <enumeration value="STAT_ERROR_GENERATE_REGISTRATION_ID"/>
+            <enumeration value="STAT_ERROR_GENERATE_ACTIVATION_PASSWORD"/>
+            <enumeration value="STAT_REGISTERID_NOT_IN_CACHE"/>
+            <enumeration value="STAT_FAIL_ENCRYPT_ACTIVATION_CODE"/>
+            <enumeration value="STAT_FAIL_VERIFY_SERVER_NONCE"/>
+            <enumeration value="STAT_FAIL_BIND_DEVICE"/>
+            <enumeration value="STAT_FAIL_UNBIND_DEVICE"/>
+            <enumeration value="STAT_FAIL_BIND_DEVICE_NOT_SUPPORTED"/>
+            <enumeration value="STAT_ERROR"/>
+            <enumeration value="STAT_BAD_PROTOCOL"/>
+            <enumeration value="STAT_ADERROR"/>
+            <enumeration value="STAT_DESC_LIMIT"/>
+            <enumeration value="STAT_DESC_STATE"/>
+            <enumeration value="STAT_ENCRYPT_TYPE"/>
+            <enumeration value="STAT_INCSCHEMA"/>
+            <enumeration value="STAT_INIT_FAILED"/>
+            <enumeration value="STAT_INPROGRESS"/>
+            <enumeration value="STAT_INV_DESCRIPT"/>
+            <enumeration value="STAT_INVPARAM"/>
+            <enumeration value="STAT_INVKEY"/>
+            <enumeration value="STAT_NOTAVAIL"/>
+            <enumeration value="STAT_OPEN_FAILED"/>
+            <enumeration value="STAT_RAD_BADADDRESS"/>
+            <enumeration value="STAT_RAD_BADAUTH"/>
+            <enumeration value="STAT_RAD_BADMSGAUTH"/>
+            <enumeration value="STAT_RAD_INVATTRIB"/>
+            <enumeration value="STAT_RAD_INVDICT"/>
+            <enumeration value="STAT_RAD_SIZE"/>
+            <enumeration value="STAT_MALFORMED_DATA"/>
+            <enumeration value="STAT_SOCKET_ERR"/>
+            <enumeration value="STAT_ADDR_RESOLVE"/>
+            <enumeration value="STAT_NULL_PTR"/>
+            <enumeration value="STAT_UNKNOWN_PKTSOURCE"/>
+            <enumeration value="STAT_COMMS"/>
+            <enumeration value="STAT_MEMORY"/>
+            <enumeration value="STAT_LICENCE"/>
+            <enumeration value="STAT_OS_FAILURE"/>
+            <enumeration value="STAT_NOT_FOUND"/>
+            <enumeration value="STAT_OVERFLOW"/>
+            <enumeration value="STAT_EXISTS"/>
+            <enumeration value="STAT_INVDATA"/>
+            <enumeration value="STAT_VERSION"/>
+            <enumeration value="STAT_INVCOMMAND"/>
+            <enumeration value="STAT_INVOBJECT"/>
+            <enumeration value="STAT_INUSE"/>
+            <enumeration value="STAT_NOSUPPORT"/>
+            <enumeration value="STAT_MISSINGFLD"/>
+            <enumeration value="STAT_OBJERR"/>
+            <enumeration value="STAT_AUDITFAILURE"/>
+            <enumeration value="STAT_INVCONFIG"/>
+            <enumeration value="STAT_BUSY"/>
+            <enumeration value="STAT_INVTYPE"/>
+            <enumeration value="STAT_NOT_INITIALISED"/>
+            <enumeration value="STAT_CACHE_FULL"/>
+            <enumeration value="STAT_CACHE_MAX_REF_COUNT"/>
+            <enumeration value="STAT_DPERROR"/>
+            <enumeration value="STAT_TIMEOUT"/>
+            <enumeration value="STAT_NEEDSKEY"/>
+            <enumeration value="STAT_WRONG_CIPHER"/>
+            <enumeration value="STAT_DECRYPT_FAILURE"/>
+            <enumeration value="STAT_VDP_DELIVERY_FAILED"/>
+            <enumeration value="STAT_INVLICENCE"/>
+            <enumeration value="STAT_LICENCE_EXP"/>
+            <enumeration value="STAT_DB_ERROR"/>
+            <enumeration value="STAT_LICENCE_INVSIG"/>
+            <enumeration value="STAT_DISCARD_REQUEST"/>
+            <enumeration value="STAT_RETRY_REQUEST"/>
+            <enumeration value="STAT_INVHASH"/>
+            <enumeration value="STAT_REPLQUEUE_FULL"/>
+            <enumeration value="STAT_ALREADY_STARTED"/>
+            <enumeration value="STAT_ALREADY_STOPPED"/>
+            <enumeration value="STAT_GEN_ACTIVATION_CODE"/>
+            <enumeration value="STAT_READING_SVF"/>
+            <enumeration value="STAT_CHANGE_ENCRYPTED_PASSWORD"/>
+            <enumeration value="STAT_DCR_DISABLED"/>
+            <enumeration value="STAT_DCR_GROUPCHK"/>
+            <enumeration value="STAT_IDENT_ERROR_THRESHOLD_REACHED"/>
+            <enumeration value="STAT_CHANGE_PIN_MANDATORY"/>
+            <enumeration value="STAT_MDC_DELIVERY_FAILED"/>
+            <enumeration value="STAT_SIGN_ERROR_THRESHOLD_REACHED"/>
+            <enumeration value="STAT_ONE_OR_MORE_DELIVERY_METHOD_HAS_FAILED"/>
+        </restriction>
+    </simpleType>
+    <complexType name="Error">
+        <sequence>
+            <element name="errorCode" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorDesc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+    <complexType name="ErrorStack">
+        <sequence>
+            <element name="errors" type="tns:Error" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <complexType name="RecordError">
+        <sequence>
+            <element name="recordID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <element name="errorCode" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorDesc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="RecordErrorList">
+        <sequence>
+            <element name="errors" type="tns:RecordError" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <complexType name="ResultCodes">
+        <sequence>
+            <element name="returnCodeEnum" type="tns:ReturnCodeEnum" minOccurs="1" maxOccurs="1"/>
+            <element name="statusCodeEnum" type="tns:StatusCodeEnum" minOccurs="1" maxOccurs="1"/>
+            <element name="returnCode" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="statusCode" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+  </complexType>
+
+    <complexType name="AttributeOptions">
+        <sequence>
+            <element name="negative" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <element name="masked" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <element name="null" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <element name="wildcard" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="QueryOptionsSortOrderEnum">
+        <restriction base="xsd:string">
+            <enumeration value="QUERYOPTIONSORTORDER_NONE"/>
+            <enumeration value="QUERYOPTIONSORTORDER_ASCENDING"/>
+            <enumeration value="QUERYOPTIONSORTORDER_DESCENDING"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="QueryOptions">
+        <sequence>
+            <element name="distinct" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <element name="rowoffset" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1"/>
+            <element name="rowcount" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1"/>
+            <element name="count" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <element name="sortorder" type="tns:QueryOptionsSortOrderEnum" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+</schema>

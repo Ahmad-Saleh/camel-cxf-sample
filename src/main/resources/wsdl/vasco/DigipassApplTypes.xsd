@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassApplTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassApplTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="DigipassApplAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="DIGIPASSAPPLFLD_SERNO"/>
+            <enumeration value="DIGIPASSAPPLFLD_APPL_NAME"/>
+            <enumeration value="DIGIPASSAPPLFLD_APPL_NO"/>
+            <enumeration value="DIGIPASSAPPLFLD_APPL_TYPE"/>
+            <enumeration value="DIGIPASSAPPLFLD_BLOB"/>
+            <enumeration value="DIGIPASSAPPLFLD_CREATE_TIME"/>
+            <enumeration value="DIGIPASSAPPLFLD_MODIFY_TIME"/>
+            <enumeration value="DIGIPASSAPPLFLD_RESPONSE"/>
+            <enumeration value="DIGIPASSAPPLFLD_CHALLENGE"/>
+            <enumeration value="DIGIPASSAPPLFLD_RESULT_CODE"/>
+            <enumeration value="DIGIPASSAPPLFLD_RESULT_MESSAGE"/>
+            <enumeration value="DIGIPASSAPPLFLD_NEW_PIN"/>
+            <enumeration value="DIGIPASSAPPLFLD_NEW_PIN_CONF"/>
+            <enumeration value="DIGIPASSAPPLFLD_UNLOCK_CHAL"/>
+            <enumeration value="DIGIPASSAPPLFLD_UNLOCK_CODE"/>
+            <enumeration value="DIGIPASSAPPLFLD_MOBILE"/>
+            <enumeration value="DIGIPASSAPPLFLD_SYNCHRONISE"/>
+            <enumeration value="DIGIPASSAPPLFLD_ACTIVE"/>
+            <enumeration value="DIGIPASSAPPLFLD_LDAP_DN"/>
+            <enumeration value="DIGIPASSAPPLFLD_DOMAIN"/>
+            <enumeration value="DIGIPASSAPPLFLD_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="DIGIPASSAPPLFLD_DIRECT_ASSIGN_ONLY"/>
+            <enumeration value="DIGIPASSAPPLFLD_DPTYPE"/>
+            <enumeration value="DIGIPASSAPPLFLD_EVENT_COUNTER"/>
+            <enumeration value="DIGIPASSAPPLFLD_DPSOFT_PARAMS_ID"/>
+            <enumeration value="DIGIPASSAPPLFLD_SIGNATURE"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_1"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_2"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_3"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_4"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_5"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_6"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_7"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_8"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_9"/>
+            <enumeration value="DIGIPASSAPPLFLD_DATA_FIELD_10"/>
+            <enumeration value="DIGIPASSAPPLFLD_DEFERRED_DATETIME"/>
+            <enumeration value="DIGIPASSAPPLFLD_DEFERRED_EVENT_VALUE"/>
+            <enumeration value="DIGIPASSAPPLFLD_VERIFIED_DATETIME"/>
+            <enumeration value="DIGIPASSAPPLFLD_VERIFIED_EVENT_VALUE"/>
+            <enumeration value="DIGIPASSAPPLFLD_CONFIRM_CODE"/>
+            <enumeration value="DIGIPASSAPPLFLD_HOST_CODE"/>
+            <enumeration value="DIGIPASSAPPLFLD_TRANSACTION_AMOUNT"/>
+            <enumeration value="DIGIPASSAPPLFLD_TRANSACTION_CURRENCY"/>
+            <enumeration value="DIGIPASSAPPLFLD_EMAIL"/>
+            <enumeration value="DIGIPASSAPPLFLD_DELIVERY_METHOD"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_AID"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_AIP"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_ATC"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_CARDDATA"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_CDOL1"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_CID"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_IAD"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_IAF"/>
+            <enumeration value="DIGIPASSAPPLFLD_CARD_IIPB"/>
+            <enumeration value="DIGIPASSAPPLFLD_EMV_TYPE"/>
+            <enumeration value="DIGIPASSAPPLFLD_KEY_LABEL"/>
+            <enumeration value="DIGIPASSAPPLFLD_KEY_KCV"/>
+            <enumeration value="DIGIPASSAPPLFLD_EVENT_REACTIVATION_COUNTER"/>
+            <enumeration value="DIGIPASSAPPLFLD_FULL_ACTIVATION_DATA"/>
+            <enumeration value="DIGIPASSAPPLFLD_DESTINATION"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DigipassApplAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:DigipassApplAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:DigipassApplAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplDPInfoItem">
+        <sequence>
+            <element name="name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <element name="value" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DigipassApplAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="resultDPInfoList" type="tns:DigipassApplDPInfoItem" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:DigipassApplAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:DigipassApplAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DigipassApplAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassApplQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:DigipassApplAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

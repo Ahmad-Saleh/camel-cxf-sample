@@ -1,0 +1,3377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:oab="http://www.oab.com">
+	<xsd:attribute name="optionIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:element name="branch" type="oab:Branch"/>
+	<xsd:element name="language">
+		<xsd:simpleType>
+			<xsd:annotation/>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="2"/>
+				<xsd:enumeration value="AR"/>
+				<xsd:enumeration value="EN"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:simpleType name="Flag">
+		<xsd:restriction base="xsd:boolean"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AbstractNationality">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+			<xsd:enumeration value="ABW"/>
+			<xsd:enumeration value="AFG"/>
+			<xsd:enumeration value="AGO"/>
+			<xsd:enumeration value="AIA"/>
+			<xsd:enumeration value="ALA"/>
+			<xsd:enumeration value="ALB"/>
+			<xsd:enumeration value="AND"/>
+			<xsd:enumeration value="ANT"/>
+			<xsd:enumeration value="ARE"/>
+			<xsd:enumeration value="ARG"/>
+			<xsd:enumeration value="ARM"/>
+			<xsd:enumeration value="ASM"/>
+			<xsd:enumeration value="ATA"/>
+			<xsd:enumeration value="ATF"/>
+			<xsd:enumeration value="ATG"/>
+			<xsd:enumeration value="AUS"/>
+			<xsd:enumeration value="AUT"/>
+			<xsd:enumeration value="AZE"/>
+			<xsd:enumeration value="BDI"/>
+			<xsd:enumeration value="BEL"/>
+			<xsd:enumeration value="BEN"/>
+			<xsd:enumeration value="BFA"/>
+			<xsd:enumeration value="BGD"/>
+			<xsd:enumeration value="BGR"/>
+			<xsd:enumeration value="BHR"/>
+			<xsd:enumeration value="BHS"/>
+			<xsd:enumeration value="BIH"/>
+			<xsd:enumeration value="BLM"/>
+			<xsd:enumeration value="BLR"/>
+			<xsd:enumeration value="BLZ"/>
+			<xsd:enumeration value="BMU"/>
+			<xsd:enumeration value="BOL"/>
+			<xsd:enumeration value="BRA"/>
+			<xsd:enumeration value="BRB"/>
+			<xsd:enumeration value="BRN"/>
+			<xsd:enumeration value="BTN"/>
+			<xsd:enumeration value="BVT"/>
+			<xsd:enumeration value="BWA"/>
+			<xsd:enumeration value="CAF"/>
+			<xsd:enumeration value="CAN"/>
+			<xsd:enumeration value="CCK"/>
+			<xsd:enumeration value="CHE"/>
+			<xsd:enumeration value="CHL"/>
+			<xsd:enumeration value="CHN"/>
+			<xsd:enumeration value="CIV"/>
+			<xsd:enumeration value="CMR"/>
+			<xsd:enumeration value="COD"/>
+			<xsd:enumeration value="COG"/>
+			<xsd:enumeration value="COK"/>
+			<xsd:enumeration value="COL"/>
+			<xsd:enumeration value="COM"/>
+			<xsd:enumeration value="CPV"/>
+			<xsd:enumeration value="CRI"/>
+			<xsd:enumeration value="CUB"/>
+			<xsd:enumeration value="CXR"/>
+			<xsd:enumeration value="CYM"/>
+			<xsd:enumeration value="CYP"/>
+			<xsd:enumeration value="CZE"/>
+			<xsd:enumeration value="DEU"/>
+			<xsd:enumeration value="DJI"/>
+			<xsd:enumeration value="DMA"/>
+			<xsd:enumeration value="DNK"/>
+			<xsd:enumeration value="DOM"/>
+			<xsd:enumeration value="DZA"/>
+			<xsd:enumeration value="ECU"/>
+			<xsd:enumeration value="EGY"/>
+			<xsd:enumeration value="ERI"/>
+			<xsd:enumeration value="ESH"/>
+			<xsd:enumeration value="ESP"/>
+			<xsd:enumeration value="EST"/>
+			<xsd:enumeration value="ETH"/>
+			<xsd:enumeration value="FIN"/>
+			<xsd:enumeration value="FJI"/>
+			<xsd:enumeration value="FLK"/>
+			<xsd:enumeration value="FRA"/>
+			<xsd:enumeration value="FRO"/>
+			<xsd:enumeration value="FSM"/>
+			<xsd:enumeration value="GAB"/>
+			<xsd:enumeration value="GBR"/>
+			<xsd:enumeration value="GEO"/>
+			<xsd:enumeration value="GGY"/>
+			<xsd:enumeration value="GHA"/>
+			<xsd:enumeration value="GIB"/>
+			<xsd:enumeration value="GIN"/>
+			<xsd:enumeration value="GLP"/>
+			<xsd:enumeration value="GMB"/>
+			<xsd:enumeration value="GNB"/>
+			<xsd:enumeration value="GNQ"/>
+			<xsd:enumeration value="GRC"/>
+			<xsd:enumeration value="GRD"/>
+			<xsd:enumeration value="GRL"/>
+			<xsd:enumeration value="GTM"/>
+			<xsd:enumeration value="GUF"/>
+			<xsd:enumeration value="GUM"/>
+			<xsd:enumeration value="GUY"/>
+			<xsd:enumeration value="HKG"/>
+			<xsd:enumeration value="HMD"/>
+			<xsd:enumeration value="HND"/>
+			<xsd:enumeration value="HRV"/>
+			<xsd:enumeration value="HTI"/>
+			<xsd:enumeration value="HUN"/>
+			<xsd:enumeration value="IDN"/>
+			<xsd:enumeration value="IMN"/>
+			<xsd:enumeration value="IND"/>
+			<xsd:enumeration value="IOT"/>
+			<xsd:enumeration value="IRL"/>
+			<xsd:enumeration value="IRN"/>
+			<xsd:enumeration value="IRQ"/>
+			<xsd:enumeration value="ISL"/>
+			<xsd:enumeration value="ISR"/>
+			<xsd:enumeration value="ITA"/>
+			<xsd:enumeration value="JAM"/>
+			<xsd:enumeration value="JEY"/>
+			<xsd:enumeration value="JOR"/>
+			<xsd:enumeration value="JPN"/>
+			<xsd:enumeration value="KAZ"/>
+			<xsd:enumeration value="KEN"/>
+			<xsd:enumeration value="KGZ"/>
+			<xsd:enumeration value="KHM"/>
+			<xsd:enumeration value="KIR"/>
+			<xsd:enumeration value="KNA"/>
+			<xsd:enumeration value="KOR"/>
+			<xsd:enumeration value="KWT"/>
+			<xsd:enumeration value="LAO"/>
+			<xsd:enumeration value="LBN"/>
+			<xsd:enumeration value="LBR"/>
+			<xsd:enumeration value="LBY"/>
+			<xsd:enumeration value="LCA"/>
+			<xsd:enumeration value="LIE"/>
+			<xsd:enumeration value="LKA"/>
+			<xsd:enumeration value="LSO"/>
+			<xsd:enumeration value="LTU"/>
+			<xsd:enumeration value="LUX"/>
+			<xsd:enumeration value="LVA"/>
+			<xsd:enumeration value="MAC"/>
+			<xsd:enumeration value="MAF"/>
+			<xsd:enumeration value="MAR"/>
+			<xsd:enumeration value="MCO"/>
+			<xsd:enumeration value="MDA"/>
+			<xsd:enumeration value="MDG"/>
+			<xsd:enumeration value="MDV"/>
+			<xsd:enumeration value="MEX"/>
+			<xsd:enumeration value="MHL"/>
+			<xsd:enumeration value="MKD"/>
+			<xsd:enumeration value="MLI"/>
+			<xsd:enumeration value="MLT"/>
+			<xsd:enumeration value="MMR"/>
+			<xsd:enumeration value="MNE"/>
+			<xsd:enumeration value="MNG"/>
+			<xsd:enumeration value="MNP"/>
+			<xsd:enumeration value="MOZ"/>
+			<xsd:enumeration value="MRT"/>
+			<xsd:enumeration value="MSR"/>
+			<xsd:enumeration value="MTQ"/>
+			<xsd:enumeration value="MUS"/>
+			<xsd:enumeration value="MWI"/>
+			<xsd:enumeration value="MYS"/>
+			<xsd:enumeration value="MYT"/>
+			<xsd:enumeration value="NAM"/>
+			<xsd:enumeration value="NCL"/>
+			<xsd:enumeration value="NER"/>
+			<xsd:enumeration value="NFK"/>
+			<xsd:enumeration value="NGA"/>
+			<xsd:enumeration value="NIC"/>
+			<xsd:enumeration value="NIU"/>
+			<xsd:enumeration value="NLD"/>
+			<xsd:enumeration value="NOR"/>
+			<xsd:enumeration value="NPL"/>
+			<xsd:enumeration value="NRU"/>
+			<xsd:enumeration value="NZL"/>
+			<xsd:enumeration value="OMN"/>
+			<xsd:enumeration value="PAK"/>
+			<xsd:enumeration value="PAN"/>
+			<xsd:enumeration value="PCN"/>
+			<xsd:enumeration value="PER"/>
+			<xsd:enumeration value="PHL"/>
+			<xsd:enumeration value="PLW"/>
+			<xsd:enumeration value="PNG"/>
+			<xsd:enumeration value="POL"/>
+			<xsd:enumeration value="PRI"/>
+			<xsd:enumeration value="PRK"/>
+			<xsd:enumeration value="PRT"/>
+			<xsd:enumeration value="PRY"/>
+			<xsd:enumeration value="PSE"/>
+			<xsd:enumeration value="PYF"/>
+			<xsd:enumeration value="QAT"/>
+			<xsd:enumeration value="REU"/>
+			<xsd:enumeration value="ROU"/>
+			<xsd:enumeration value="RUS"/>
+			<xsd:enumeration value="RWA"/>
+			<xsd:enumeration value="SAU"/>
+			<xsd:enumeration value="SDN"/>
+			<xsd:enumeration value="SEN"/>
+			<xsd:enumeration value="SGP"/>
+			<xsd:enumeration value="SGS"/>
+			<xsd:enumeration value="SHN"/>
+			<xsd:enumeration value="SJM"/>
+			<xsd:enumeration value="SLB"/>
+			<xsd:enumeration value="SLE"/>
+			<xsd:enumeration value="SLV"/>
+			<xsd:enumeration value="SMR"/>
+			<xsd:enumeration value="SOM"/>
+			<xsd:enumeration value="SPM"/>
+			<xsd:enumeration value="SRB"/>
+			<xsd:enumeration value="SSD"/>
+			<xsd:enumeration value="STP"/>
+			<xsd:enumeration value="SUR"/>
+			<xsd:enumeration value="SVK"/>
+			<xsd:enumeration value="SVN"/>
+			<xsd:enumeration value="SWE"/>
+			<xsd:enumeration value="SWZ"/>
+			<xsd:enumeration value="SYC"/>
+			<xsd:enumeration value="SYR"/>
+			<xsd:enumeration value="TCA"/>
+			<xsd:enumeration value="TCD"/>
+			<xsd:enumeration value="TGO"/>
+			<xsd:enumeration value="THA"/>
+			<xsd:enumeration value="TJK"/>
+			<xsd:enumeration value="TKL"/>
+			<xsd:enumeration value="TKM"/>
+			<xsd:enumeration value="TLS"/>
+			<xsd:enumeration value="TON"/>
+			<xsd:enumeration value="TTO"/>
+			<xsd:enumeration value="TUN"/>
+			<xsd:enumeration value="TUR"/>
+			<xsd:enumeration value="TUV"/>
+			<xsd:enumeration value="TWN"/>
+			<xsd:enumeration value="TZA"/>
+			<xsd:enumeration value="UGA"/>
+			<xsd:enumeration value="UKR"/>
+			<xsd:enumeration value="UMI"/>
+			<xsd:enumeration value="URY"/>
+			<xsd:enumeration value="USA"/>
+			<xsd:enumeration value="UZB"/>
+			<xsd:enumeration value="VAT"/>
+			<xsd:enumeration value="VCT"/>
+			<xsd:enumeration value="VEN"/>
+			<xsd:enumeration value="VGB"/>
+			<xsd:enumeration value="VIR"/>
+			<xsd:enumeration value="VNM"/>
+			<xsd:enumeration value="VUT"/>
+			<xsd:enumeration value="WLF"/>
+			<xsd:enumeration value="WSM"/>
+			<xsd:enumeration value="YEM"/>
+			<xsd:enumeration value="ZAF"/>
+			<xsd:enumeration value="ZMB"/>
+			<xsd:enumeration value="ZWE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AbstractCountry">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+			<xsd:enumeration value="AF"/>
+			<xsd:enumeration value="AX"/>
+			<xsd:enumeration value="AL"/>
+			<xsd:enumeration value="DZ"/>
+			<xsd:enumeration value="AS"/>
+			<xsd:enumeration value="AD"/>
+			<xsd:enumeration value="AO"/>
+			<xsd:enumeration value="AI"/>
+			<xsd:enumeration value="AQ"/>
+			<xsd:enumeration value="AG"/>
+			<xsd:enumeration value="AR"/>
+			<xsd:enumeration value="AM"/>
+			<xsd:enumeration value="AW"/>
+			<xsd:enumeration value="AU"/>
+			<xsd:enumeration value="AT"/>
+			<xsd:enumeration value="AZ"/>
+			<xsd:enumeration value="BS"/>
+			<xsd:enumeration value="BH"/>
+			<xsd:enumeration value="BD"/>
+			<xsd:enumeration value="BB"/>
+			<xsd:enumeration value="BY"/>
+			<xsd:enumeration value="BE"/>
+			<xsd:enumeration value="BZ"/>
+			<xsd:enumeration value="BJ"/>
+			<xsd:enumeration value="BM"/>
+			<xsd:enumeration value="BT"/>
+			<xsd:enumeration value="BO"/>
+			<xsd:enumeration value="BA"/>
+			<xsd:enumeration value="BW"/>
+			<xsd:enumeration value="BV"/>
+			<xsd:enumeration value="BR"/>
+			<xsd:enumeration value="IO"/>
+			<xsd:enumeration value="BN"/>
+			<xsd:enumeration value="BG"/>
+			<xsd:enumeration value="BF"/>
+			<xsd:enumeration value="BI"/>
+			<xsd:enumeration value="KH"/>
+			<xsd:enumeration value="CM"/>
+			<xsd:enumeration value="CA"/>
+			<xsd:enumeration value="CV"/>
+			<xsd:enumeration value="KY"/>
+			<xsd:enumeration value="CF"/>
+			<xsd:enumeration value="TD"/>
+			<xsd:enumeration value="CL"/>
+			<xsd:enumeration value="CN"/>
+			<xsd:enumeration value="CX"/>
+			<xsd:enumeration value="CC"/>
+			<xsd:enumeration value="CO"/>
+			<xsd:enumeration value="KM"/>
+			<xsd:enumeration value="CG"/>
+			<xsd:enumeration value="CD"/>
+			<xsd:enumeration value="CK"/>
+			<xsd:enumeration value="CR"/>
+			<xsd:enumeration value="CI"/>
+			<xsd:enumeration value="HR"/>
+			<xsd:enumeration value="CU"/>
+			<xsd:enumeration value="CY"/>
+			<xsd:enumeration value="CZ"/>
+			<xsd:enumeration value="DK"/>
+			<xsd:enumeration value="DJ"/>
+			<xsd:enumeration value="DM"/>
+			<xsd:enumeration value="DO"/>
+			<xsd:enumeration value="EC"/>
+			<xsd:enumeration value="EG"/>
+			<xsd:enumeration value="SV"/>
+			<xsd:enumeration value="GQ"/>
+			<xsd:enumeration value="ER"/>
+			<xsd:enumeration value="EE"/>
+			<xsd:enumeration value="ET"/>
+			<xsd:enumeration value="FK"/>
+			<xsd:enumeration value="FO"/>
+			<xsd:enumeration value="FJ"/>
+			<xsd:enumeration value="FI"/>
+			<xsd:enumeration value="FR"/>
+			<xsd:enumeration value="GF"/>
+			<xsd:enumeration value="PF"/>
+			<xsd:enumeration value="TF"/>
+			<xsd:enumeration value="GA"/>
+			<xsd:enumeration value="GM"/>
+			<xsd:enumeration value="GE"/>
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="GH"/>
+			<xsd:enumeration value="GI"/>
+			<xsd:enumeration value="GR"/>
+			<xsd:enumeration value="GL"/>
+			<xsd:enumeration value="GD"/>
+			<xsd:enumeration value="GP"/>
+			<xsd:enumeration value="GU"/>
+			<xsd:enumeration value="GT"/>
+			<xsd:enumeration value="GG"/>
+			<xsd:enumeration value="GN"/>
+			<xsd:enumeration value="GW"/>
+			<xsd:enumeration value="GY"/>
+			<xsd:enumeration value="HT"/>
+			<xsd:enumeration value="HM"/>
+			<xsd:enumeration value="VA"/>
+			<xsd:enumeration value="HN"/>
+			<xsd:enumeration value="HK"/>
+			<xsd:enumeration value="HU"/>
+			<xsd:enumeration value="IS"/>
+			<xsd:enumeration value="IN"/>
+			<xsd:enumeration value="ID"/>
+			<xsd:enumeration value="IR"/>
+			<xsd:enumeration value="IQ"/>
+			<xsd:enumeration value="IE"/>
+			<xsd:enumeration value="IM"/>
+			<xsd:enumeration value="IL"/>
+			<xsd:enumeration value="IT"/>
+			<xsd:enumeration value="JM"/>
+			<xsd:enumeration value="JP"/>
+			<xsd:enumeration value="JE"/>
+			<xsd:enumeration value="JO"/>
+			<xsd:enumeration value="KZ"/>
+			<xsd:enumeration value="KE"/>
+			<xsd:enumeration value="KI"/>
+			<xsd:enumeration value="KP"/>
+			<xsd:enumeration value="KR"/>
+			<xsd:enumeration value="KW"/>
+			<xsd:enumeration value="KG"/>
+			<xsd:enumeration value="LA"/>
+			<xsd:enumeration value="LV"/>
+			<xsd:enumeration value="LB"/>
+			<xsd:enumeration value="LS"/>
+			<xsd:enumeration value="LR"/>
+			<xsd:enumeration value="LY"/>
+			<xsd:enumeration value="LI"/>
+			<xsd:enumeration value="LT"/>
+			<xsd:enumeration value="LU"/>
+			<xsd:enumeration value="MO"/>
+			<xsd:enumeration value="MK"/>
+			<xsd:enumeration value="MG"/>
+			<xsd:enumeration value="MW"/>
+			<xsd:enumeration value="MY"/>
+			<xsd:enumeration value="MV"/>
+			<xsd:enumeration value="ML"/>
+			<xsd:enumeration value="MT"/>
+			<xsd:enumeration value="MH"/>
+			<xsd:enumeration value="MQ"/>
+			<xsd:enumeration value="MR"/>
+			<xsd:enumeration value="MU"/>
+			<xsd:enumeration value="YT"/>
+			<xsd:enumeration value="MX"/>
+			<xsd:enumeration value="FM"/>
+			<xsd:enumeration value="MD"/>
+			<xsd:enumeration value="MC"/>
+			<xsd:enumeration value="MN"/>
+			<xsd:enumeration value="ME"/>
+			<xsd:enumeration value="MS"/>
+			<xsd:enumeration value="MA"/>
+			<xsd:enumeration value="MZ"/>
+			<xsd:enumeration value="MM"/>
+			<xsd:enumeration value="NA"/>
+			<xsd:enumeration value="NR"/>
+			<xsd:enumeration value="NP"/>
+			<xsd:enumeration value="NL"/>
+			<xsd:enumeration value="AN"/>
+			<xsd:enumeration value="NC"/>
+			<xsd:enumeration value="NZ"/>
+			<xsd:enumeration value="NI"/>
+			<xsd:enumeration value="NE"/>
+			<xsd:enumeration value="NG"/>
+			<xsd:enumeration value="NU"/>
+			<xsd:enumeration value="NF"/>
+			<xsd:enumeration value="MP"/>
+			<xsd:enumeration value="NO"/>
+			<xsd:enumeration value="OM"/>
+			<xsd:enumeration value="PK"/>
+			<xsd:enumeration value="PW"/>
+			<xsd:enumeration value="PS"/>
+			<xsd:enumeration value="PA"/>
+			<xsd:enumeration value="PG"/>
+			<xsd:enumeration value="PY"/>
+			<xsd:enumeration value="PE"/>
+			<xsd:enumeration value="PH"/>
+			<xsd:enumeration value="PN"/>
+			<xsd:enumeration value="PL"/>
+			<xsd:enumeration value="PT"/>
+			<xsd:enumeration value="PR"/>
+			<xsd:enumeration value="QA"/>
+			<xsd:enumeration value="RE"/>
+			<xsd:enumeration value="RO"/>
+			<xsd:enumeration value="RU"/>
+			<xsd:enumeration value="RW"/>
+			<xsd:enumeration value="BL"/>
+			<xsd:enumeration value="SH"/>
+			<xsd:enumeration value="KN"/>
+			<xsd:enumeration value="LC"/>
+			<xsd:enumeration value="MF"/>
+			<xsd:enumeration value="PM"/>
+			<xsd:enumeration value="VC"/>
+			<xsd:enumeration value="WS"/>
+			<xsd:enumeration value="SM"/>
+			<xsd:enumeration value="ST"/>
+			<xsd:enumeration value="SA"/>
+			<xsd:enumeration value="SN"/>
+			<xsd:enumeration value="RS"/>
+			<xsd:enumeration value="SC"/>
+			<xsd:enumeration value="SL"/>
+			<xsd:enumeration value="SG"/>
+			<xsd:enumeration value="SK"/>
+			<xsd:enumeration value="SI"/>
+			<xsd:enumeration value="SB"/>
+			<xsd:enumeration value="SO"/>
+			<xsd:enumeration value="ZA"/>
+			<xsd:enumeration value="GS"/>
+			<xsd:enumeration value="ES"/>
+			<xsd:enumeration value="LK"/>
+			<xsd:enumeration value="SD"/>
+			<xsd:enumeration value="SR"/>
+			<xsd:enumeration value="SJ"/>
+			<xsd:enumeration value="SZ"/>
+			<xsd:enumeration value="SE"/>
+			<xsd:enumeration value="CH"/>
+			<xsd:enumeration value="SY"/>
+			<xsd:enumeration value="TW"/>
+			<xsd:enumeration value="TJ"/>
+			<xsd:enumeration value="TZ"/>
+			<xsd:enumeration value="TH"/>
+			<xsd:enumeration value="TL"/>
+			<xsd:enumeration value="TG"/>
+			<xsd:enumeration value="TK"/>
+			<xsd:enumeration value="TO"/>
+			<xsd:enumeration value="TT"/>
+			<xsd:enumeration value="TN"/>
+			<xsd:enumeration value="TR"/>
+			<xsd:enumeration value="TM"/>
+			<xsd:enumeration value="TC"/>
+			<xsd:enumeration value="TV"/>
+			<xsd:enumeration value="UG"/>
+			<xsd:enumeration value="UA"/>
+			<xsd:enumeration value="AE"/>
+			<xsd:enumeration value="GB"/>
+			<xsd:enumeration value="US"/>
+			<xsd:enumeration value="UM"/>
+			<xsd:enumeration value="UY"/>
+			<xsd:enumeration value="UZ"/>
+			<xsd:enumeration value="VU"/>
+			<xsd:enumeration value="VE"/>
+			<xsd:enumeration value="VN"/>
+			<xsd:enumeration value="VG"/>
+			<xsd:enumeration value="VI"/>
+			<xsd:enumeration value="WF"/>
+			<xsd:enumeration value="EH"/>
+			<xsd:enumeration value="YE"/>
+			<xsd:enumeration value="ZM"/>
+			<xsd:enumeration value="ZW"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Amount">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="5"/>
+			<xsd:totalDigits value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="customer">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="6"/>
+				<xsd:maxLength value="34"/>
+				<xsd:pattern value="[0-9]{6,7}"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="name">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="names">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:description" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="shortNames">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:description" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="adMessages">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:description" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="retrievalKeyDescriptions">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:description" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="language" type="xsd:string"/>
+	<xsd:element name="description">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:language"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="paymentCategory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:description"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="arabicName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="shortName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="24"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="arabicShortName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="24"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="customerType">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="closed" type="oab:Flag"/>
+	<xsd:element name="deceasedOrLiquidation" type="oab:Flag"/>
+	<xsd:element name="inactive" type="oab:Flag"/>
+	<xsd:element name="parentCountry" type="oab:Country"/>
+	<xsd:element name="riskCountry" type="oab:Country"/>
+	<xsd:element name="residenceCountry" type="oab:Country"/>
+	<xsd:element name="internalRiskCountry" type="oab:Country"/>
+	<xsd:element name="customerOpenDate" type="xsd:date"/>
+	<xsd:element name="customerCloseDate" type="xsd:date"/>
+	<xsd:element name="detail">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+					<xsd:attribute ref="oab:id"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="template">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="30"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="group">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="64"/>
+				<xsd:minLength value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="otherDetails">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:detail"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reportingCurrency" type="oab:Currency"/>
+	<xsd:element name="internalAccount" type="oab:Flag"/>
+	<xsd:element name="account" type="oab:AccountWithoutPattern"/>
+	<xsd:element name="accountType">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="accountStructure">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="blocked" type="oab:Flag"/>
+	<xsd:element name="statusBalance" type="oab:Amount"/>
+	<xsd:element name="jointAccount" type="oab:Flag"/>
+	<xsd:element name="jointPrimaryCustomer">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="6"/>
+				<xsd:maxLength value="34"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ledgerBalance" type="oab:Amount"/>
+	<xsd:element name="ledgerBalanceDate" type="xsd:date"/>
+	<xsd:element name="currentAvailableBalance" type="oab:Amount"/>
+	<xsd:element name="allowPartialPayment" type="xsd:boolean"/>
+	<xsd:element name="previousCleardBalance" type="oab:Amount"/>
+	<xsd:element name="overdraftLimit" type="oab:Amount"/>
+	<xsd:element name="iban">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="34"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="currency" type="oab:Currency"/>
+	<xsd:element name="civilId">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="34"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="documentType">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="documentIssueDate" type="xsd:date"/>
+	<xsd:element name="documentExpiryDate" type="xsd:date"/>
+	<xsd:element name="documentId">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="civilIdExpiry" type="xsd:date"/>
+	<xsd:element name="contacts">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:phoneNumber"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="postalCode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="5"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="areaCode">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="POBox">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="email">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="gender">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="nationalities">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:nationality" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="nationality" type="oab:Nationality"/>
+	<xsd:element name="birthDate" type="xsd:date"/>
+	<xsd:element name="companyFinancialClosure" type="xsd:date"/>
+	<xsd:element name="title">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="employer">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="socialStatus">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="salary" type="oab:Amount"/>
+	<xsd:element name="jobTitle">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="extension" type="xsd:string"/>
+	<xsd:element name="businessObject">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:format"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="data">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:id"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="text" type="xsd:string"/>
+	<xsd:element name="user" type="xsd:string"/>
+	<xsd:element name="password" type="xsd:string"/>
+	<xsd:element name="securityKey" type="xsd:string"/>
+	<xsd:element name="class">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="salutation">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="bankIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="4"/>
+				<xsd:minLength value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="location">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="2"/>
+				<xsd:minLength value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="branchIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="statementFrequency">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="previousStatementBalance" type="oab:Amount"/>
+	<xsd:element name="lastStatementDate" type="xsd:date"/>
+	<xsd:element name="lastStatementNumber" type="xsd:int"/>
+	<xsd:element name="accountOpenDate" type="xsd:date"/>
+	<xsd:element name="lastEntryDate" type="xsd:date"/>
+	<xsd:element name="accountClosedDate" type="xsd:date"/>
+	<xsd:element name="orginalBranch" type="oab:Branch"/>
+	<xsd:element name="branchChangeDate" type="xsd:date"/>
+	<xsd:element name="information" type="xsd:string"/>
+	<xsd:complexType name="Country">
+		<xsd:simpleContent>
+			<xsd:extension base="oab:AbstractCountry">
+				<xsd:attribute ref="oab:text"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="AbstractCurrency">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+			<xsd:enumeration value="AED"/>
+			<xsd:enumeration value="AFN"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="AMD"/>
+			<xsd:enumeration value="ANG"/>
+			<xsd:enumeration value="AOA"/>
+			<xsd:enumeration value="ARS"/>
+			<xsd:enumeration value="AUD"/>
+			<xsd:enumeration value="AWG"/>
+			<xsd:enumeration value="AZM"/>
+			<xsd:enumeration value="BAM"/>
+			<xsd:enumeration value="BBD"/>
+			<xsd:enumeration value="BDT"/>
+			<xsd:enumeration value="BGN"/>
+			<xsd:enumeration value="BHD"/>
+			<xsd:enumeration value="BIF"/>
+			<xsd:enumeration value="BMD"/>
+			<xsd:enumeration value="BND"/>
+			<xsd:enumeration value="BOB"/>
+			<xsd:enumeration value="BOV"/>
+			<xsd:enumeration value="BRL"/>
+			<xsd:enumeration value="BSD"/>
+			<xsd:enumeration value="BTN"/>
+			<xsd:enumeration value="BWP"/>
+			<xsd:enumeration value="BYR"/>
+			<xsd:enumeration value="BZD"/>
+			<xsd:enumeration value="CAD"/>
+			<xsd:enumeration value="CDF"/>
+			<xsd:enumeration value="CHE"/>
+			<xsd:enumeration value="CHF"/>
+			<xsd:enumeration value="CHW"/>
+			<xsd:enumeration value="CLF"/>
+			<xsd:enumeration value="CLP"/>
+			<xsd:enumeration value="CNY"/>
+			<xsd:enumeration value="COP"/>
+			<xsd:enumeration value="COU"/>
+			<xsd:enumeration value="CRC"/>
+			<xsd:enumeration value="CSD"/>
+			<xsd:enumeration value="CUP"/>
+			<xsd:enumeration value="CVE"/>
+			<xsd:enumeration value="CYP"/>
+			<xsd:enumeration value="CZK"/>
+			<xsd:enumeration value="DJF"/>
+			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="DOP"/>
+			<xsd:enumeration value="DZD"/>
+			<xsd:enumeration value="EEK"/>
+			<xsd:enumeration value="EGP"/>
+			<xsd:enumeration value="ERN"/>
+			<xsd:enumeration value="ETB"/>
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="FJD"/>
+			<xsd:enumeration value="FKP"/>
+			<xsd:enumeration value="GBP"/>
+			<xsd:enumeration value="GEL"/>
+			<xsd:enumeration value="GHC"/>
+			<xsd:enumeration value="GIP"/>
+			<xsd:enumeration value="GMD"/>
+			<xsd:enumeration value="GNF"/>
+			<xsd:enumeration value="GTQ"/>
+			<xsd:enumeration value="GWP"/>
+			<xsd:enumeration value="GYD"/>
+			<xsd:enumeration value="HKD"/>
+			<xsd:enumeration value="HNL"/>
+			<xsd:enumeration value="HRK"/>
+			<xsd:enumeration value="HTG"/>
+			<xsd:enumeration value="HUF"/>
+			<xsd:enumeration value="IDR"/>
+			<xsd:enumeration value="ILS"/>
+			<xsd:enumeration value="INR"/>
+			<xsd:enumeration value="IQD"/>
+			<xsd:enumeration value="IRR"/>
+			<xsd:enumeration value="ISK"/>
+			<xsd:enumeration value="JMD"/>
+			<xsd:enumeration value="JOD"/>
+			<xsd:enumeration value="JPY"/>
+			<xsd:enumeration value="KES"/>
+			<xsd:enumeration value="KGS"/>
+			<xsd:enumeration value="KHR"/>
+			<xsd:enumeration value="KMF"/>
+			<xsd:enumeration value="KPW"/>
+			<xsd:enumeration value="KRW"/>
+			<xsd:enumeration value="KWD"/>
+			<xsd:enumeration value="KYD"/>
+			<xsd:enumeration value="KZT"/>
+			<xsd:enumeration value="LAK"/>
+			<xsd:enumeration value="LBP"/>
+			<xsd:enumeration value="LKR"/>
+			<xsd:enumeration value="LRD"/>
+			<xsd:enumeration value="LSL"/>
+			<xsd:enumeration value="LTL"/>
+			<xsd:enumeration value="LVL"/>
+			<xsd:enumeration value="LYD"/>
+			<xsd:enumeration value="MAD"/>
+			<xsd:enumeration value="MDL"/>
+			<xsd:enumeration value="MGA"/>
+			<xsd:enumeration value="MKD"/>
+			<xsd:enumeration value="MMK"/>
+			<xsd:enumeration value="MNT"/>
+			<xsd:enumeration value="MOP"/>
+			<xsd:enumeration value="MRO"/>
+			<xsd:enumeration value="MTL"/>
+			<xsd:enumeration value="MUR"/>
+			<xsd:enumeration value="MVR"/>
+			<xsd:enumeration value="MWK"/>
+			<xsd:enumeration value="MXN"/>
+			<xsd:enumeration value="MXV"/>
+			<xsd:enumeration value="MYR"/>
+			<xsd:enumeration value="MZM"/>
+			<xsd:enumeration value="NAD"/>
+			<xsd:enumeration value="NGN"/>
+			<xsd:enumeration value="NIO"/>
+			<xsd:enumeration value="NOK"/>
+			<xsd:enumeration value="NPR"/>
+			<xsd:enumeration value="NZD"/>
+			<xsd:enumeration value="OMR"/>
+			<xsd:enumeration value="PAB"/>
+			<xsd:enumeration value="PEN"/>
+			<xsd:enumeration value="PGK"/>
+			<xsd:enumeration value="PHP"/>
+			<xsd:enumeration value="PKR"/>
+			<xsd:enumeration value="PLN"/>
+			<xsd:enumeration value="PYG"/>
+			<xsd:enumeration value="QAR"/>
+			<xsd:enumeration value="ROL"/>
+			<xsd:enumeration value="RUB"/>
+			<xsd:enumeration value="RWF"/>
+			<xsd:enumeration value="SAR"/>
+			<xsd:enumeration value="SBD"/>
+			<xsd:enumeration value="SCR"/>
+			<xsd:enumeration value="SDD"/>
+			<xsd:enumeration value="SEK"/>
+			<xsd:enumeration value="SGD"/>
+			<xsd:enumeration value="SHP"/>
+			<xsd:enumeration value="SIT"/>
+			<xsd:enumeration value="SKK"/>
+			<xsd:enumeration value="SLL"/>
+			<xsd:enumeration value="SOS"/>
+			<xsd:enumeration value="SRD"/>
+			<xsd:enumeration value="STD"/>
+			<xsd:enumeration value="SVC"/>
+			<xsd:enumeration value="SYP"/>
+			<xsd:enumeration value="SZL"/>
+			<xsd:enumeration value="THB"/>
+			<xsd:enumeration value="TJS"/>
+			<xsd:enumeration value="TMM"/>
+			<xsd:enumeration value="TND"/>
+			<xsd:enumeration value="TOP"/>
+			<xsd:enumeration value="TRL"/>
+			<xsd:enumeration value="TRY"/>
+			<xsd:enumeration value="TTD"/>
+			<xsd:enumeration value="TWD"/>
+			<xsd:enumeration value="TZS"/>
+			<xsd:enumeration value="UAH"/>
+			<xsd:enumeration value="UGX"/>
+			<xsd:enumeration value="USD"/>
+			<xsd:enumeration value="USN"/>
+			<xsd:enumeration value="USS"/>
+			<xsd:enumeration value="UYU"/>
+			<xsd:enumeration value="UZS"/>
+			<xsd:enumeration value="VEB"/>
+			<xsd:enumeration value="VND"/>
+			<xsd:enumeration value="VUV"/>
+			<xsd:enumeration value="WST"/>
+			<xsd:enumeration value="XAF"/>
+			<xsd:enumeration value="XAG"/>
+			<xsd:enumeration value="XAU"/>
+			<xsd:enumeration value="XBA"/>
+			<xsd:enumeration value="XBB"/>
+			<xsd:enumeration value="XBC"/>
+			<xsd:enumeration value="XBD"/>
+			<xsd:enumeration value="XCD"/>
+			<xsd:enumeration value="XDR"/>
+			<xsd:enumeration value="XFO"/>
+			<xsd:enumeration value="XFU"/>
+			<xsd:enumeration value="XOF"/>
+			<xsd:enumeration value="XPD"/>
+			<xsd:enumeration value="XPF"/>
+			<xsd:enumeration value="XPT"/>
+			<xsd:enumeration value="XTS"/>
+			<xsd:enumeration value="YER"/>
+			<xsd:enumeration value="ZAR"/>
+			<xsd:enumeration value="ZMK"/>
+			<xsd:enumeration value="ZWD"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Currency">
+		<xsd:simpleContent>
+			<xsd:extension base="oab:AbstractCurrency">
+				<xsd:attribute ref="oab:text"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="Nationality">
+		<xsd:simpleContent>
+			<xsd:extension base="oab:AbstractNationality">
+				<xsd:attribute ref="oab:text"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="AbstractBranch">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Branch">
+		<xsd:simpleContent>
+			<xsd:extension base="oab:AbstractBranch">
+				<xsd:attribute ref="oab:text"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:element name="address">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="5" ref="oab:line"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="line">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="phoneNumber">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:phoneType"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="swift">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:bankIdentifier"/>
+				<xsd:element ref="oab:country"/>
+				<xsd:element ref="oab:location"/>
+				<xsd:element minOccurs="0" ref="oab:branchIdentifier"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="countries">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:country"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="country" type="oab:Country"/>
+	<xsd:element name="limitExpiryDate" type="xsd:date"/>
+	<xsd:element name="reservedBalance" type="oab:Amount"/>
+	<xsd:element name="currentClearedBalance" type="oab:Amount"/>
+	<xsd:element name="clearingToday" type="oab:Amount"/>
+	<xsd:element name="clearingTomorrow" type="oab:Amount"/>
+	<xsd:element name="clearingAfterTomorrow" type="oab:Amount"/>
+	<xsd:element name="shadowDebit" type="oab:Amount"/>
+	<xsd:element name="shadowCredit" type="oab:Amount"/>
+	<xsd:element name="shadowAdjustments" type="oab:Amount"/>
+	<xsd:attribute name="phoneType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="GSM"/>
+				<xsd:enumeration value="HomePhone"/>
+				<xsd:enumeration value="WorkPhone"/>
+				<xsd:enumeration value="Fax"/>
+				<xsd:enumeration value="Extension"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:element name="cardType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+				<xsd:enumeration value="001"/>
+				<xsd:enumeration value="002"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="cardNumber">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:sequence"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="issueDate" type="xsd:date"/>
+	<xsd:element name="expiryDate" type="xsd:date"/>
+	<xsd:element name="cardStrata">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cardStatus">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cardLimit" type="oab:Amount"/>
+	<xsd:element name="cardHolderName" type="xsd:string"/>
+	<xsd:attribute name="sequence" type="xsd:string"/>
+	<xsd:attribute name="code" type="xsd:string"/>
+	<xsd:attribute name="currency" type="oab:AbstractCurrency"/>
+	<xsd:attribute name="fromDate" type="xsd:date"/>
+	<xsd:attribute name="toDate" type="xsd:date"/>
+	<xsd:element name="amount">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="oab:Amount">
+					<xsd:attribute ref="oab:currency"/>
+					<xsd:attribute ref="oab:code"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="totalAmountDue">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="oab:Amount">
+					<xsd:attribute ref="oab:currency"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="dueAmount" type="oab:Amount"/>
+	<xsd:element name="dueDate" type="xsd:dateTime"/>
+	<xsd:element name="reference" type="oab:Reference"/>
+	<xsd:element name="valueDate" type="xsd:date"/>
+	<xsd:element name="narrative" type="xsd:string"/>
+	<xsd:element name="narratives">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:narrative"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="externalReference">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="paymentReference">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="reasonCode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="reason">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="partnerId">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="billType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="contractNumber" type="xsd:string"/>
+	<xsd:element name="chargeAccount" type="xsd:string"/>
+	<xsd:element name="accountNumber" type="xsd:string"/>
+	<xsd:element name="retrievalKey">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:type"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="billNumber" type="xsd:string"/>
+	<xsd:element name="month">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="2"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="processingDate" type="xsd:date"/>
+	<xsd:element name="currentAmount" type="oab:Amount"/>
+	<xsd:element name="minimumAmount" type="oab:Amount"/>
+	<xsd:element name="maximumAmount" type="oab:Amount"/>
+	<xsd:element name="lastPaidAmount" type="oab:Amount"/>
+	<xsd:element name="multipleOfAmount" type="oab:Amount"/>
+	<xsd:element name="billAlias" type="xsd:string"/>
+	<xsd:element name="partnerReference" type="xsd:string"/>
+	<xsd:element name="paymentMethod" type="xsd:string"/>
+	<xsd:element name="paymentSource" type="xsd:string"/>
+	<xsd:element name="equivalentStatusBalance" type="oab:Amount"/>
+	<xsd:element name="equivalentLedgerBalance" type="oab:Amount"/>
+	<xsd:element name="previousAvailableBalance" type="oab:Amount"/>
+	<xsd:element name="equivalentPreviousAvailableBalance" type="oab:Amount"/>
+	<xsd:element name="equivalentOverdraftLimit" type="oab:Amount"/>
+	<xsd:element name="overdraftLimitExpiryDate" type="xsd:date"/>
+	<xsd:element name="equivalentReservedBalance" type="oab:Amount"/>
+	<xsd:element name="equivalentCurrentClearedBalance" type="oab:Amount"/>
+	<xsd:element name="equivalentClearingToday" type="oab:Amount"/>
+	<xsd:element name="equivalentClearingTomorrow" type="oab:Amount"/>
+	<xsd:element name="equivalentClearingAfterTomorrow" type="oab:Amount"/>
+	<xsd:element name="equivalentShadowDebit" type="oab:Amount"/>
+	<xsd:element name="equivalentShadowCredit" type="oab:Amount"/>
+	<xsd:element name="equivalentShadowAdjustments" type="oab:Amount"/>
+	<xsd:element name="nextStatementDate" type="xsd:date"/>
+	<xsd:element name="grade">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="sector">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="hiringDate" type="xsd:date"/>
+	<xsd:element name="timeStamp" type="xsd:dateTime"/>
+	<xsd:element name="source">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="24"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="statementNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="16"/>
+				<xsd:minLength value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="numberOfRecords" type="xsd:int"/>
+	<xsd:element name="postingDate" type="xsd:date"/>
+	<xsd:element name="transactionCode">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="userReference">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="transaction">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:reference"/>
+				<xsd:element ref="oab:postingDate"/>
+				<xsd:element ref="oab:valueDate"/>
+				<xsd:element ref="oab:amount"/>
+				<xsd:element ref="oab:currency"/>
+				<xsd:element ref="oab:transactionCode"/>
+				<xsd:element minOccurs="0" ref="oab:userReference"/>
+				<xsd:element minOccurs="0" ref="oab:runningBalance"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="statementDate" type="xsd:date"/>
+	<xsd:element name="fromDate" type="xsd:date"/>
+	<xsd:element name="toDate" type="xsd:date"/>
+	<xsd:element name="date" type="xsd:date"/>
+	<xsd:element name="statementByEmail" type="xsd:boolean"/>
+	<xsd:element name="companyCategory">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="alias">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="48"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="companyCapital" type="xsd:decimal"/>
+	<xsd:element name="rate" type="xsd:decimal"/>
+	<xsd:element name="creationDate" type="xsd:date"/>
+	<xsd:element name="runningBalance" type="oab:Amount"/>
+	<xsd:element name="accountIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="34"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="deductFromAmount" type="xsd:boolean"/>
+	<xsd:element name="purpose">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="stream">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:base64Binary">
+					<xsd:attribute ref="oab:type"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="type" type="xsd:string"/>
+	<xsd:element name="id" type="xsd:string"/>
+	<xsd:attribute name="format" type="xsd:string"/>
+	<xsd:element name="dealType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+				<xsd:enumeration value="001"/>
+				<xsd:enumeration value="002"/>
+				<xsd:enumeration value="003"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="dealNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="startDate" type="xsd:date"/>
+	<xsd:element name="endDate" type="xsd:date"/>
+	<xsd:element name="loanType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="001"/>
+				<xsd:enumeration value="002"/>
+				<xsd:enumeration value="003"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="loanNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="installment" type="oab:Amount"/>
+	<xsd:element name="outstandingAmount" type="oab:Amount"/>
+	<xsd:element name="startAmount" type="oab:Amount"/>
+	<xsd:element name="buyRate" type="xsd:decimal"/>
+	<xsd:element name="sellRate" type="xsd:decimal"/>
+	<xsd:element name="freeText">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="512"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="messageId">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="12"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="parameter">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+					<xsd:attribute ref="oab:id"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="parameters">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:parameter"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:list"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:complex"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reasons">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:reason"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="list">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:parameter"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:text"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="complex">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:parameter"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:list"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:complex"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:text"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="rule">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="1" ref="oab:ruleId"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:parameter"/>
+				<xsd:element minOccurs="0" ref="oab:description"/>
+				<xsd:element minOccurs="0" ref="oab:severity"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="recordSummary">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:controlInformation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="controlInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:percentage"/>
+				<xsd:element ref="oab:severity"/>
+				<xsd:element ref="oab:department"/>
+				<xsd:element ref="oab:user"/>
+				<xsd:element ref="oab:narratives"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="department" type="xsd:string"/>
+	<xsd:element name="status">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="state">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="nextBusinessDate" type="xsd:date"/>
+	<xsd:element name="addressCountry" type="oab:Country"/>
+	<xsd:element name="city">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="buildingVillaNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="16"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="wayNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="16"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="flatNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="16"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="street">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="landmark">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="sequence" type="xsd:int"/>
+	<xsd:element name="penalty" type="oab:Amount"/>
+	<xsd:element name="principal" type="oab:Amount"/>
+	<xsd:element name="interest" type="oab:Amount"/>
+	<xsd:element name="paidAmount" type="oab:Amount"/>
+	<xsd:element name="paid" type="xsd:boolean"/>
+	<xsd:element name="previousBusinessDate" type="xsd:date"/>
+	<xsd:element name="spotDate" type="xsd:date"/>
+	<xsd:element name="forwardValueDate" type="xsd:date"/>
+	<xsd:element name="backValueDate" type="xsd:date"/>
+	<xsd:element name="firstSerialNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="15"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="lastSerialNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="15"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="payee">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="entity">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:type"/>
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="joint" type="oab:Flag"/>
+	<xsd:element name="cardPlan">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="lastPaymentAmount" type="oab:Amount"/>
+	<xsd:element name="lastPaymentDate" type="xsd:date"/>
+	<xsd:element name="lastPurchaseAmount" type="oab:Amount"/>
+	<xsd:element name="lastPurchaseDate" type="xsd:date"/>
+	<xsd:element name="membershipId">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="24"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="billingCurrency" type="oab:Currency"/>
+	<xsd:element name="availableBalance" type="oab:Amount"/>
+	<xsd:element name="currentBalance" type="oab:Amount"/>
+	<xsd:element name="customerClass">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+				<xsd:enumeration value="001"/>
+				<xsd:enumeration value="002"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="customerCategory">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="value" type="xsd:string"/>
+	<xsd:element name="field">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:code"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="serviceId" type="xsd:string"/>
+	<xsd:element name="userData" type="xsd:string"/>
+	<xsd:element name="keyInfo" type="xsd:string"/>
+	<xsd:element name="pinBlock" type="xsd:string"/>
+	<xsd:element name="interestSummary">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:rate"/>
+				<xsd:element minOccurs="0" ref="oab:netInterest"/>
+				<xsd:element minOccurs="0" ref="oab:accrued"/>
+				<xsd:element minOccurs="0" ref="oab:adjusted"/>
+				<xsd:element minOccurs="0" ref="oab:accruedToNextCycle"/>
+				<xsd:element minOccurs="0" ref="oab:accruedToNextPeriod"/>
+				<xsd:element minOccurs="0" ref="oab:accruedToTotalPeriod"/>
+				<xsd:element minOccurs="0" ref="oab:frequency"/>
+				<xsd:element minOccurs="0" ref="oab:nominatedAccount"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:type"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="netInterest" type="oab:Amount"/>
+	<xsd:element name="accrued" type="oab:Amount"/>
+	<xsd:element name="adjusted" type="oab:Amount"/>
+	<xsd:element name="accruedToNextCycle" type="oab:Amount"/>
+	<xsd:element name="accruedToNextPeriod" type="oab:Amount"/>
+	<xsd:element name="accruedToTotalPeriod" type="oab:Amount"/>
+	<xsd:element name="totalPosted" type="oab:Amount"/>
+	<xsd:simpleType name="Frequency">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="3"/>
+			<xsd:pattern value="[A-Z][0-9]*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="frequency" type="oab:Frequency"/>
+	<xsd:element name="nominatedAccount" type="oab:Account"/>
+	<xsd:simpleType name="Account">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="13"/>
+			<xsd:maxLength value="34"/>
+			<xsd:pattern value="[0-9]{13,14}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AccountWithoutPattern">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="34"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="tierSummary">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="oab:tier"/>
+				<xsd:element minOccurs="1" ref="oab:splitBalanceTier"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tierBalance" type="oab:Amount"/>
+	<xsd:element name="tierRate" type="xsd:string"/>
+	<xsd:element name="tier">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:tierBalance"/>
+				<xsd:element ref="oab:rate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="splitBalanceTier" type="xsd:boolean"/>
+	<xsd:element name="loyaltyProgram" type="xsd:string"/>
+	<xsd:element name="points">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:integer">
+					<xsd:attribute ref="oab:code"/>
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="pointBalance">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:points"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="earnedPoints">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:points"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="redeemedPoints">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:points"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="bookType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="001"/>
+				<xsd:enumeration value="002"/>
+				<xsd:enumeration value="003"/>
+				<xsd:minLength value="3"/>
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="pickupBranch" type="xsd:string"/>
+	<xsd:element name="instruction">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:code"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="specialInstructions">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:instruction"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="otherNationalities">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:nationality"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="documentAuthority" type="xsd:string"/>
+	<xsd:element name="document">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:documentId"/>
+				<xsd:element ref="oab:documentType"/>
+				<xsd:element minOccurs="0" ref="oab:documentIssueDate"/>
+				<xsd:element minOccurs="0" ref="oab:documentExpiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:documentAuthority"/>
+				<xsd:element minOccurs="0" ref="oab:documentIssuingCountry"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="guardianCustomer" type="xsd:string"/>
+	<xsd:element name="placeOfBirth" type="xsd:string"/>
+	<xsd:element name="countryOfBirth" type="oab:Country"/>
+	<xsd:element name="cityOfBirth" type="xsd:string"/>
+	<xsd:element name="customerIdentifications">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:document"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="contactMethod" type="xsd:string"/>
+	<xsd:element name="lineOfBusiness" type="xsd:string"/>
+	<xsd:element name="ruleId" type="xsd:string"/>
+	<xsd:element name="severity" type="xsd:string"/>
+	<xsd:element name="option" type="xsd:string"/>
+	<xsd:element name="authorized" type="xsd:boolean"/>
+	<xsd:element name="feature">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:code"/>
+					<xsd:attribute ref="oab:mode"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="userRights">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:lineOfBusiness"/>
+				<xsd:element ref="oab:option"/>
+				<xsd:element ref="oab:authorized"/>
+				<xsd:element minOccurs="0" ref="oab:features"/>
+				<xsd:element minOccurs="0" ref="oab:globalParameters"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="service" type="xsd:string"/>
+	<xsd:element name="services">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:service"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="question">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:boolean">
+					<xsd:attribute ref="oab:id"/>
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="id" type="xsd:string"/>
+	<xsd:element name="reportTitle" type="xsd:string"/>
+	<xsd:attribute name="mode" type="xsd:string"/>
+	<xsd:element name="features">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:feature"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="globalParameters">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:globalParameter"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="globalParameter">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:id"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reportName" type="xsd:string"/>
+	<xsd:element name="applicationId" type="xsd:string"/>
+	<xsd:element name="fileLocation">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:type"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processId" type="xsd:string"/>
+	<xsd:element name="flowURL" type="xsd:string"/>
+	<xsd:element name="priority" type="xsd:int"/>
+	<xsd:element name="thirdPartyReference" type="xsd:string"/>
+	<xsd:element name="BankClearingCode" type="xsd:string"/>
+	<xsd:element name="transferReference" type="xsd:string"/>
+	<xsd:element name="orginalReference" type="xsd:string"/>
+	<xsd:element name="type" type="xsd:string"/>
+	<xsd:element name="processReference" type="xsd:string"/>
+	<xsd:element name="extraHours" type="xsd:int"/>
+	<xsd:element name="netSalary" type="oab:Amount"/>
+	<xsd:element name="effectiveWorkDays" type="xsd:int"/>
+	<xsd:element name="year">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:gYear"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="paymentType" type="xsd:string"/>
+	<xsd:element name="businessType" type="xsd:string"/>
+	<xsd:element name="signatory" type="xsd:string"/>
+	<xsd:element name="signatories">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:signatory"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="branchCount" type="xsd:int"/>
+	<xsd:element name="operation" type="xsd:string"/>
+	<xsd:element name="categoryId" type="xsd:string"/>
+	<xsd:element name="integrationType" type="xsd:string"/>
+	<xsd:element name="merchant">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:account"/>
+				<xsd:element ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:location"/>
+				<xsd:element minOccurs="0" ref="oab:categoryId"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="walletType" type="xsd:string"/>
+	<xsd:element name="walletIdType" type="xsd:string"/>
+	<xsd:element name="walletId" type="xsd:string"/>
+	<xsd:element name="walletLabel" type="xsd:string"/>
+	<xsd:element name="default" type="xsd:string"/>
+	<xsd:element name="documentIssuingCountry" type="oab:Country"/>
+	<xsd:element name="label" type="xsd:string"/>
+	<xsd:element name="interestFrequency" type="oab:Frequency"/>
+	<xsd:element name="instalmentFrequency" type="oab:Frequency"/>
+	<xsd:complexType name="Reference">
+		<xsd:simpleContent>
+			<xsd:extension base="oab:AbstractReference">
+				<xsd:attribute ref="oab:type"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="AbstractReference">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="128"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="facilityReference" type="oab:Reference"/>
+	<xsd:complexType name="Evaluation">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" ref="oab:name"/>
+			<xsd:element minOccurs="0" ref="oab:reference"/>
+			<xsd:element ref="oab:amount"/>
+			<xsd:element minOccurs="0" ref="oab:date"/>
+			<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+			<xsd:element ref="oab:reviewFrequency"/>
+			<xsd:element minOccurs="0" ref="oab:lastReviewDate"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="lastReviewDate" type="xsd:date"/>
+	<xsd:element name="collateralValue" type="oab:Evaluation"/>
+	<xsd:element name="bankValuation" type="oab:Evaluation"/>
+	<xsd:element name="insuranceValuation" type="oab:Evaluation"/>
+	<xsd:element name="valuerValuation" type="oab:Evaluation"/>
+	<xsd:element name="collateralType" type="oab:Type"/>
+	<xsd:complexType name="Type">
+		<xsd:sequence/>
+		<xsd:attribute ref="oab:text"/>
+	</xsd:complexType>
+	<xsd:element name="typeOfSecurity" type="oab:Type"/>
+	<xsd:element name="reviewFrequency" type="oab:Frequency"/>
+	<xsd:element name="limitCategory" type="oab:Type"/>
+	<xsd:element name="limitAmount" type="oab:Amount"/>
+	<xsd:element name="riskAmount" type="oab:Amount"/>
+	<xsd:element name="availableAmount" type="oab:Amount"/>
+	<xsd:element name="numberOfDaysOverdue" type="xsd:int"/>
+	<xsd:element name="numberOfEmployees" type="xsd:int"/>
+	<xsd:element name="debitTurnover" type="oab:Amount"/>
+	<xsd:element name="creditTurnover" type="oab:Amount"/>
+	<xsd:element name="debitEntries" type="xsd:int"/>
+	<xsd:element name="creditEntries" type="xsd:int"/>
+	<xsd:element name="percentage" type="xsd:decimal"/>
+	<xsd:element name="authorizationDetails" type="xsd:string"/>
+	<xsd:element name="authorizedSignature" type="xsd:boolean"/>
+	<xsd:element name="commitmentReference" type="xsd:string"/>
+	<!--<xsd:element name="chargeCode" type="xsd:string" />-->
+	<xsd:element name="waivedAmount" type="oab:Amount"/>
+	<xsd:element name="fundingAccount" type="oab:Account"/>
+	<xsd:element name="queuingCharges" type="xsd:boolean"/>
+	<xsd:element name="transactionDate" type="xsd:date"/>
+	<xsd:element name="url" type="xsd:string"/>
+	<xsd:element name="chargeCode">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="offerSummary">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:id"/>
+				<xsd:element ref="oab:reference"/>
+				<xsd:element ref="oab:name"/>
+				<xsd:element ref="oab:description"/>
+				<xsd:element ref="oab:priority"/>
+				<xsd:element minOccurs="0" ref="oab:logo"/>
+				<xsd:element minOccurs="0" ref="oab:rules"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="rules">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:rule"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="logo">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:choice>
+					<xsd:element minOccurs="0" ref="oab:url"/>
+					<xsd:element minOccurs="0" ref="oab:stream"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="helpURL">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:choice>
+					<xsd:element minOccurs="0" ref="oab:url"/>
+					<xsd:element minOccurs="0" ref="oab:stream"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="employee">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:transactionReference"/>
+				<xsd:element ref="oab:documentId"/>
+				<xsd:element minOccurs="0" ref="oab:documentType"/>
+				<xsd:element ref="oab:name"/>
+				<xsd:element ref="oab:swift"/>
+				<xsd:element ref="oab:account"/>
+				<xsd:element minOccurs="0" ref="oab:frequency"/>
+				<xsd:element minOccurs="0" ref="oab:effectiveWorkDays"/>
+				<xsd:element minOccurs="0" ref="oab:extraHours"/>
+				<xsd:element ref="oab:netSalary"/>
+				<xsd:element ref="oab:earnings" minOccurs="1" maxOccurs="2"/>
+				<xsd:element ref="oab:deductions" minOccurs="0" maxOccurs="2"/>
+				<xsd:element ref="oab:detailsOfPayment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="earnings">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:amount"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="deductions">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:amount"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="detailsOfPayment">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:narrative" minOccurs="0" maxOccurs="4"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="transactionStatus">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:transactionReference"/>
+				<xsd:element minOccurs="0" ref="oab:processReference"/>
+				<xsd:element ref="oab:status"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="paymentStatus">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:paymentReference"/>
+				<xsd:element minOccurs="0" ref="oab:processReference"/>
+				<xsd:element minOccurs="0" ref="oab:reference"/>
+				<xsd:element ref="oab:status"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="taxSummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:disclosedByCustomer"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:tin"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:enclosureReason"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="prominentRelation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="1" ref="oab:name"/>
+				<xsd:element minOccurs="1" ref="oab:relation"/>
+				<xsd:element minOccurs="1" ref="oab:organisationName"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:familyMembers"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:code"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="familyMembers">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="1" ref="oab:name"/>
+				<xsd:element minOccurs="1" ref="oab:relation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tin">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="1" ref="oab:country"/>
+				<xsd:element minOccurs="1" ref="oab:id"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enclosureReason">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:country"/>
+				<xsd:element minOccurs="0" ref="oab:reasonCode"/>
+				<xsd:element minOccurs="0" ref="oab:narratives"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="organisationName" type="xsd:string"/>
+	<xsd:element name="relation" type="xsd:string"/>
+	<xsd:element name="disclosedByCustomer" type="xsd:boolean"/>
+	<xsd:element name="lastUpdateDate" type="xsd:date"/>
+	<xsd:element name="issuedBy" type="xsd:string"/>
+	<xsd:element name="authorizerCustomer" type="xsd:string"/>
+	<xsd:element name="authorizerRelation" type="xsd:string"/>
+	<xsd:element name="POANumber" type="xsd:string"/>
+	<xsd:element name="POAExpiryDate" type="xsd:date"/>
+	<xsd:element name="authorizerName" type="xsd:string"/>
+	<xsd:element name="heirsAuthorizerId" type="xsd:string"/>
+	<xsd:element name="POAIssuedDate" type="xsd:date"/>
+	<xsd:element name="access" type="xsd:boolean"/>
+	<xsd:element name="authorizationType" type="xsd:string"/>
+	<xsd:element name="otherRelation" type="xsd:string"/>
+	<xsd:element name="guardian">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:customer"/>
+				<xsd:element minOccurs="0" ref="oab:access"/>
+				<xsd:element minOccurs="0" ref="oab:authorizationType"/>
+				<xsd:element minOccurs="0" ref="oab:relation"/>
+				<xsd:element minOccurs="0" ref="oab:otherRelation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="occupationType" type="xsd:string"/>
+	<xsd:element name="occupation" type="xsd:string"/>
+	<xsd:element name="sixMonthResidence" type="xsd:boolean"/>
+	<xsd:element name="inheritorId" type="xsd:string"/>
+	<xsd:element name="inheritorIdExpiryDate" type="xsd:date"/>
+	<xsd:element name="deceasedPersonId" type="xsd:string"/>
+	<xsd:element name="deathCertificateNumber" type="xsd:string"/>
+	<xsd:element name="homeOwnership" type="xsd:string"/>
+	<xsd:element name="carOwnership" type="xsd:string"/>
+	<xsd:element name="firstName" type="xsd:string"/>
+	<xsd:element name="secondName" type="xsd:string"/>
+	<xsd:element name="thirdName" type="xsd:string"/>
+	<xsd:element name="lastName" type="xsd:string"/>
+	<xsd:element name="arabicFirstName" type="xsd:string"/>
+	<xsd:element name="arabicSecondName" type="xsd:string"/>
+	<xsd:element name="arabicThirdName" type="xsd:string"/>
+	<xsd:element name="arabicLastName" type="xsd:string"/>
+	<xsd:element name="otherBeneficialOwner">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:documentId"/>
+				<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:relation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="addressType" type="xsd:string"/>
+	<xsd:element name="powerOfAttorneySummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:issuedBy"/>
+				<xsd:element minOccurs="0" ref="oab:customer"/>
+				<xsd:element minOccurs="0" ref="oab:relation"/>
+				<xsd:element minOccurs="0" ref="oab:documentId"/>
+				<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:narratives"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="powerOfAttorney">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:id"/>
+				<xsd:element minOccurs="0" ref="oab:issueDate"/>
+				<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:narratives"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="authorizerInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:type"/>
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:arabicName"/>
+				<xsd:element minOccurs="0" ref="oab:shortName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicShortName"/>
+				<xsd:element minOccurs="0" ref="oab:document"/>
+				<xsd:element minOccurs="0" ref="oab:powerOfAttorney"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="inheritorInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:arabicName"/>
+				<xsd:element minOccurs="0" ref="oab:shortName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicShortName"/>
+				<xsd:element minOccurs="0" ref="oab:documentId"/>
+				<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:gender"/>
+				<xsd:element minOccurs="0" ref="oab:birthDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="accountOpeningReason">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:reasons"/>
+				<xsd:element minOccurs="0" ref="oab:narratives"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="dealingWithOtherBanks">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:swift" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="expectedTransaction">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:amount"/>
+				<xsd:element minOccurs="0" ref="oab:countries"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="income">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:amount"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tenor">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="18"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="wavier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:boolean"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="eligibility">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:code"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="balance">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="18"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="purposeOfLoan">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="referenceFacilities">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:reference" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="attachment">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:type"/>
+				<xsd:element ref="oab:name"/>
+				<xsd:choice>
+					<xsd:element ref="oab:stream"/>
+					<xsd:element ref="oab:location"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="addressSummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:addressType"/>
+				<xsd:element minOccurs="0" ref="oab:address"/>
+				<xsd:element minOccurs="0" ref="oab:addressCountry"/>
+				<xsd:element minOccurs="0" ref="oab:city"/>
+				<xsd:element minOccurs="0" ref="oab:buildingVillaNumber"/>
+				<xsd:element minOccurs="0" ref="oab:flatNumber"/>
+				<xsd:element minOccurs="0" ref="oab:wayNumber"/>
+				<xsd:element minOccurs="0" ref="oab:street"/>
+				<xsd:element minOccurs="0" ref="oab:landmark"/>
+				<xsd:element minOccurs="0" ref="oab:contacts"/>
+				<xsd:element minOccurs="0" ref="oab:email"/>
+				<xsd:element minOccurs="0" ref="oab:POBox"/>
+				<xsd:element minOccurs="0" ref="oab:postalCode"/>
+				<xsd:element minOccurs="0" ref="oab:areaCode"/>
+				<xsd:element minOccurs="0" ref="oab:swift"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="stage" type="xsd:string"/>
+	<xsd:element name="preferredBranch" type="xsd:string"/>
+	<xsd:element name="loanPurpose" type="xsd:string"/>
+	<xsd:element name="loanReference" type="xsd:string"/>
+	<xsd:element name="loanAmount" type="xsd:string"/>
+	<xsd:element name="remarks" type="xsd:string"/>
+	<xsd:element name="destination" type="xsd:string"/>
+	<xsd:attribute name="company" type="xsd:string"/>
+	<xsd:element name="refreshInterval" type="xsd:string"/>
+	<xsd:element name="financialInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:facilities"/>
+				<xsd:element minOccurs="0" ref="oab:otherIncomes"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="otherIncomes">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:income"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="facilities">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:facility"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="facility">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:reference"/>
+				<xsd:element ref="oab:type"/>
+				<xsd:element ref="oab:installment"/>
+				<xsd:element ref="oab:outstandingAmount"/>
+				<xsd:element ref="oab:remarks"/>
+				<xsd:element minOccurs="0" ref="oab:installment"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="attachement">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:type"/>
+				<xsd:choice>
+					<xsd:element ref="oab:stream"/>
+					<xsd:element ref="oab:location"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="loanInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:loanType"/>
+				<xsd:element ref="oab:loanPurpose"/>
+				<xsd:element minOccurs="0" ref="oab:loanReference"/>
+				<xsd:element ref="oab:loanAmount"/>
+				<xsd:element minOccurs="0" ref="oab:installment"/>
+				<xsd:element minOccurs="0" ref="oab:currency"/>
+				<xsd:element ref="oab:startDate"/>
+				<xsd:element minOccurs="0" ref="oab:endDate"/>
+				<xsd:element minOccurs="0" ref="oab:rate"/>
+				<xsd:element minOccurs="0" ref="oab:interestFrequency"/>
+				<xsd:element minOccurs="0" ref="oab:instalmentFrequency"/>
+				<xsd:element minOccurs="0" ref="oab:account"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:insurance"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:fee"/>
+				<xsd:element minOccurs="0" ref="oab:otherDetails"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="insurance">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+					<xsd:attribute ref="oab:id"/>
+					<xsd:attribute ref="oab:company"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="fees">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:feeDetails"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="feeDetails">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:amount"/>
+				<xsd:element minOccurs="0" ref="oab:currency"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:text"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="discounts">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:discountDetails"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="discountDetails">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:amount"/>
+				<xsd:element minOccurs="0" ref="oab:currency"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:text"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="fee">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+					<xsd:attribute ref="oab:id"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="customerInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:arabicName"/>
+				<xsd:element minOccurs="0" ref="oab:shortName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicShortName"/>
+				<xsd:element minOccurs="0" ref="oab:firstName"/>
+				<xsd:element minOccurs="0" ref="oab:secondName"/>
+				<xsd:element minOccurs="0" ref="oab:thirdName"/>
+				<xsd:element minOccurs="0" ref="oab:lastName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicFirstName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicSecondName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicThirdName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicLastName"/>
+				<xsd:element minOccurs="0" ref="oab:language"/>
+				<xsd:element ref="oab:gender"/>
+				<xsd:element ref="oab:nationality"/>
+				<xsd:element minOccurs="0" ref="oab:otherNationalities"/>
+				<xsd:element ref="oab:birthDate"/>
+				<xsd:element ref="oab:countryOfBirth"/>
+				<xsd:element minOccurs="0" ref="oab:placeOfBirth"/>
+				<xsd:element minOccurs="0" ref="oab:cityOfBirth"/>
+				<xsd:element minOccurs="0" ref="oab:socialStatus"/>
+				<xsd:element minOccurs="0" ref="oab:title"/>
+				<xsd:element minOccurs="0" ref="oab:customerType"/>
+				<xsd:element ref="oab:branch"/>
+				<xsd:element minOccurs="0" ref="oab:parentCountry"/>
+				<xsd:element minOccurs="0" ref="oab:riskCountry"/>
+				<xsd:element minOccurs="0" ref="oab:residenceCountry"/>
+				<xsd:element minOccurs="0" ref="oab:internalRiskCountry"/>
+				<xsd:element minOccurs="0" ref="oab:group"/>
+				<xsd:element ref="oab:customerIdentifications"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Get Customer Profile Service Replies-->
+	<xsd:element name="generalInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:customerClass"/>
+				<xsd:element minOccurs="1" ref="oab:name"/>
+				<xsd:element minOccurs="1" ref="oab:arabicName"/>
+				<xsd:element ref="oab:shortName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicShortName"/>
+				<xsd:element minOccurs="0" ref="oab:firstName"/>
+				<xsd:element minOccurs="0" ref="oab:secondName"/>
+				<xsd:element minOccurs="0" ref="oab:thirdName"/>
+				<xsd:element minOccurs="0" ref="oab:lastName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicFirstName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicSecondName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicThirdName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicLastName"/>
+				<xsd:element minOccurs="0" ref="oab:branch"/>
+				<xsd:element ref="oab:customerType"/>
+				<xsd:element ref="oab:customerCategory"/>
+				<xsd:element ref="oab:closed"/>
+				<xsd:element ref="oab:deceasedOrLiquidation"/>
+				<xsd:element ref="oab:inactive"/>
+				<xsd:element minOccurs="0" ref="oab:language"/>
+				<xsd:element minOccurs="0" ref="oab:parentCountry"/>
+				<xsd:element minOccurs="0" ref="oab:riskCountry"/>
+				<xsd:element minOccurs="0" ref="oab:residenceCountry"/>
+				<xsd:element minOccurs="0" ref="oab:internalRiskCountry"/>
+				<xsd:element minOccurs="0" ref="oab:accountOpeningReason"/>
+				<xsd:element minOccurs="0" ref="oab:guardian"/>
+				<xsd:element minOccurs="0" ref="oab:sixMonthResidence"/>
+				<xsd:element minOccurs="0" ref="oab:customerOpenDate"/>
+				<xsd:element minOccurs="0" ref="oab:customerCloseDate"/>
+				<xsd:element minOccurs="0" ref="oab:lastUpdateDate"/>
+				<xsd:element minOccurs="0" ref="oab:group"/>
+				<xsd:element minOccurs="0" ref="oab:otherDetails"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="additionalInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:civilId"/>
+				<xsd:element minOccurs="0" ref="oab:civilIdExpiry"/>
+				<xsd:element minOccurs="0" ref="oab:documentId"/>
+				<xsd:element minOccurs="0" ref="oab:documentType"/>
+				<xsd:element minOccurs="0" ref="oab:documentIssueDate"/>
+				<xsd:element minOccurs="0" ref="oab:documentExpiryDate"/>
+				<xsd:element minOccurs="0" ref="oab:gender"/>
+				<xsd:element minOccurs="0" ref="oab:nationality"/>
+				<xsd:element minOccurs="0" ref="oab:otherNationalities"/>
+				<xsd:element minOccurs="0" ref="oab:birthDate"/>
+				<xsd:element minOccurs="0" ref="oab:socialStatus"/>
+				<xsd:element minOccurs="0" ref="oab:title"/>
+				<xsd:element minOccurs="0" ref="oab:statementByEmail"/>
+				<xsd:element minOccurs="0" ref="oab:companyCategory"/>
+				<xsd:element minOccurs="0" ref="oab:homeOwnership"/>
+				<xsd:element minOccurs="0" ref="oab:carOwnership"/>
+				<xsd:element minOccurs="0" ref="oab:countryOfBirth"/>
+				<xsd:element minOccurs="0" ref="oab:cityOfBirth"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="employmentInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:employer"/>
+				<xsd:element minOccurs="0" ref="oab:grade"/>
+				<xsd:element minOccurs="0" ref="oab:sector"/>
+				<xsd:element minOccurs="0" ref="oab:country"/>
+				<xsd:element minOccurs="0" ref="oab:group"/>
+				<xsd:element minOccurs="0" ref="oab:occupation"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:occupationType"/>
+				<xsd:element minOccurs="0" ref="oab:jobTitle"/>
+				<xsd:element minOccurs="0" ref="oab:hiringDate"/>
+				<xsd:element minOccurs="0" ref="oab:salary"/>
+				<xsd:element minOccurs="0" ref="oab:currency"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="addressInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:addressSummary"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="taxInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:taxSummary"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="incomeInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:income"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="fatcaInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:question"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="prominentRelationInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:prominentRelation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="powerOfAttorneyInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:powerOfAttorneySummary"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="screeningInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:otherBeneficialOwner"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:expectedTransaction"/>
+				<xsd:element minOccurs="0" ref="oab:dealingWithOtherBanks"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="heirsInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:deceasedPersonId"/>
+				<xsd:element minOccurs="0" ref="oab:deathCertificateNumber"/>
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:arabicName"/>
+				<xsd:element minOccurs="0" ref="oab:shortName"/>
+				<xsd:element minOccurs="0" ref="oab:arabicShortName"/>
+				<xsd:element minOccurs="0" ref="oab:firstName"/>
+				<xsd:element minOccurs="0" ref="oab:secondName"/>
+				<xsd:element minOccurs="0" ref="oab:thirdName"/>
+				<xsd:element minOccurs="0" ref="oab:lastName"/>
+				<xsd:element minOccurs="0" ref="oab:type"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:authorizerInformation"/>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:inheritorInformation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="insuranceCompany">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="loanPayment">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="oab:sequence" minOccurs="1"/>
+				<xsd:element ref="oab:dueDate" minOccurs="1"/>
+				<xsd:element ref="oab:amount" minOccurs="1"/>
+				<xsd:element ref="oab:principal" minOccurs="0"/>
+				<xsd:element ref="oab:interest" minOccurs="0"/>
+				<xsd:element ref="oab:balance" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="customerSummary">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:civilId"/>
+				<xsd:element ref="oab:phoneNumber"/>
+				<xsd:element ref="oab:customer"/>
+				<xsd:element minOccurs="1" ref="oab:name"/>
+				<xsd:element ref="oab:arabicName"/>
+				<xsd:element minOccurs="0" ref="oab:branch"/>
+				<xsd:element ref="oab:customerType"/>
+				<xsd:element ref="oab:closed"/>
+				<xsd:element ref="oab:deceasedOrLiquidation"/>
+				<xsd:element ref="oab:inactive"/>
+				<xsd:element minOccurs="0" ref="oab:language"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--SavingGoals-->
+	<xsd:element name="recurringAmount">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="18"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="goalAction">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="3"/>
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="actionParameters">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:parameter" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="lastUpdate">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="18"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<!--Referral Service-->
+	<xsd:element name="referralerId">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="oab:referralerIdLength">
+					<xsd:attribute ref="oab:type"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="referralerIdLength">
+		<xsd:annotation/>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="128"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="productSummary">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:id"/>
+				<xsd:element minOccurs="0" ref="oab:type"/>
+				<xsd:element minOccurs="0" ref="oab:otherDetails"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="assigneeInformation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:name"/>
+				<xsd:element minOccurs="0" ref="oab:language"/>
+				<xsd:element minOccurs="0" ref="oab:gender"/>
+				<xsd:element minOccurs="0" ref="oab:nationality"/>
+				<xsd:element minOccurs="0" ref="oab:birthDate"/>
+				<xsd:element minOccurs="0" ref="oab:countryOfBirth"/>
+				<xsd:element minOccurs="0" ref="oab:socialStatus"/>
+				<xsd:element minOccurs="0" ref="oab:title"/>
+				<xsd:element minOccurs="0" ref="oab:parentCountry"/>
+				<xsd:element minOccurs="0" ref="oab:residenceCountry"/>
+				<xsd:element minOccurs="0" ref="oab:assigneeidentifications"/>
+				<xsd:element minOccurs="0" ref="oab:dealingWithOtherBanks"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="assigneeAddress">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:addressCountry"/>
+				<xsd:element minOccurs="0" ref="oab:city"/>
+				<xsd:element minOccurs="0" ref="oab:buildingVillaNumber"/>
+				<xsd:element minOccurs="0" ref="oab:flatNumber"/>
+				<xsd:element minOccurs="0" ref="oab:wayNumber"/>
+				<xsd:element minOccurs="0" ref="oab:street"/>
+				<xsd:element minOccurs="0" ref="oab:landmark"/>
+				<xsd:element minOccurs="0" ref="oab:contacts"/>
+				<xsd:element minOccurs="0" ref="oab:email"/>
+				<xsd:element minOccurs="0" ref="oab:POBox"/>
+				<xsd:element minOccurs="0" ref="oab:postalCode"/>
+				<xsd:element minOccurs="0" ref="oab:areaCode"/>
+				<xsd:element minOccurs="0" ref="oab:contactMethod"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="assigneeidentifications">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element maxOccurs="unbounded" ref="oab:document"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="applicationDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:submitDate"/>
+				<xsd:element minOccurs="0" ref="oab:closeDate"/>
+				<xsd:element minOccurs="0" ref="oab:incentive"/>
+				<xsd:element minOccurs="0" ref="oab:status"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="submitDate" type="xsd:date"/>
+	<xsd:element name="closeDate" type="xsd:date"/>
+	<xsd:element name="incentive">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:type"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="preferredCallDate" type="xsd:date"/>
+	<xsd:element name="preferredCallTime">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="fixedCallTime" type="xsd:time"/>
+	<xsd:element name="expectedJoiningDate" type="xsd:date"/>
+	<xsd:element name="createDate" type="xsd:date"/>
+	<!--Header Parameters-->
+	<xsd:element name="transactionTime" type="xsd:time"/>
+	<xsd:element name="transactionReference">
+		<xsd:simpleType>
+			<xsd:annotation/>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="48"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="channelReserved">
+		<xsd:simpleType>
+			<xsd:annotation/>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="128"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="replyDate" type="xsd:date"/>
+	<xsd:element name="replyTime" type="xsd:time"/>
+	<xsd:element name="replyStatus">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="3"/>
+				<xsd:enumeration value="FIN"/>
+				<xsd:enumeration value="REC"/>
+				<xsd:enumeration value="ACK"/>
+				<xsd:enumeration value="ERR"/>
+				<xsd:enumeration value="INF"/>
+				<xsd:enumeration value="WRN"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="workstation">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="15"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="channel" type="xsd:string"/>
+	<xsd:element name="catalogId" type="xsd:string"/>
+	<xsd:element name="catalogName" type="xsd:string"/>
+	<xsd:element name="host" type="xsd:string"/>
+	<xsd:element name="apiName" type="xsd:string"/>
+	<xsd:element name="organizationId" type="xsd:string"/>
+	<xsd:element name="organizationName" type="xsd:string"/>
+	<xsd:element name="requestType" type="xsd:string"/>
+	<xsd:element name="applicationName" type="xsd:string"/>
+	<xsd:element name="consumerId" type="xsd:string"/>
+	<xsd:element name="consumerName" type="xsd:string"/>
+	<xsd:element name="productName" type="xsd:string"/>
+	<xsd:element name="planId" type="xsd:string"/>
+	<xsd:element name="planName" type="xsd:string"/>
+	<xsd:element name="planVersion" type="xsd:string"/>
+	<xsd:element name="apiRequestDate" type="xsd:string"/>
+	<xsd:element name="apiRequestTime" type="xsd:string"/>
+	<xsd:element name="clientAdress" type="xsd:string"/>
+	<xsd:element name="adMessage">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="1024"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="basicCoverPremium">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:double"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="optionalCoverPremium">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:double"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="discountedAmount">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:double"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="totalPremium">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:double"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="usage">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="plateCode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="plateNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="cubicCentimeter">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="engineNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="vin">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="35"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="firstRegistrationDate">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:dateTime"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="governance">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="province">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="age">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="capacity">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="mortgageBank">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="countryCode" type="xsd:string"/>
+	<xsd:element name="promotionCode" type="xsd:string"/>
+	<xsd:element name="driver">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:name"/>
+				<xsd:element ref="oab:age"/>
+				<xsd:element ref="oab:type"/>
+				<xsd:element ref="oab:documentId" minOccurs="0"/>
+				<xsd:element ref="oab:documentIssueDate" minOccurs="0"/>
+				<xsd:element ref="oab:documentExpiryDate" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="driverList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="oab:driver" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="primaryCustomer">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="34"/>
+				<xsd:pattern value="[0-9]{6,7}"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="jointRelation">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="oab:text"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="accountBasicNumber" type="xsd:string"/>
+	<xsd:element name="category">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="oab:names" minOccurs="0"/>
+				<xsd:element ref="oab:logo" minOccurs="0"/>
+				<xsd:element ref="oab:partner" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="partner">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="oab:names" minOccurs="0"/>
+				<xsd:element ref="oab:shortNames"/>
+				<xsd:element ref="oab:logo" minOccurs="0"/>
+				<xsd:element ref="oab:adMessages" minOccurs="0"/>
+				<xsd:element ref="oab:bill" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="bill">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="oab:names"/>
+				<xsd:element ref="oab:shortNames"/>
+				<xsd:element ref="oab:logo" minOccurs="0"/>
+				<xsd:element ref="oab:contractNumberMode" minOccurs="0"/>
+				<xsd:element ref="oab:accountNumberMode" minOccurs="0"/>
+				<xsd:element ref="oab:billNumberMode" minOccurs="0"/>
+				<xsd:element ref="oab:retrievalKeyMode" minOccurs="0"/>
+				<xsd:element ref="oab:retrievalKeyDescriptions" minOccurs="0"/>
+				<xsd:element ref="oab:retrievalKeyRegex" minOccurs="0"/>
+				<xsd:element ref="oab:paymentCategories" minOccurs="0"/>
+				<xsd:element ref="oab:enquiryAmount"/>
+				<xsd:element ref="oab:minimumAmount" minOccurs="0"/>
+				<xsd:element ref="oab:maximumAmount" minOccurs="0"/>
+				<xsd:element ref="oab:multipleOfAmount" minOccurs="0"/>
+				<xsd:element ref="oab:paymentType"/>
+				<xsd:element ref="oab:integrationType"/>
+				<xsd:element ref="oab:adMessages" minOccurs="0"/>
+				<xsd:element ref="oab:helpURL" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+			<xsd:attribute ref="oab:type"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="paymentCategories">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="oab:paymentCategory" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="equivalentCurrency" type="oab:Currency"/>
+	<xsd:element name="equivalentCurrentAvailableBalance" type="oab:Amount"/>
+	<xsd:element name="contractNumberMode" type="xsd:string"/>
+	<xsd:element name="accountNumberMode" type="xsd:string"/>
+	<xsd:element name="billNumberMode" type="xsd:string"/>
+	<xsd:element name="retrievalKeyMode" type="xsd:string"/>
+	<xsd:element name="retrievalKeyRegex" type="xsd:string"/>
+	<xsd:element name="enquiryAmount" type="oab:Amount"/>
+	<xsd:element name="replyFaultCode" type="xsd:string"/>
+	<xsd:element name="replyFaultString" type="xsd:string"/>
+	<xsd:element name="replyFaultNumber" type="xsd:string"/>
+	<xsd:element name="insuranceDetails">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="oab:name" minOccurs="0"/>
+				<xsd:element ref="oab:shortName" minOccurs="0"/>
+				<xsd:element ref="oab:arabicName" minOccurs="0"/>
+				<xsd:element ref="oab:logo" minOccurs="0"/>
+				<xsd:element ref="oab:adMessage" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:id"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Master Card-->
+	<xsd:element name="natureOfEntity" type="xsd:string"/>
+	<xsd:element name="middleName" type="xsd:string"/>
+	<xsd:element name="isDefault" type="xsd:string"/>
+	<xsd:element name="institutionCode" type="xsd:string"/>
+	<xsd:element name="institutionName" type="xsd:string"/>
+	<xsd:element name="branchCode" type="xsd:string"/>
+	<xsd:element name="branchName" type="xsd:string"/>
+	<xsd:element name="financialSystem" type="xsd:string"/>
+	<xsd:element name="walltetProvider" type="xsd:string"/>
+	<xsd:element name="addressDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="oab:type"/>
+				<xsd:element minOccurs="0" ref="oab:information"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="accountInformation">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:alias"/>
+				<xsd:element minOccurs="0" ref="oab:isDefault"/>
+				<xsd:element minOccurs="0" ref="oab:accountIdentifier"/>
+				<xsd:element minOccurs="0" ref="oab:accountType"/>
+				<xsd:choice>
+					<xsd:choice>
+						<xsd:sequence>
+							<xsd:element ref="oab:swift" minOccurs="0"/>
+							<xsd:element ref="oab:financialSystem" minOccurs="0"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:element minOccurs="1" ref="oab:country"/>
+							<xsd:element minOccurs="1" ref="oab:institutionCode"/>
+							<xsd:element minOccurs="0" ref="oab:institutionName"/>
+							<xsd:element minOccurs="0" ref="oab:branchCode"/>
+							<xsd:element minOccurs="0" ref="oab:branchName"/>
+							<xsd:element minOccurs="0" ref="oab:location"/>
+							<xsd:element minOccurs="0" ref="oab:address"/>
+							<xsd:element ref="oab:financialSystem" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:choice>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" ref="oab:walltetProvider"/>
+						<xsd:element minOccurs="0" ref="oab:country"/>
+					</xsd:sequence>
+					<xsd:sequence>
+						<xsd:element minOccurs="0" ref="oab:expiryDate"/>
+					</xsd:sequence>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Header">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:catalogId"/>
+				<xsd:element minOccurs="0" ref="oab:catalogName"/>
+				<xsd:element minOccurs="0" ref="oab:host"/>
+				<xsd:element minOccurs="0" ref="oab:apiName"/>
+				<xsd:element minOccurs="0" ref="oab:organizationId"/>
+				<xsd:element minOccurs="0" ref="oab:organizationName"/>
+				<xsd:element minOccurs="0" ref="oab:requestType"/>
+				<xsd:element minOccurs="0" ref="oab:applicationName"/>
+				<xsd:element minOccurs="0" ref="oab:consumerId"/>
+				<xsd:element minOccurs="0" ref="oab:consumerName"/>
+				<xsd:element minOccurs="0" ref="oab:productName"/>
+				<xsd:element minOccurs="0" ref="oab:planId"/>
+				<xsd:element minOccurs="0" ref="oab:planName"/>
+				<xsd:element minOccurs="0" ref="oab:planVersion"/>
+				<xsd:element minOccurs="0" ref="oab:apiRequestDate"/>
+				<xsd:element minOccurs="0" ref="oab:apiRequestTime"/>
+				<xsd:element minOccurs="0" ref="oab:clientAdress"/>
+				<xsd:element ref="oab:channel"/>
+				<xsd:element minOccurs="0" ref="oab:branch"/>
+				<xsd:element minOccurs="0" ref="oab:user"/>
+				<xsd:element minOccurs="0" ref="oab:password"/>
+				<xsd:element minOccurs="0" ref="oab:securityKey"/>
+				<xsd:element minOccurs="0" ref="oab:workstation"/>
+				<xsd:element ref="oab:transactionDate"/>
+				<xsd:element ref="oab:transactionTime"/>
+				<xsd:element ref="oab:transactionReference"/>
+				<xsd:element minOccurs="0" ref="oab:channelReserved"/>
+				<xsd:element minOccurs="0" ref="oab:language"/>
+				<xsd:element minOccurs="0" ref="oab:replyDate"/>
+				<xsd:element minOccurs="0" ref="oab:replyTime"/>
+				<xsd:element minOccurs="0" ref="oab:replyStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Fault">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element name="faultCode" type="xsd:string"/>
+				<xsd:element name="faultString" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="detail">
+					<xsd:complexType>
+						<xsd:sequence maxOccurs="1" minOccurs="1">
+							<xsd:element minOccurs="0" name="faultNumber" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OTP">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

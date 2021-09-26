@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:oab="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="Request">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element ibmSchExtn:docRoot="true" name="Reply">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data" minOccurs="0"/>
+        <xsd:element ref="oab:Fault" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Data">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:choice>
+          <xsd:element ref="oab:ProcessBulkPaymentsRequest"/>
+          <xsd:element ref="oab:BulkPaymentsRequest"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ProcessBulkPaymentsRequest">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="oab:externalReference"/>
+        <xsd:element ref="oab:account" minOccurs="1"/>
+		<xsd:element minOccurs="0" ref="oab:processingDate"/>
+        <xsd:element ref="oab:paymentDetails" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element ref="oab:callBackURL" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="paymentDetails">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="oab:paymentReference" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:amount" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="oab:currency" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="oab:beneficiary" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="oab:purpose" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:userReference" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:detailsOfPayment" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:charges" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:rate" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:contractReference" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="contractReference" type="xsd:string"/>
+  <xsd:element name="callBackURL" type="xsd:string"/>
+  <xsd:element name="charges">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="oab:account"/>
+        <xsd:element minOccurs="0" ref="oab:amount"/>
+        <xsd:element minOccurs="0" ref="oab:currency"/>
+        <xsd:element minOccurs="0" ref="oab:deductFromAmount"/>
+        <xsd:element minOccurs="0" ref="oab:transferCharges"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="transferCharges">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="SHA"/>
+        <xsd:enumeration value="OUR"/>
+        <xsd:enumeration value="BEN"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="beneficiary">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="oab:name" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:document" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:address" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:email" minOccurs="0" maxOccurs="1"/>
+        <xsd:element ref="oab:accountIdentifier" minOccurs="1" maxOccurs="1"/>
+        <xsd:element ref="oab:swift" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="BulkPaymentsRequest">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="oab:reference"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

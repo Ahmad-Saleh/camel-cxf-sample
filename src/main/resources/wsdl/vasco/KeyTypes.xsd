@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/KeyTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/KeyTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="KeyAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="KEYFLD_KEY_ID"/>
+            <enumeration value="KEYFLD_KCV"/>
+            <enumeration value="KEYFLD_KEY_LABEL"/>
+            <enumeration value="KEYFLD_SLOT_ID"/>
+            <enumeration value="KEYFLD_USAGE"/>
+            <enumeration value="KEYFLD_CRYPTO_TYPE"/>
+            <enumeration value="KEYFLD_CRYPTO_ALGO"/>
+            <enumeration value="KEYFLD_TOKEN_LABEL"/>
+            <enumeration value="KEYFLD_TOKEN_PIN"/>
+            <enumeration value="KEYFLD_DESCRIPTION"/>
+            <enumeration value="KEYFLD_VALUE"/>
+            <enumeration value="KEYFLD_DEFAULT_KEY"/>
+            <enumeration value="KEYFLD_LEGACY_MODE"/>
+            <enumeration value="KEYFLD_NCIPHER_KEYHASH"/>
+            <enumeration value="KEYFLD_CREATE_TIME"/>
+            <enumeration value="KEYFLD_MODIFY_TIME"/>
+            <enumeration value="KEYFLD_CACHE_ID"/>
+            <enumeration value="KEYFLD_SCHEDULE"/>
+            <enumeration value="KEYFLD_SCHEDULE_TIME"/>
+            <enumeration value="KEYFLD_SCHEDULE_DATE"/>
+            <enumeration value="KEYFLD_NOTIFY"/>
+            <enumeration value="KEYFLD_ROTATE_ELAPSED_TIME"/>
+            <enumeration value="KEYFLD_ROTATE_FOUND_TOTAL"/>
+            <enumeration value="KEYFLD_ROTATE_SUCCESS"/>
+            <enumeration value="KEYFLD_ROTATE_FAILED"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="KeyAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:KeyAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:KeyAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:KeyAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+            <element name="errorList" type="BASIC-TYPES:RecordErrorList" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:KeyAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:KeyAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:KeyAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="KeyQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:KeyAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

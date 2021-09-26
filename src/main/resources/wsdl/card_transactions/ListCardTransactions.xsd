@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:oab="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <xsd:attribute name="text" type="xsd:string"/>
+  <xsd:attribute name="optionIdentifier">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="64"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:element name="transactionDate" type="xsd:date">
+    <xsd:annotation/>
+  </xsd:element>
+  <xsd:element name="transactionTime" type="xsd:time">
+    <xsd:annotation/>
+  </xsd:element>
+  <xsd:element name="transactionReference">
+    <xsd:simpleType>
+      <xsd:annotation/>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1"/>
+        <xsd:maxLength value="48"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="channelReserved">
+    <xsd:annotation/>
+    <xsd:simpleType>
+      <xsd:annotation/>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="128"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="replyDate" type="xsd:date">
+    <xsd:annotation/>
+  </xsd:element>
+  <xsd:element name="replyTime" type="xsd:time">
+    <xsd:annotation/>
+  </xsd:element>
+  <xsd:element name="replyStatus" type="xsd:string">
+    <xsd:annotation/>
+  </xsd:element>
+  <xsd:element name="workstation">
+    <xsd:simpleType>
+      <xsd:annotation/>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="channel" type="xsd:string"/>
+  <xsd:element name="user" type="xsd:string"/>
+  <xsd:element name="branch">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:length value="4"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="language">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="2"/>
+        <xsd:enumeration value="AR"/>
+        <xsd:enumeration value="EN"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="id" type="xsd:string"/>
+  <xsd:attribute name="currency" type="oab:AbstractCurrency"/>
+  <xsd:simpleType name="Amount">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="5"/>
+      <xsd:totalDigits value="18"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="amount">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="oab:Amount">
+          <xsd:attribute ref="oab:currency"/>
+          <xsd:attribute ref="oab:code"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:attribute name="code" type="xsd:string"/>
+  <xsd:element name="cardHolderName" type="xsd:string"/>
+  <xsd:element name="account">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="13"/>
+        <xsd:maxLength value="34"/>
+        <xsd:pattern value="[0-9]{13,14}"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="currency" type="oab:Currency"/>
+  <xsd:complexType name="Currency">
+    <xsd:simpleContent>
+      <xsd:extension base="oab:AbstractCurrency">
+        <xsd:attribute ref="oab:text"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="AbstractCurrency">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="3"/>
+      <xsd:enumeration value="AFN"/>
+      <xsd:enumeration value="ALL"/>
+      <xsd:enumeration value="DZD"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="AOA"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="ARS"/>
+      <xsd:enumeration value="AMD"/>
+      <xsd:enumeration value="AWG"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="AZM"/>
+      <xsd:enumeration value="BSD"/>
+      <xsd:enumeration value="BHD"/>
+      <xsd:enumeration value="BDT"/>
+      <xsd:enumeration value="BBD"/>
+      <xsd:enumeration value="BYR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="BZD"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="BMD"/>
+      <xsd:enumeration value="INR"/>
+      <xsd:enumeration value="BTN"/>
+      <xsd:enumeration value="BOB"/>
+      <xsd:enumeration value="BOV"/>
+      <xsd:enumeration value="BAM"/>
+      <xsd:enumeration value="BWP"/>
+      <xsd:enumeration value="NOK"/>
+      <xsd:enumeration value="BRL"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="BND"/>
+      <xsd:enumeration value="BGN"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="BIF"/>
+      <xsd:enumeration value="KHR"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="CAD"/>
+      <xsd:enumeration value="CVE"/>
+      <xsd:enumeration value="KYD"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="CLP"/>
+      <xsd:enumeration value="CLF"/>
+      <xsd:enumeration value="CNY"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="COP"/>
+      <xsd:enumeration value="COU"/>
+      <xsd:enumeration value="KMF"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="CDF"/>
+      <xsd:enumeration value="NZD"/>
+      <xsd:enumeration value="CRC"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="HRK"/>
+      <xsd:enumeration value="CUP"/>
+      <xsd:enumeration value="CYP"/>
+      <xsd:enumeration value="CZK"/>
+      <xsd:enumeration value="DKK"/>
+      <xsd:enumeration value="DJF"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="DOP"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="EGP"/>
+      <xsd:enumeration value="SVC"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="ERN"/>
+      <xsd:enumeration value="EEK"/>
+      <xsd:enumeration value="ETB"/>
+      <xsd:enumeration value="FKP"/>
+      <xsd:enumeration value="DKK"/>
+      <xsd:enumeration value="FJD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="XPF"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="XAF"/>
+      <xsd:enumeration value="GMD"/>
+      <xsd:enumeration value="GEL"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="GHC"/>
+      <xsd:enumeration value="GIP"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="DKK"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="GTQ"/>
+      <xsd:enumeration value="GNF"/>
+      <xsd:enumeration value="GWP"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="GYD"/>
+      <xsd:enumeration value="HTG"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="HNL"/>
+      <xsd:enumeration value="HKD"/>
+      <xsd:enumeration value="HUF"/>
+      <xsd:enumeration value="ISK"/>
+      <xsd:enumeration value="INR"/>
+      <xsd:enumeration value="IDR"/>
+      <xsd:enumeration value="XDR"/>
+      <xsd:enumeration value="IRR"/>
+      <xsd:enumeration value="IQD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="ILS"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="JMD"/>
+      <xsd:enumeration value="JPY"/>
+      <xsd:enumeration value="JOD"/>
+      <xsd:enumeration value="KZT"/>
+      <xsd:enumeration value="KES"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="KPW"/>
+      <xsd:enumeration value="KRW"/>
+      <xsd:enumeration value="KWD"/>
+      <xsd:enumeration value="KGS"/>
+      <xsd:enumeration value="LAK"/>
+      <xsd:enumeration value="LVL"/>
+      <xsd:enumeration value="LBP"/>
+      <xsd:enumeration value="ZAR"/>
+      <xsd:enumeration value="LSL"/>
+      <xsd:enumeration value="LRD"/>
+      <xsd:enumeration value="LYD"/>
+      <xsd:enumeration value="CHF"/>
+      <xsd:enumeration value="LTL"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="MOP"/>
+      <xsd:enumeration value="MKD"/>
+      <xsd:enumeration value="MGA"/>
+      <xsd:enumeration value="MWK"/>
+      <xsd:enumeration value="MYR"/>
+      <xsd:enumeration value="MVR"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="MTL"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="MRO"/>
+      <xsd:enumeration value="MUR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="MXN"/>
+      <xsd:enumeration value="MXV"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="MDL"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="MNT"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="MAD"/>
+      <xsd:enumeration value="MZM"/>
+      <xsd:enumeration value="MMK"/>
+      <xsd:enumeration value="ZAR"/>
+      <xsd:enumeration value="NAD"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="NPR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="ANG"/>
+      <xsd:enumeration value="XPF"/>
+      <xsd:enumeration value="NZD"/>
+      <xsd:enumeration value="NIO"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="NGN"/>
+      <xsd:enumeration value="NZD"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="NOK"/>
+      <xsd:enumeration value="OMR"/>
+      <xsd:enumeration value="PKR"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="PAB"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="PGK"/>
+      <xsd:enumeration value="PYG"/>
+      <xsd:enumeration value="PEN"/>
+      <xsd:enumeration value="PHP"/>
+      <xsd:enumeration value="NZD"/>
+      <xsd:enumeration value="PLN"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="QAR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="ROL"/>
+      <xsd:enumeration value="RUB"/>
+      <xsd:enumeration value="RWF"/>
+      <xsd:enumeration value="SHP"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="XCD"/>
+      <xsd:enumeration value="WST"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="STD"/>
+      <xsd:enumeration value="SAR"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="CSD"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="SCR"/>
+      <xsd:enumeration value="SLL"/>
+      <xsd:enumeration value="SGD"/>
+      <xsd:enumeration value="SKK"/>
+      <xsd:enumeration value="SIT"/>
+      <xsd:enumeration value="SBD"/>
+      <xsd:enumeration value="SOS"/>
+      <xsd:enumeration value="ZAR"/>
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="LKR"/>
+      <xsd:enumeration value="SDD"/>
+      <xsd:enumeration value="SRD"/>
+      <xsd:enumeration value="NOK"/>
+      <xsd:enumeration value="SZL"/>
+      <xsd:enumeration value="SEK"/>
+      <xsd:enumeration value="CHF"/>
+      <xsd:enumeration value="CHW"/>
+      <xsd:enumeration value="CHE"/>
+      <xsd:enumeration value="SYP"/>
+      <xsd:enumeration value="TWD"/>
+      <xsd:enumeration value="TJS"/>
+      <xsd:enumeration value="TZS"/>
+      <xsd:enumeration value="THB"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="XOF"/>
+      <xsd:enumeration value="NZD"/>
+      <xsd:enumeration value="TOP"/>
+      <xsd:enumeration value="TTD"/>
+      <xsd:enumeration value="TND"/>
+      <xsd:enumeration value="TRY"/>
+      <xsd:enumeration value="TRL"/>
+      <xsd:enumeration value="TMM"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="AUD"/>
+      <xsd:enumeration value="UGX"/>
+      <xsd:enumeration value="UAH"/>
+      <xsd:enumeration value="AED"/>
+      <xsd:enumeration value="GBP"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="USS"/>
+      <xsd:enumeration value="USN"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="UYU"/>
+      <xsd:enumeration value="UZS"/>
+      <xsd:enumeration value="VUV"/>
+      <xsd:enumeration value="VEB"/>
+      <xsd:enumeration value="VND"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="XPF"/>
+      <xsd:enumeration value="MAD"/>
+      <xsd:enumeration value="YER"/>
+      <xsd:enumeration value="ZMK"/>
+      <xsd:enumeration value="ZWD"/>
+      <xsd:enumeration value="XAU"/>
+      <xsd:enumeration value="XBA"/>
+      <xsd:enumeration value="XBB"/>
+      <xsd:enumeration value="XBC"/>
+      <xsd:enumeration value="XBD"/>
+      <xsd:enumeration value="XPD"/>
+      <xsd:enumeration value="XPT"/>
+      <xsd:enumeration value="XAG"/>
+      <xsd:enumeration value="XFU"/>
+      <xsd:enumeration value="XFO"/>
+      <xsd:enumeration value="XTS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element ibmSchExtn:docRoot="true" name="Request">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element ibmSchExtn:docRoot="true" name="Reply">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="oab:Header"/>
+        <xsd:element ref="oab:Data"/>
+        <xsd:element ref="oab:Fault" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="password" type="xsd:string"/>
+  <xsd:element name="securityKey" type="xsd:string"/>
+  <xsd:element name="catalogId" type="xsd:string"/>
+  <xsd:element name="catalogName" type="xsd:string"/>
+  <xsd:element name="host" type="xsd:string"/>
+  <xsd:element name="apiName" type="xsd:string"/>
+  <xsd:element name="organizationId" type="xsd:string"/>
+  <xsd:element name="organizationName" type="xsd:string"/>
+  <xsd:element name="requestType" type="xsd:string"/>
+  <xsd:element name="applicationName" type="xsd:string"/>
+  <xsd:element name="consumerId" type="xsd:string"/>
+  <xsd:element name="consumerName" type="xsd:string"/>
+  <xsd:element name="productName" type="xsd:string"/>
+  <xsd:element name="planId" type="xsd:string"/>
+  <xsd:element name="planName" type="xsd:string"/>
+  <xsd:element name="planVersion" type="xsd:string"/>
+  <xsd:element name="apiRequestDate" type="xsd:string"/>
+  <xsd:element name="apiRequestTime" type="xsd:string"/>
+  <xsd:element name="clientAdress" type="xsd:string"/>
+  <xsd:element name="Header">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="oab:catalogId"/>
+        <xsd:element minOccurs="0" ref="oab:catalogName"/>
+        <xsd:element minOccurs="0" ref="oab:host"/>
+        <xsd:element minOccurs="0" ref="oab:apiName"/>
+        <xsd:element minOccurs="0" ref="oab:organizationId"/>
+        <xsd:element minOccurs="0" ref="oab:organizationName"/>
+        <xsd:element minOccurs="0" ref="oab:requestType"/>
+        <xsd:element minOccurs="0" ref="oab:applicationName"/>
+        <xsd:element minOccurs="0" ref="oab:consumerId"/>
+        <xsd:element minOccurs="0" ref="oab:consumerName"/>
+        <xsd:element minOccurs="0" ref="oab:productName"/>
+        <xsd:element minOccurs="0" ref="oab:planId"/>
+        <xsd:element minOccurs="0" ref="oab:planName"/>
+        <xsd:element minOccurs="0" ref="oab:planVersion"/>
+        <xsd:element minOccurs="0" ref="oab:apiRequestDate"/>
+        <xsd:element minOccurs="0" ref="oab:apiRequestTime"/>
+        <xsd:element minOccurs="0" ref="oab:clientAdress"/>
+        <xsd:element ref="oab:channel"/>
+        <xsd:element minOccurs="0" ref="oab:branch"/>
+        <xsd:element minOccurs="0" ref="oab:user"/>
+        <xsd:element minOccurs="0" ref="oab:password"/>
+        <xsd:element minOccurs="0" ref="oab:securityKey"/>
+        <xsd:element minOccurs="0" ref="oab:workstation"/>
+        <xsd:element ref="oab:transactionDate"/>
+        <xsd:element ref="oab:transactionTime"/>
+        <xsd:element ref="oab:transactionReference"/>
+        <xsd:element minOccurs="0" ref="oab:channelReserved"/>
+        <xsd:element minOccurs="0" ref="oab:language"/>
+        <xsd:element minOccurs="0" ref="oab:replyDate"/>
+        <xsd:element minOccurs="0" ref="oab:replyTime"/>
+        <xsd:element minOccurs="0" ref="oab:replyStatus"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Fault">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element name="faultCode" type="xsd:string"/>
+        <xsd:element name="faultString" type="xsd:string"/>
+        <xsd:element minOccurs="0" name="detail">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="1" minOccurs="1">
+              <xsd:element minOccurs="0" name="faultNumber" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Data">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="oab:ListCardTransactions"/>
+        <xsd:element minOccurs="1" ref="oab:CardTransactions"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCardTransactions">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="0">
+        <xsd:element minOccurs="1" ref="oab:cardNumber"/>
+        <xsd:element minOccurs="1" ref="oab:cardType"/>
+        <xsd:choice maxOccurs="1" minOccurs="1">
+          <xsd:element minOccurs="1" ref="oab:statementNumber"/>
+          <xsd:element minOccurs="1" ref="oab:statementDate"/>
+          <xsd:element minOccurs="0" ref="oab:fromDate"/>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="oab:toDate"/>
+        <xsd:element minOccurs="0" ref="oab:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="fromDate" type="xsd:date"/>
+  <xsd:element name="toDate" type="xsd:date"/>
+  <xsd:element name="numberOfRecords" type="xsd:int"/>
+  <xsd:element name="statementNumber">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="16"/>
+        <xsd:minLength value="0"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="statementDate" type="xsd:date"/>
+  <xsd:element name="CardTransactions">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="oab:transactionSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="oab:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="transactionSummary">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="oab:reference"/>
+        <xsd:element minOccurs="1" ref="oab:postingDate"/>
+        <xsd:element minOccurs="1" ref="oab:transactionDate"/>
+        <xsd:element minOccurs="1" ref="oab:amount"/>
+        <xsd:element minOccurs="1" ref="oab:currency"/>
+        <xsd:element minOccurs="1" ref="oab:transactionCode"/>
+        <xsd:element minOccurs="0" ref="oab:userReference"/>
+        <xsd:element minOccurs="0" ref="oab:otherDetails"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="transactionCode">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute ref="oab:text"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="userReference">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:minLength value="0"/>
+        <xsd:maxLength value="64"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="postingDate" type="xsd:date"/>
+  <xsd:element name="otherDetails">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="oab:detail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="detail">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute ref="oab:text"/>
+          <xsd:attribute ref="oab:id"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="reference" type="oab:Reference"/>
+  <xsd:complexType name="Reference">
+    <xsd:simpleContent>
+      <xsd:extension base="oab:AbstractReference">
+        <xsd:attribute ref="oab:type"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="AbstractReference">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
+      <xsd:maxLength value="128"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="type" type="xsd:string"/>
+  <xsd:attribute name="id" type="xsd:string"/>
+  <xsd:attribute name="sequence" type="xsd:string"/>
+  <xsd:element name="cardType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:length value="3"/>
+        <xsd:enumeration value="001"/>
+        <xsd:enumeration value="002"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="cardNumber">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute ref="oab:sequence"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

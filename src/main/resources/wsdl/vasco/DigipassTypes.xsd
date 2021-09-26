@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="DigipassAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="DIGIPASSFLD_SERNO"/>
+            <enumeration value="DIGIPASSFLD_DOMAIN"/>
+            <enumeration value="DIGIPASSFLD_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="DIGIPASSFLD_DPTYPE"/>
+            <enumeration value="DIGIPASSFLD_ACTIVE_APPL_NAMES"/>
+            <enumeration value="DIGIPASSFLD_ACTIVE_APPL_TYPES"/>
+            <enumeration value="DIGIPASSFLD_ASSIGN_STATUS"/>
+            <enumeration value="DIGIPASSFLD_ASSIGNED_USERID"/>
+            <enumeration value="DIGIPASSFLD_ASSIGNED_USER_LDAP_DN"/>
+            <enumeration value="DIGIPASSFLD_ASSIGNED_DATE"/>
+            <enumeration value="DIGIPASSFLD_GRACE_PERIOD_EXPIRES"/>
+            <enumeration value="DIGIPASSFLD_BACKUP_VDP_ENABLED"/>
+            <enumeration value="DIGIPASSFLD_BACKUP_VDP_EXPIRES"/>
+            <enumeration value="DIGIPASSFLD_BACKUP_VDP_USES_LEFT"/>
+            <enumeration value="DIGIPASSFLD_DIRECT_ASSIGN_ONLY"/>
+            <enumeration value="DIGIPASSFLD_CREATE_TIME"/>
+            <enumeration value="DIGIPASSFLD_MODIFY_TIME"/>
+            <enumeration value="DIGIPASSFLD_TO_SERNO"/>
+            <enumeration value="DIGIPASSFLD_LDAP_DN"/>
+            <enumeration value="DIGIPASSFLD_SEARCH_UP_OU_PATH"/>
+            <enumeration value="DIGIPASSFLD_ASSIGNED_USER_ORG_UNIT"/>
+            <enumeration value="DIGIPASSFLD_NEW_DOMAIN"/>
+            <enumeration value="DIGIPASSFLD_NEW_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="DIGIPASSFLD_SEARCH_DOWN_OU_PATH"/>
+            <enumeration value="DIGIPASSFLD_TOP_ORGANIZATIONAL_UNIT"/>
+            <enumeration value="DIGIPASSFLD_DPSOFT_PARAMS_ID"/>
+            <enumeration value="DIGIPASSFLD_ACTIV_LOCATIONS"/>
+            <enumeration value="DIGIPASSFLD_ACTIV_COUNT"/>
+            <enumeration value="DIGIPASSFLD_LAST_ACTIV_TIME"/>
+            <enumeration value="DIGIPASSFLD_GRACE_PERIOD_DAYS"/>
+            <enumeration value="DIGIPASSFLD_DP_DESCRIPTION"/>
+            <enumeration value="DIGIPASSFLD_EMVCAP_PAN"/>
+            <enumeration value="DIGIPASSFLD_EXPIRATION_TIME"/>
+            <enumeration value="DIGIPASSFLD_TO_EXPIRATION_TIME"/>
+            <enumeration value="DIGIPASSFLD_BIND_STATUS"/>
+            <enumeration value="DIGIPASSFLD_DERIVATION_CODE"/>
+            <enumeration value="DIGIPASSFLD_EVENT_REACTIVATION_COUNTER"/>
+            <enumeration value="DIGIPASSFLD_FULL_ACTIVATION_DATA"/>
+            <enumeration value="DIGIPASSFLD_QR_CODE"/>
+            <enumeration value="DIGIPASSFLD_DELIVERY_METHOD"/>
+            <enumeration value="DIGIPASSFLD_DESTINATION"/>
+            <enumeration value="DIGIPASSFLD_RESULT_CODE"/>
+            <enumeration value="DIGIPASSFLD_RESULT_MESSAGE"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="DigipassAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:DigipassAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:DigipassAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DigipassAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:DigipassAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:DigipassAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:DigipassAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DigipassQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:DigipassAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

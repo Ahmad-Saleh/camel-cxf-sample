@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.oab.com" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:oab="http://www.oab.com"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<xsd:include
+		schemaLocation="GlobalSchema.xsd"></xsd:include>
+	<xsd:element ibmSchExtn:docRoot="true" name="Request">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:Header" />
+				<xsd:element ref="oab:Data" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element ibmSchExtn:docRoot="true" name="Reply">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element ref="oab:Header" />
+				<xsd:element ref="oab:Data" />
+				<xsd:element ref="oab:Fault" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Data">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element ref="oab:ListUtilityBillers" />
+					<xsd:element ref="oab:UtilityBillers" />
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ListUtilityBillers">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+				<xsd:element minOccurs="0" ref="oab:categoryId"/>
+				<xsd:element minOccurs="0" ref="oab:integrationType"/>
+				<xsd:element minOccurs="0" ref="oab:paymentType"/>
+			</xsd:sequence>
+			<xsd:attribute ref="oab:optionIdentifier" />
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="UtilityBillers">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="1" minOccurs="1">
+			  <xsd:element ref="oab:category" minOccurs="0" maxOccurs="unbounded"></xsd:element>			  
+			</xsd:sequence>
+			<xsd:attribute ref="oab:optionIdentifier" />
+
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>

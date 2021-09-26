@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="loanSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:loanType"/>
+        <xsd:element ref="tns:loanNumber"/>
+        <xsd:element ref="tns:startAmount"/>
+        <xsd:element ref="tns:outstandingAmount"/>
+        <xsd:element minOccurs="0" ref="tns:installment"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:startDate"/>
+        <xsd:element ref="tns:endDate"/>
+        <xsd:element minOccurs="0" ref="tns:rate"/>
+        <xsd:element minOccurs="0" ref="tns:interestFrequency"/>
+        <xsd:element minOccurs="0" ref="tns:instalmentFrequency"/>
+        <xsd:element minOccurs="0" ref="tns:account"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomerLoans">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerLoans;XSDElementDeclaration=1$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:loanType"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerLoans">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerLoans;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:loanSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="Loans">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:ListCustomerLoans"/>
+      <xsd:element ref="tns:CustomerLoans"/>
+      <xsd:element ref="tns:ListLoanPaymentsSchedule"/>
+      <xsd:element ref="tns:LoanPaymentsSchedule"/>
+      <xsd:element ref="tns:ListCustomerFacilityCollaterals"/>
+      <xsd:element ref="tns:CustomerFacilityCollaterals"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="ListLoanPaymentsSchedule">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListLoanPaymentsSchedule;XSDElementDeclaration=3$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:loanNumber"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="LoanPaymentsSchedule">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/LoanPaymentsSchedule;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:loanPayment"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="loanPayment">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:sequence"/>
+        <xsd:element ref="tns:dueDate"/>
+        <xsd:element ref="tns:amount"/>
+        <xsd:element ref="tns:principal"/>
+        <xsd:element ref="tns:interest"/>
+        <xsd:element ref="tns:penalty"/>
+        <xsd:element ref="tns:paidAmount"/>
+        <xsd:element ref="tns:paid"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomerFacilityCollaterals">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerFacilityCollaterals;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:element ref="tns:facilityReference"/>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerFacilityCollaterals">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerFacilityCollaterals;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:collateralSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="collateralSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:collateralType"/>
+        <xsd:element ref="tns:reference"/>
+        <xsd:element minOccurs="0" ref="tns:typeOfSecurity"/>
+        <xsd:element ref="tns:collateralValue"/>
+        <xsd:element minOccurs="0" ref="tns:bankValuation"/>
+        <xsd:element minOccurs="0" ref="tns:insuranceValuation"/>
+        <xsd:element minOccurs="0" ref="tns:valuerValuation"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

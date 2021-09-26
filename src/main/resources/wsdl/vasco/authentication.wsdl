@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:AUTH-SCENARIO="http://www.vasco.com/IdentikeyServer/Scenarios/Authentication"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:AUTH-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Authentication"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="IdentikeyServer"
+             targetNamespace="http://www.vasco.com/IdentikeyServer/Scenarios/Authentication">
+
+    <types>
+        <schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Authentication"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:AUTH-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Authentication"
+                xmlns:CREDENTIAL-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/CredentialTypes.xsd"
+                xmlns:USER-ATTRIBUTE-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd"
+                xmlns="http://www.w3.org/2001/XMLSchema"
+                elementFormDefault="unqualified"
+                attributeFormDefault="unqualified">
+
+            <!-- Imported types -->
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/CredentialTypes.xsd" schemaLocation="CredentialTypes.xsd" />
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd" schemaLocation="UserAttributeTypes.xsd" />
+
+
+            <!-- "authUser" method -->
+            <element name="authUser">
+                <complexType>
+                    <sequence>
+                        <element name="credentialAttributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <complexType name="AuthUserResults">
+                <sequence>
+                    <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1" />
+                    <element name="userAttributeList" type="USER-ATTRIBUTE-TYPES:UserAttributeAttributeList" minOccurs="0" maxOccurs="1" />
+                </sequence>
+            </complexType>
+
+            <element name="authUserResponse">
+                <complexType>
+                    <sequence>
+                        <element name="authUserResults" type="AUTH-TYPES:AuthUserResults" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "getChallenge" method -->
+            <element name="getChallenge">
+                <complexType>
+                    <sequence>
+                        <element name="credentialAttributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="getChallengeRespond">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+
+            <!-- "updatePassword" method -->
+            <element name="updatePassword">
+                <complexType>
+                    <sequence>
+                        <element name="credentialAttributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="updatePasswordRespond">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+              <!-- "changeEncStatPwd" method -->
+            <element name="changeEncStatPwd">
+                <complexType>
+                    <sequence>
+                        <element name="credentialAttributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="changeEncStatPwdRespond">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+
+        </schema>
+    </types>
+
+
+    <!-- ************************************ AUTHENTICATION SCENARIO ************************************ -->
+    <!-- "authUser" messages -->
+    <message  name="authUserInput">
+        <part name="parameters" element="AUTH-TYPES:authUser"/>
+    </message>
+
+    <message  name="authUserOutput">
+        <part name="parameters" element="AUTH-TYPES:authUserResponse"/>
+    </message>
+
+    <message  name="getChallengeInput">
+        <part name="parameters" element="AUTH-TYPES:getChallenge"/>
+    </message>
+
+    <message  name="getChallengeOutput">
+        <part name="parameters" element="AUTH-TYPES:getChallengeRespond"/>
+    </message>
+
+    <message  name="updatePasswordInput">
+        <part name="parameters" element="AUTH-TYPES:updatePassword"/>
+    </message>
+
+    <message  name="updatePasswordOutput">
+        <part name="parameters" element="AUTH-TYPES:updatePasswordRespond"/>
+    </message>
+
+    <message  name="changeEncStatPwdInput">
+        <part name="parameters" element="AUTH-TYPES:changeEncStatPwd"/>
+    </message>
+
+    <message  name="changeEncStatPwdOutput">
+        <part name="parameters" element="AUTH-TYPES:changeEncStatPwdRespond"/>
+    </message>
+
+    <portType   name="AuthenticationPortType">
+        <operation name="authUser">
+            <documentation>Authenticate a user</documentation>
+            <input  message="AUTH-SCENARIO:authUserInput"/>
+            <output message="AUTH-SCENARIO:authUserOutput"/>
+        </operation>
+
+        <operation name="getChallenge">
+            <documentation>Get Challenge</documentation>
+            <input  message="AUTH-SCENARIO:getChallengeInput"/>
+            <output message="AUTH-SCENARIO:getChallengeOutput"/>
+        </operation>
+
+        <operation name="updatePassword">
+            <documentation>Update Password</documentation>
+            <input  message="AUTH-SCENARIO:updatePasswordInput"/>
+            <output message="AUTH-SCENARIO:updatePasswordOutput"/>
+        </operation>
+        <operation name="changeEncStatPwd">
+            <documentation>Change Encrypted Static Password</documentation>
+            <input  message="AUTH-SCENARIO:changeEncStatPwdInput"/>
+            <output message="AUTH-SCENARIO:changeEncStatPwdOutput"/>
+        </operation>
+    </portType>
+
+    <binding name="Authentication"
+             type="AUTH-SCENARIO:AuthenticationPortType">
+        <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="authUser">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="getChallenge">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="updatePassword">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="changeEncStatPwd">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="Authentication">
+        <documentation>The IDENTIKEY Authentication Server authentication scenario web services</documentation>
+        <port name="AuthenticationPortType" binding="AUTH-SCENARIO:Authentication">
+            <SOAP:address location="http://localhost:8888"/>
+        </port>
+    </service>
+
+</definitions>

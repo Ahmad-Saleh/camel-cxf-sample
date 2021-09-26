@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetCustomerInformationMediation" targetNamespace="http://www.oab.com" xmlns:oab="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="GetCustomerInformationMediationSOAP" originalBindingStyle="document"/>
+        <generatedXSD location="GetCustomerInformation.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+	
+	<wsdl:types>
+
+		<xsd:schema targetNamespace="http://www.oab.com" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="GetCustomerInformation.xsd"/>
+</xsd:schema>
+		<xsd:schema>
+<xsd:import namespace="http://www.oab.com" schemaLocation="GetCustomerInformation.xsd">
+			</xsd:import>
+</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Request">
+		<wsdl:part element="oab:Request" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="Reply">
+		<wsdl:part element="oab:Reply" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="GetCustomerInformationMediation">
+		<wsdl:operation name="GetCustomerInformation">
+			<wsdl:input message="oab:Request"/>
+			<wsdl:output message="oab:Reply"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetCustomerInformationMediationSOAP" type="oab:GetCustomerInformationMediation">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetCustomerInformation">
+			<soap:operation soapAction="http://www.oab.com/GetCustomerInformation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GetCustomerInformationMediation">
+		<wsdl:port binding="oab:GetCustomerInformationMediationSOAP" name="GetCustomerInformationMediationSOAP">
+			<soap:address location="http://www.oab.com"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

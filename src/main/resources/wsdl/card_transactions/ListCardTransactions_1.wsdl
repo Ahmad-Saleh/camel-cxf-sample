@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ListCardTransactionsMediation" targetNamespace="http://www.oab.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:oab="http://www.oab.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="ListCardTransactionsMediationSOAP" originalBindingStyle="document"/>
+        <generatedXSD location="ListCardTransactions.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.oab.com" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="ListCardTransactions.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.oab.com" schemaLocation="ListCardTransactions.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Request">
+    <wsdl:part element="oab:Request" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Reply">
+    <wsdl:part element="oab:Reply" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ListCardTransactionsMediation">
+    <wsdl:operation name="ListCardTransactions">
+      <wsdl:input message="oab:Request"/>
+      <wsdl:output message="oab:Reply"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ListCardTransactionsMediationSOAP" type="oab:ListCardTransactionsMediation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ListCardTransactions">
+      <soap:operation soapAction="http://www.oab.com/ListCardTransactions"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ListCardTransactionsMediation">
+    <wsdl:port binding="oab:ListCardTransactionsMediationSOAP" name="ListCardTransactionsMediationSOAP">
+      <soap:address location="http://www.oab.com"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

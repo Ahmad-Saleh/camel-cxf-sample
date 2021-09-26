@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="www.oab.com" xmlns:Q1="http://www.oab.com" xmlns:tns="www.oab.com">
+    <xsd:import namespace="http://www.oab.com" schemaLocation="GlobalSchema.xsd"/>
+    <xsd:element name="accountType" type="xsd:string"/>
+  <xsd:element name="fatcaQ1" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ2" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ3" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ4" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ5" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ6" type="xsd:boolean"/>
+  <xsd:element name="fatcaQ7" type="xsd:boolean"/>
+  <xsd:element name="englishName" type="xsd:string"/>
+  <xsd:element name="arabicName" type="xsd:string"/>
+  <xsd:element name="dateOfBirth" type="xsd:date"/>
+  <xsd:element name="countryOfBirth" type="xsd:string"/>
+  <xsd:element name="isMinorCustomer" type="xsd:string"/>
+  <xsd:element name="gender" type="xsd:string"/>
+  <xsd:element name="socialStatus" type="xsd:string"/>
+  <xsd:element name="language" type="xsd:string"/>
+  <xsd:element name="residenceCountry" type="xsd:string"/>
+  <xsd:element name="nationality" type="xsd:string"/>
+  <xsd:element name="otherNationality" type="xsd:string"/>
+  <xsd:element name="passportID" type="xsd:string"/>
+  <xsd:element name="passportExpiryDate" type="xsd:date"/>
+  <xsd:element name="residentID" type="xsd:string"/>
+  <xsd:element name="residentExpiryDate" type="xsd:date"/>
+  <xsd:element name="homePhone" type="xsd:string"/>
+  <xsd:element name="GSM" type="xsd:string"/>
+  <xsd:element name="FAX" type="xsd:string"/>
+  <xsd:element name="email" type="xsd:string"/>
+  <xsd:element name="jobTitleText" type="xsd:string"/>
+  <xsd:element name="jobTitle" type="xsd:string"/>
+  <xsd:element name="companyCode" type="xsd:string"/>
+  <xsd:element name="companyName" type="xsd:string"/>
+  <xsd:element name="companyCountry" type="xsd:string"/>
+  <xsd:element name="salary" type="xsd:decimal"/>
+  <xsd:element name="otherIncomeSource" type="xsd:string"/>
+  <xsd:element name="otherIncomeAmount" type="xsd:string"/>
+  <xsd:element name="branch" type="xsd:string"/>
+  <xsd:element name="customerType" type="xsd:string"/>
+  <xsd:element name="currency" type="xsd:string"/>
+  <xsd:element name="jointAccount" type="xsd:boolean"/>
+  <xsd:element name="primaryACBranch" type="xsd:string"/>
+  <xsd:element name="primaryACBasic" type="xsd:string"/>
+  <xsd:element name="primaryACSuffix" type="xsd:string"/>
+  <xsd:element name="addressCountryCode" type="xsd:string"/>
+  <xsd:element name="addressCityCode" type="xsd:string"/>
+  <xsd:element name="postalCode" type="xsd:string"/>
+  <xsd:element name="taxIDForUS" type="xsd:string"/>
+  <xsd:element name="homeOwnerhsip" type="xsd:boolean"/>
+  <xsd:element name="carOwnership" type="xsd:boolean"/>
+  <xsd:element name="statementByMail" type="xsd:boolean"/>
+  <xsd:element name="POBox" type="xsd:string"/>
+  <xsd:element name="jobTitleCode" type="xsd:string"/>
+  <xsd:element name="SMSService" type="xsd:boolean"/>
+  <xsd:element name="internetBankingID" type="xsd:string"/>
+  <xsd:element name="buildingNo" type="xsd:string"/>
+  <xsd:element name="wayNo" type="xsd:string"/>
+  <xsd:element name="faltNo" type="xsd:string"/>
+  <xsd:element name="street" type="xsd:string"/>
+  <xsd:element name="nearestLandmark" type="xsd:string"/>
+  <xsd:element name="ownerAccount" type="xsd:boolean"/>
+  <xsd:element name="wilayt" type="xsd:string"/>
+  <xsd:element name="isPOW" type="xsd:boolean"/>
+  <xsd:element name="homeAddress" type="xsd:string"/>
+  <xsd:element name="homeTelephone" type="xsd:string"/>
+  <xsd:element name="workPOBox" type="xsd:string"/>
+  <xsd:element name="workPostal" type="xsd:string"/>
+  <xsd:element name="workPhone" type="xsd:string"/>
+  <xsd:element name="workFax" type="xsd:string"/>
+  <xsd:element name="workCity" type="xsd:string"/>
+  <xsd:element name="expectedMonthlyCash" type="xsd:decimal"/>
+  <xsd:element name="expectedMonthlyTransfer" type="xsd:decimal"/>
+  <xsd:element name="expectedCountriesofTransfer" type="xsd:string"/>
+  <xsd:element name="isDealOtherBank" type="xsd:boolean"/>
+  <xsd:element name="otherBanks" type="xsd:string"/>
+  <xsd:element name="statementFrequency" type="xsd:string"/>
+  <xsd:element name="debitCardRequest" type="xsd:boolean"/>
+  <xsd:element name="nameonDebitCard" type="xsd:string"/>
+  <xsd:element name="occupationID" type="xsd:string"/>
+    <xsd:element name="prominentQ1" type="xsd:string"/>
+    <xsd:element name="prominentQ2" type="xsd:string"/>
+    <xsd:element name="prominentQ3" type="xsd:string"/>
+    <xsd:element name="prominentQ4" type="xsd:string"/>
+    <xsd:element name="suffixOpened" type="xsd:string"/>
+    <xsd:attribute name="optionIdentifier" type="xsd:string"/>
+    <xsd:element name="customerNumber" type="xsd:string"/>
+    <xsd:element name="FatcaInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:accountType"/>
+        <xsd:element ref="tns:fatcaQ1"/>
+<xsd:element ref="tns:fatcaQ2"/>
+<xsd:element ref="tns:fatcaQ3"/>
+<xsd:element ref="tns:fatcaQ4"/>
+<xsd:element ref="tns:fatcaQ5"/>
+<xsd:element ref="tns:fatcaQ6"/>
+<xsd:element ref="tns:fatcaQ7"/>
+<xsd:element ref="tns:englishName"/>
+<xsd:element ref="tns:arabicName"/>
+<xsd:element ref="tns:dateOfBirth"/>
+<xsd:element ref="tns:countryOfBirth"/>
+<xsd:element ref="tns:isMinorCustomer"/>
+<xsd:element ref="tns:gender"/>
+<xsd:element ref="tns:socialStatus"/>
+<xsd:element ref="tns:language"/>
+<xsd:element ref="tns:residenceCountry"/>
+<xsd:element ref="tns:nationality"/>
+<xsd:element ref="tns:otherNationality"/>
+<xsd:element ref="tns:passportID"/>
+<xsd:element ref="tns:passportExpiryDate"/>
+<xsd:element ref="tns:residentID"/>
+<xsd:element ref="tns:residentExpiryDate"/>
+<xsd:element ref="tns:homePhone"/>
+<xsd:element ref="tns:GSM"/>
+<xsd:element ref="tns:FAX"/>
+<xsd:element ref="tns:email"/>
+<xsd:element ref="tns:jobTitleText"/>
+<xsd:element ref="tns:jobTitle"/>
+<xsd:element ref="tns:companyCode"/>
+<xsd:element ref="tns:companyName"/>
+<xsd:element ref="tns:companyCountry"/>
+<xsd:element ref="tns:salary"/>
+<xsd:element ref="tns:otherIncomeSource"/>
+<xsd:element ref="tns:otherIncomeAmount"/>
+<xsd:element ref="tns:branch"/>
+<xsd:element minOccurs="0" ref="tns:customerType"/>
+<xsd:element minOccurs="0" ref="tns:currency"/>
+<xsd:element minOccurs="0" ref="tns:jointAccount"/>
+<xsd:element ref="tns:primaryACBranch"/>
+<xsd:element ref="tns:primaryACBasic"/>
+<xsd:element ref="tns:primaryACSuffix"/>
+<xsd:element ref="tns:addressCountryCode"/>
+<xsd:element ref="tns:addressCityCode"/>
+<xsd:element ref="tns:postalCode"/>
+<xsd:element ref="tns:taxIDForUS"/>
+<xsd:element ref="tns:homeOwnerhsip"/>
+<xsd:element ref="tns:carOwnership"/>
+<xsd:element ref="tns:statementByMail"/>
+<xsd:element ref="tns:POBox"/>
+<xsd:element ref="tns:jobTitleCode"/>
+<xsd:element ref="tns:SMSService"/>
+<xsd:element ref="tns:internetBankingID"/>
+<xsd:element ref="tns:buildingNo"/>
+<xsd:element ref="tns:wayNo"/>
+<xsd:element ref="tns:faltNo"/>
+<xsd:element ref="tns:street"/>
+<xsd:element ref="tns:nearestLandmark"/>
+<xsd:element ref="tns:ownerAccount"/>
+<xsd:element ref="tns:wilayt"/>
+<xsd:element ref="tns:isPOW"/>
+<xsd:element ref="tns:homeAddress"/>
+<xsd:element ref="tns:homeTelephone"/>
+<xsd:element ref="tns:workPOBox"/>
+<xsd:element ref="tns:workPostal"/>
+<xsd:element ref="tns:workPhone"/>
+<xsd:element ref="tns:workFax"/>
+<xsd:element ref="tns:workCity"/>
+<xsd:element ref="tns:expectedMonthlyCash"/>
+<xsd:element ref="tns:expectedMonthlyTransfer"/>
+<xsd:element ref="tns:expectedCountriesofTransfer"/>
+<xsd:element ref="tns:isDealOtherBank"/>
+<xsd:element minOccurs="0" ref="tns:otherBanks"/>
+<xsd:element ref="tns:statementFrequency"/>
+<xsd:element ref="tns:debitCardRequest"/>
+<xsd:element ref="tns:nameonDebitCard"/>
+<xsd:element ref="tns:occupationID"/>
+<xsd:element ref="tns:prominentQ1"/>
+<xsd:element ref="tns:prominentQ2"/>
+<xsd:element ref="tns:prominentQ3"/>
+<xsd:element ref="tns:prominentQ4"/>
+<xsd:element ref="tns:suffixOpened"/>
+                <xsd:element ref="tns:customerNumber"/>
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element name="GetFatcaInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customerNumber"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element name="OpenFatcaCustomerRequest">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:accountType"/>
+        <xsd:element ref="tns:fatcaQ1"/>
+        <xsd:element ref="tns:fatcaQ2"/>
+        <xsd:element ref="tns:fatcaQ3"/>
+        <xsd:element ref="tns:fatcaQ4"/>
+        <xsd:element ref="tns:fatcaQ5"/>
+        <xsd:element ref="tns:fatcaQ6"/>
+        <xsd:element ref="tns:fatcaQ7"/>
+        <xsd:element ref="tns:englishName"/>
+        <xsd:element ref="tns:arabicName"/>
+        <xsd:element ref="tns:dateOfBirth"/>
+        <xsd:element ref="tns:countryOfBirth"/>
+        <xsd:element ref="tns:isMinorCustomer"/>
+        <xsd:element ref="tns:gender"/>
+        <xsd:element ref="tns:socialStatus"/>
+        <xsd:element ref="tns:language"/>
+        <xsd:element ref="tns:residenceCountry"/>
+        <xsd:element ref="tns:nationality"/>
+        <xsd:element ref="tns:otherNationality"/>
+        <xsd:element ref="tns:passportID"/>
+        <xsd:element ref="tns:passportExpiryDate"/>
+        <xsd:element ref="tns:residentID"/>
+        <xsd:element ref="tns:residentExpiryDate"/>
+        <xsd:element ref="tns:homePhone"/>
+        <xsd:element ref="tns:GSM"/>
+        <xsd:element ref="tns:FAX"/>
+        <xsd:element ref="tns:email"/>
+        <xsd:element ref="tns:jobTitleText"/>
+        <xsd:element ref="tns:jobTitle"/>
+        <xsd:element ref="tns:companyCode"/>
+        <xsd:element ref="tns:companyName"/>
+        <xsd:element ref="tns:companyCountry"/>
+        <xsd:element ref="tns:salary"/>
+        <xsd:element ref="tns:otherIncomeSource"/>
+        <xsd:element ref="tns:otherIncomeAmount"/>
+        <xsd:element ref="tns:branch"/>
+        <xsd:element minOccurs="0" ref="tns:customerType"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:jointAccount"/>
+        <xsd:element ref="tns:primaryACBranch"/>
+        <xsd:element ref="tns:primaryACBasic"/>
+        <xsd:element ref="tns:primaryACSuffix"/>
+        <xsd:element ref="tns:addressCountryCode"/>
+        <xsd:element ref="tns:addressCityCode"/>
+        <xsd:element ref="tns:postalCode"/>
+        <xsd:element ref="tns:taxIDForUS"/>
+        <xsd:element ref="tns:homeOwnerhsip"/>
+        <xsd:element ref="tns:carOwnership"/>
+        <xsd:element ref="tns:statementByMail"/>
+        <xsd:element ref="tns:POBox"/>
+        <xsd:element ref="tns:jobTitleCode"/>
+        <xsd:element ref="tns:SMSService"/>
+        <xsd:element ref="tns:internetBankingID"/>
+        <xsd:element ref="tns:buildingNo"/>
+        <xsd:element ref="tns:wayNo"/>
+        <xsd:element ref="tns:faltNo"/>
+        <xsd:element ref="tns:street"/>
+        <xsd:element ref="tns:nearestLandmark"/>
+        <xsd:element ref="tns:ownerAccount"/>
+        <xsd:element ref="tns:wilayt"/>
+        <xsd:element ref="tns:isPOW"/>
+        <xsd:element ref="tns:homeAddress"/>
+        <xsd:element ref="tns:homeTelephone"/>
+        <xsd:element ref="tns:workPOBox"/>
+        <xsd:element ref="tns:workPostal"/>
+        <xsd:element ref="tns:workPhone"/>
+        <xsd:element ref="tns:workFax"/>
+        <xsd:element ref="tns:workCity"/>
+        <xsd:element ref="tns:expectedMonthlyCash"/>
+        <xsd:element ref="tns:expectedMonthlyTransfer"/>
+        <xsd:element ref="tns:expectedCountriesofTransfer"/>
+        <xsd:element ref="tns:isDealOtherBank"/>
+        <xsd:element minOccurs="0" ref="tns:otherBanks"/>
+        <xsd:element ref="tns:statementFrequency"/>
+        <xsd:element ref="tns:debitCardRequest"/>
+        <xsd:element ref="tns:nameonDebitCard"/>
+        <xsd:element ref="tns:occupationID"/>
+        <xsd:element ref="tns:prominentQ1"/>
+        <xsd:element ref="tns:prominentQ2"/>
+        <xsd:element ref="tns:prominentQ3"/>
+        <xsd:element ref="tns:prominentQ4"/>
+        <xsd:element ref="tns:suffixOpened"/>
+        <xsd:element ref="tns:customerNumber"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element name="OpenFatcaCustomerReply">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:branch"/>
+        <xsd:element ref="tns:customerNumber"/>
+        <xsd:element ref="tns:suffixOpened"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

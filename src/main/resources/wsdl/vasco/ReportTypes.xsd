@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="ReportAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="REPORTFLD_DOMAIN"/>
+            <enumeration value="REPORTFLD_REPORT_ID"/>
+            <enumeration value="REPORTFLD_REPORT_NAME"/>
+            <enumeration value="REPORTFLD_REPORT_DESC"/>
+            <enumeration value="REPORTFLD_DATA_SOURCE"/>
+            <enumeration value="REPORTFLD_GROUP_LEVEL"/>
+            <enumeration value="REPORTFLD_REPORT_TYPE"/>
+            <enumeration value="REPORTFLD_RUN_PERMISSIONS"/>
+            <enumeration value="REPORTFLD_CHANGE_PERMISSIONS"/>
+            <enumeration value="REPORTFLD_TIME_FREQUENCY"/>
+            <enumeration value="REPORTFLD_QUERY_DEFINITION"/>
+            <enumeration value="REPORTFLD_USERID"/>
+            <enumeration value="REPORTFLD_FORMAT_NAME"/>
+            <enumeration value="REPORTFLD_CREATE_TIME"/>
+            <enumeration value="REPORTFLD_MODIFY_TIME"/>
+            <enumeration value="REPORTFLD_REPORT_DATA"/>
+            <enumeration value="REPORTFLD_REPORT_FILE_NAME"/>
+            <enumeration value="REPORTFLD_QUERY_FOR"/>
+            <enumeration value="REPORTFLD_ATTACH_REPORT"/>
+            <enumeration value="REPORTFLD_TIMEZONE"/>
+            <enumeration value="REPORTFLD_SCHEDULE"/>
+            <enumeration value="REPORTFLD_SCHEDULE_TIME"/>
+            <enumeration value="REPORTFLD_SCHEDULE_DATE"/>
+            <enumeration value="REPORTFLD_SCHEDULE_NOTIFY"/>
+            <enumeration value="REPORTFLD_SCHEDULE_RECURRENCE"/>
+            <enumeration value="REPORTFLD_SCHEDULE_WEEKDAYS"/>
+            <enumeration value="REPORTFLD_SCHEDULE_MONTHS"/>
+            <enumeration value="REPORTFLD_SCHEDULE_MONTH_DAY"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ReportAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:ReportAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:ReportAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:ReportAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:ReportAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:ReportAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

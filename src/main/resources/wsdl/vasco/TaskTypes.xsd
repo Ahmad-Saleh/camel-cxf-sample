@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TaskTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TaskTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="TaskAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="TASKFLD_TASK_ID"/>
+            <enumeration value="TASKFLD_TASK_TYPE"/>
+            <enumeration value="TASKFLD_DESCRIPTION"/>
+            <enumeration value="TASKFLD_DOMAIN_NAME"/>
+            <enumeration value="TASKFLD_USER_ID"/>
+            <enumeration value="TASKFLD_SERVER_ID"/>
+            <enumeration value="TASKFLD_FEATURES"/>
+            <enumeration value="TASKFLD_STATUS"/>
+            <enumeration value="TASKFLD_STATUS_INFORMATION"/>
+            <enumeration value="TASKFLD_CREATE_TIME"/>
+            <enumeration value="TASKFLD_MODIFY_TIME"/>
+            <enumeration value="TASKFLD_SCHEDULE"/>
+            <enumeration value="TASKFLD_SCHEDULE_TIME"/>
+            <enumeration value="TASKFLD_SCHEDULE_DATE"/>
+            <enumeration value="TASKFLD_SCHEDULE_NOTIFY"/>
+            <enumeration value="TASKFLD_SCHEDULE_RECURRENCE"/>
+            <enumeration value="TASKFLD_SCHEDULE_WEEKDAYS"/>
+            <enumeration value="TASKFLD_SCHEDULE_MONTHS"/>
+            <enumeration value="TASKFLD_SCHEDULE_MONTH_DAY"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="TaskAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1" />
+            <element name="attributeID" type="tns:TaskAttributeIDEnum" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:TaskAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:TaskAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:TaskAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:TaskAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:TaskAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TaskQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:TaskAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

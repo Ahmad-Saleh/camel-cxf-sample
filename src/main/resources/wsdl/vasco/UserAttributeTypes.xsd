@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="UserAttributeAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="UATTFLD_DOMAIN"/>
+            <enumeration value="UATTFLD_USERID"/>
+            <enumeration value="UATTFLD_ATTR_GROUP"/>
+            <enumeration value="UATTFLD_SEQ_NO"/>
+            <enumeration value="UATTFLD_NAME"/>
+            <enumeration value="UATTFLD_USAGE_QUALIFIER"/>
+            <enumeration value="UATTFLD_VALUE"/>
+            <enumeration value="UATTFLD_CREATE_TIME"/>
+            <enumeration value="UATTFLD_MODIFY_TIME"/>
+            <enumeration value="UATTFLD_LDAP_DN"/>
+            <enumeration value="UATTFLD_OPTIONS"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="UserAttributeAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1" />
+            <element name="attributeID" type="tns:UserAttributeAttributeIDEnum" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:UserAttributeAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:UserAttributeAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserAttributeAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:UserAttributeAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:UserAttributeAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="UserAttributeQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:UserAttributeAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

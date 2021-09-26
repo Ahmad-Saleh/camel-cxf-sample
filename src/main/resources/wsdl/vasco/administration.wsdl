@@ -1,0 +1,2841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:ADMIN-SCENARIO="http://www.vasco.com/IdentikeyServer/Scenarios/Administration"
+             xmlns:xsd ="http://www.w3.org/2001/XMLSchema"
+             xmlns:SOAP ="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:ADMIN-TYPES ="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Administration"
+             xmlns ="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:mime ="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:dime ="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+             xmlns:xmime ="http://www.w3.org/2004/06/xmlmime"
+             xmlns:xop = "http://www.w3.org/2004/08/xop/include"
+             xmlns:xmime4 = "http://www.w3.org/2004/11/xmlmime"
+             xmlns:xmime5 = "http://www.w3.org/2005/05/xmlmime"
+             name="IdentikeyServer"
+             targetNamespace="http://www.vasco.com/IdentikeyServer/Scenarios/Administration">
+
+    <types>
+        <schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Administration"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          xmlns:ADMIN-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/Administration"
+          xmlns:CREDENTIAL-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/CredentialTypes.xsd"
+          xmlns:USER-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserTypes.xsd"
+          xmlns:BACKEND-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndTypes.xsd"
+          xmlns:DIGIPASS-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassTypes.xsd"
+          xmlns:DOMAIN-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DomainTypes.xsd"
+          xmlns:ORGUNIT-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/OrgunitTypes.xsd"
+          xmlns:COMPONENT-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ComponentTypes.xsd"
+          xmlns:CONFIGURATION-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ConfigurationTypes.xsd"
+          xmlns:DIGIPASSAPPL-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassApplTypes.xsd"
+          xmlns:POLICY-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/PolicyTypes.xsd"
+          xmlns:REPLICATION-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReplicationTypes.xsd"
+          xmlns:REPORTFORMAT-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFormatTypes.xsd"
+          xmlns:REPORT-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportTypes.xsd"
+          xmlns:REPORTFIELD-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFieldTypes.xsd"
+          xmlns:USER-ATTRIBUTE-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd"
+          xmlns:DPXFILE-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DPXFileTypes.xsd"
+          xmlns:USERFILE-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserFileTypes.xsd"
+          xmlns:ADMINSESSION-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/AdminSessionTypes.xsd"
+          xmlns:OFFLINEDATA-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/OfflineDataTypes.xsd"
+          xmlns:RADIUSDICT-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/RadiusDictTypes.xsd"
+          xmlns:BACKENDSERVERGROUP-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndServerGroupTypes.xsd"
+          xmlns:TASK-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TaskTypes.xsd"
+          xmlns:KEY-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/KeyTypes.xsd"
+          xmlns:REPORTFILE-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFileTypes.xsd"
+          xmlns:TIMEZONELIST-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TimeZoneListTypes.xsd"
+
+          xmlns="http://www.w3.org/2001/XMLSchema"
+          xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime"
+          xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+          xmlns:xop= "http://www.w3.org/2004/08/xop/include"
+
+          elementFormDefault="unqualified"
+          attributeFormDefault="unqualified">
+
+            <!-- Imported types -->
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/CredentialTypes.xsd" schemaLocation="CredentialTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserTypes.xsd" schemaLocation="UserTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndTypes.xsd" schemaLocation="BackEndTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ComponentTypes.xsd" schemaLocation="ComponentTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ConfigurationTypes.xsd" schemaLocation="ConfigurationTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassTypes.xsd" schemaLocation="DigipassTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DomainTypes.xsd" schemaLocation="DomainTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/OrgunitTypes.xsd" schemaLocation="OrgunitTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserAttributeTypes.xsd" schemaLocation="UserAttributeTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DigipassApplTypes.xsd" schemaLocation="DigipassApplTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/PolicyTypes.xsd" schemaLocation="PolicyTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReplicationTypes.xsd" schemaLocation="ReplicationTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFormatTypes.xsd" schemaLocation="ReportFormatTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFieldTypes.xsd" schemaLocation="ReportFieldTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportTypes.xsd" schemaLocation="ReportTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/DPXFileTypes.xsd" schemaLocation="DPXFileTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/UserFileTypes.xsd" schemaLocation="UserFileTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/AdminSessionTypes.xsd" schemaLocation="AdminSessionTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/OfflineDataTypes.xsd" schemaLocation="OfflineDataTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/RadiusDictTypes.xsd" schemaLocation="RadiusDictTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BackEndServerGroupTypes.xsd" schemaLocation="BackEndServerGroupTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TaskTypes.xsd" schemaLocation="TaskTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/KeyTypes.xsd" schemaLocation="KeyTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFileTypes.xsd" schemaLocation="ReportFileTypes.xsd"/>
+            <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/TimeZoneListTypes.xsd" schemaLocation="TimeZoneListTypes.xsd"/>
+            <import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="XOP.xsd"/>
+
+            <!-- Command Enum -->
+            <simpleType name="UserCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="USERCMD_CREATE"/>
+                    <enumeration value="USERCMD_VIEW"/>
+                    <enumeration value="USERCMD_UPDATE"/>
+                    <enumeration value="USERCMD_DELETE"/>
+                    <enumeration value="USERCMD_LINK_USER"/>
+                    <enumeration value="USERCMD_UNLINK_USER"/>
+                    <enumeration value="USERCMD_MOVE"/>
+                    <enumeration value="USERCMD_GET_PERMISSION"/>
+                    <enumeration value="USERCMD_SET_PERMISSION"/>
+                    <enumeration value="USERCMD_COPY_PERMISSION"/>
+                    <enumeration value="USERCMD_GET_DEPENDING_PERMISSION"/>
+                    <enumeration value="USERCMD_UNLOCK"/>
+                    <enumeration value="USERCMD_ENABLE"/>
+                    <enumeration value="USERCMD_DISABLE"/>
+                    <enumeration value="USERCMD_SET_PASSWORD"/>
+                    <enumeration value="USERCMD_RESET_PASSWORD"/>
+                    <enumeration value="USERCMD_SET_EXPIRATION"/>
+                    <enumeration value="USERCMD_RESET_LAST_AUTH_TIME"/>
+                    <enumeration value="USERCMD_GET_ADMIN_DOMAINS"/>
+                    <enumeration value="USERCMD_SET_ADMIN_DOMAINS"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="BackEndCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="BACKENDCMD_VIEW"/>
+                    <enumeration value="BACKENDCMD_CREATE"/>
+                    <enumeration value="BACKENDCMD_DELETE"/>
+                    <enumeration value="BACKENDCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ComponentCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="COMPONENTCMD_VIEW"/>
+                    <enumeration value="COMPONENTCMD_CREATE"/>
+                    <enumeration value="COMPONENTCMD_DELETE"/>
+                    <enumeration value="COMPONENTCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ConfigurationCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="CONFIGURATIONCMD_VIEW"/>
+                    <enumeration value="CONFIGURATIONCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="DigipassCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="DIGIPASSCMD_VIEW"/>
+                    <enumeration value="DIGIPASSCMD_DELETE"/>
+                    <enumeration value="DIGIPASSCMD_UPDATE"/>
+                    <enumeration value="DIGIPASSCMD_ASSIGN"/>
+                    <enumeration value="DIGIPASSCMD_UNASSIGN"/>
+                    <enumeration value="DIGIPASSCMD_MOVE"/>
+                    <enumeration value="DIGIPASSCMD_RESET_ACTIVATION"/>
+                    <enumeration value="DIGIPASSCMD_SET_EXPIRATION"/>
+                    <enumeration value="DIGIPASSCMD_GENERATE_ACTIVATION_DATA"/>
+                    <enumeration value="DIGIPASSCMD_SEND_ACTIVATION_DATA"/>
+                    <enumeration value="DIGIPASSCMD_BIND_DEVICE"/>
+                    <enumeration value="DIGIPASSCMD_UNBIND_DEVICE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="DomainCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="DOMAINCMD_VIEW"/>
+                    <enumeration value="DOMAINCMD_CREATE"/>
+                    <enumeration value="DOMAINCMD_DELETE"/>
+                    <enumeration value="DOMAINCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="OrgunitCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="ORGUNITCMD_VIEW"/>
+                    <enumeration value="ORGUNITCMD_CREATE"/>
+                    <enumeration value="ORGUNITCMD_DELETE"/>
+                    <enumeration value="ORGUNITCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="DigipassApplCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="DIGIPASSAPPLCMD_VIEW"/>
+                    <enumeration value="DIGIPASSAPPLCMD_CREATE"/>
+                    <enumeration value="DIGIPASSAPPLCMD_DELETE"/>
+                    <enumeration value="DIGIPASSAPPLCMD_UPDATE"/>
+                    <enumeration value="DIGIPASSAPPLCMD_TEST_OTP"/>
+                    <enumeration value="DIGIPASSAPPLCMD_RESET_APPL"/>
+                    <enumeration value="DIGIPASSAPPLCMD_RESET_PIN"/>
+                    <enumeration value="DIGIPASSAPPLCMD_SET_PIN"/>
+                    <enumeration value="DIGIPASSAPPLCMD_UNLOCK"/>
+                    <enumeration value="DIGIPASSAPPLCMD_GETINFO"/>
+                    <enumeration value="DIGIPASSAPPLCMD_GEN_VOTP"/>
+                    <enumeration value="DIGIPASSAPPLCMD_FORCE_PIN_CHANGE"/>
+                    <enumeration value="DIGIPASSAPPLCMD_SET_EVENT_COUNTER"/>
+                    <enumeration value="DIGIPASSAPPLCMD_RESET_ERROR_COUNT"/>
+                    <enumeration value="DIGIPASSAPPLCMD_TEST_SIGNATURE"/>
+                    <enumeration value="DIGIPASSAPPLCMD_TEST_EMVCAP_MODE1"/>
+                    <enumeration value="DIGIPASSAPPLCMD_TEST_EMVCAP_MODE2"/>
+                    <enumeration value="DIGIPASSAPPLCMD_TEST_EMVCAP_MODE3"/>
+                    <enumeration value="DIGIPASSAPPLCMD_DISABLE_PIN"/>
+                    <enumeration value="DIGIPASSAPPLCMD_ENABLE_PIN"/>
+                    <enumeration value="DIGIPASSAPPLCMD_CREATE_EMVCAP"/>
+                    <enumeration value="DIGIPASSAPPLCMD_GENERATE_ACTIVATION_DATA"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="PolicyCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="POLICYCMD_VIEW"/>
+                    <enumeration value="POLICYCMD_CREATE"/>
+                    <enumeration value="POLICYCMD_DELETE"/>
+                    <enumeration value="POLICYCMD_UPDATE"/>
+                    <enumeration value="POLICYCMD_GET_EFFECTIVE_POLICY"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ReplicationServerCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="REPLICATIONCMD_STATUS"/>
+                    <enumeration value="REPLICATIONCMD_RECONNECT"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ReportFormatCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="REPORTFORMATCMD_VIEW"/>
+                    <enumeration value="REPORTFORMATCMD_CREATE"/>
+                    <enumeration value="REPORTFORMATCMD_DELETE"/>
+                    <enumeration value="REPORTFORMATCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ReportFieldCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="REPORTFIELDCMD_VIEW"/>
+                    <enumeration value="REPORTFIELDCMD_CREATE"/>
+                    <enumeration value="REPORTFIELDCMD_DELETE"/>
+                    <enumeration value="REPORTFIELDCMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+
+            <simpleType name="ReportCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="REPORTCMD_VIEW"/>
+                    <enumeration value="REPORTCMD_CREATE"/>
+                    <enumeration value="REPORTCMD_DELETE"/>
+                    <enumeration value="REPORTCMD_UPDATE"/>
+                    <enumeration value="REPORTCMD_CHANGE_OWNER"/>
+                    <enumeration value="REPORTCMD_RUN"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="UserAttributeCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="USERATTRIBUTECMD_VIEW"/>
+                    <enumeration value="USERATTRIBUTECMD_CREATE"/>
+                    <enumeration value="USERATTRIBUTECMD_DELETE"/>
+                    <enumeration value="USERATTRIBUTECMD_UPDATE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="DPXFileCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="DPXFILECMD_IMPORT_FILE"/>
+                    <enumeration value="DPXFILECMD_QUERY_STATUS"/>
+                    <enumeration value="DPXFILECMD_STOP_IMPORT"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="AdminSessionCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="ADMINSESSIONCMD_DELETE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="OfflineDataCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="OFFLINEDATACMD_VIEW"/>
+                    <enumeration value="OFFLINEDATACMD_DELETE"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="RadiusDictCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="RADIUSDICTCMD_GETENUMVALUES"/>
+                    <enumeration value="RADIUSDICTCMD_QUERY"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="BackEndServerGroupCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="BACKENDSERVERGROUPCMD_QUERY"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="UserFileCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="USERFILECMD_IMPORT_FILE"/>
+                    <enumeration value="USERFILECMD_QUERY_STATUS"/>
+                    <enumeration value="USERFILECMD_STOP_IMPORT"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="TaskCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="TASKCMD_VIEW"/>
+                    <enumeration value="TASKCMD_DELETE"/>
+                    <enumeration value="TASKCMD_UPDATE"/>
+                    <enumeration value="TASKCMD_CANCEL"/>
+                    <enumeration value="TASKCMD_RESUME"/>
+                    <enumeration value="TASKCMD_SUSPEND"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="KeyCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="KEYCMD_VIEW"/>
+                    <enumeration value="KEYCMD_CREATE"/>
+                    <enumeration value="KEYCMD_DELETE"/>
+                    <enumeration value="KEYCMD_UPDATE"/>
+                    <enumeration value="KEYCMD_ROTATE_KEY"/>
+                    <enumeration value="KEYCMD_ROTATE_ABORT"/>
+                    <enumeration value="KEYCMD_ROTATE_STATUS"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="ReportFileCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="REPORTFILECMD_VIEW"/>
+                    <enumeration value="REPORTFILECMD_DELETE"/>
+                    <enumeration value="REPORTFILECMD_TAKE_OWNERSHIP"/>
+                    <enumeration value="REPORTFILECMD_CHANGE_OWNERSHIP"/>
+                </restriction>
+            </simpleType>
+
+            <simpleType name="TimeZoneListCmdIDEnum">
+                <restriction base="xsd:string">
+                    <enumeration value="TMZLISTCMD_GETZONELIST"/>
+                </restriction>
+            </simpleType>
+
+            <!-- "logon" -->
+            <element name="logon">
+                <complexType>
+                    <sequence>
+                        <element name="attributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="logonResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "logoff" -->
+            <element name="logoff">
+                <complexType>
+                    <sequence>
+                        <element name="attributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="logoffResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userExecute" -->
+            <element name="userExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:UserCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USER-TYPES:UserAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="adminDomainInfoList" type="USER-TYPES:AdminDomainList" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USER-TYPES:UserResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userQuery" -->
+            <element name="userQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USER-TYPES:UserAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="USER-TYPES:UserFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="USER-TYPES:UserQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USER-TYPES:UserQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "backendExecute" -->
+            <element name="backendExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:BackEndCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="BACKEND-TYPES:BackEndAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="backendExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="BACKEND-TYPES:BackEndResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "backendQuery" -->
+            <element name="backendQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="BACKEND-TYPES:BackEndAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="BACKEND-TYPES:BackEndFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="BACKEND-TYPES:BackEndQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="backendQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="BACKEND-TYPES:BackEndQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "componentExecute" -->
+            <element name="componentExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ComponentCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="COMPONENT-TYPES:ComponentAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="componentExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="COMPONENT-TYPES:ComponentResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "componentQuery" -->
+            <element name="componentQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="COMPONENT-TYPES:ComponentAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="COMPONENT-TYPES:ComponentFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="COMPONENT-TYPES:ComponentQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="componentQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="COMPONENT-TYPES:ComponentQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "configurationExecute" -->
+            <element name="configurationExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ConfigurationCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="CONFIGURATION-TYPES:ConfigurationAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="configurationExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CONFIGURATION-TYPES:ConfigurationResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "configurationQuery" -->
+            <element name="configurationQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="CONFIGURATION-TYPES:ConfigurationAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="CONFIGURATION-TYPES:ConfigurationFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="CONFIGURATION-TYPES:ConfigurationQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="configurationQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CONFIGURATION-TYPES:ConfigurationQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "digipassExecute" -->
+            <element name="digipassExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:DigipassCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DIGIPASS-TYPES:DigipassAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="digipassExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DIGIPASS-TYPES:DigipassResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "digipassQuery" -->
+            <element name="digipassQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DIGIPASS-TYPES:DigipassAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="DIGIPASS-TYPES:DigipassFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="DIGIPASS-TYPES:DigipassQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="digipassQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DIGIPASS-TYPES:DigipassQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "domainExecute" -->
+            <element name="domainExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:DomainCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DOMAIN-TYPES:DomainAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="domainExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DOMAIN-TYPES:DomainResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "domainQuery" -->
+            <element name="domainQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DOMAIN-TYPES:DomainAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="DOMAIN-TYPES:DomainFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="DOMAIN-TYPES:DomainQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="domainQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DOMAIN-TYPES:DomainQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "orgunitExecute" -->
+            <element name="orgunitExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:OrgunitCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="ORGUNIT-TYPES:OrgunitAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="orgunitExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="ORGUNIT-TYPES:OrgunitResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "orgunitQuery" -->
+            <element name="orgunitQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="ORGUNIT-TYPES:OrgunitAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="ORGUNIT-TYPES:OrgunitFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="ORGUNIT-TYPES:OrgunitQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="orgunitQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="ORGUNIT-TYPES:OrgunitQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "digipassapplExecute" -->
+            <element name="digipassapplExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:DigipassApplCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DIGIPASSAPPL-TYPES:DigipassApplAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="digipassapplExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DIGIPASSAPPL-TYPES:DigipassApplResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "digipassapplQuery" -->
+            <element name="digipassapplQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DIGIPASSAPPL-TYPES:DigipassApplAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="DIGIPASSAPPL-TYPES:DigipassApplFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="DIGIPASSAPPL-TYPES:DigipassApplQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="digipassapplQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DIGIPASSAPPL-TYPES:DigipassApplQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "policyExecute" -->
+            <element name="policyExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:PolicyCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="POLICY-TYPES:PolicyAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="policyExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="POLICY-TYPES:PolicyResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "policyQuery" -->
+            <element name="policyQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="POLICY-TYPES:PolicyAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="POLICY-TYPES:PolicyFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="POLICY-TYPES:PolicyQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="policyQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="POLICY-TYPES:PolicyQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "replicationserverExecute" -->
+            <element name="replicationserverExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ReplicationServerCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPLICATION-TYPES:ReplicationServerAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="replicationserverExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPLICATION-TYPES:ReplicationServerResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "replicationserverQuery" -->
+            <element name="replicationserverQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPLICATION-TYPES:ReplicationServerAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="REPLICATION-TYPES:ReplicationServerFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="REPLICATION-TYPES:ReplicationQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="replicationserverQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPLICATION-TYPES:ReplicationServerQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportformatExecute" -->
+            <element name="reportformatExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ReportFormatCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORTFORMAT-TYPES:ReportFormatAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportformatExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORTFORMAT-TYPES:ReportFormatResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportformatQuery" -->
+            <element name="reportformatQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORTFORMAT-TYPES:ReportFormatAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="REPORTFORMAT-TYPES:ReportFormatFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="REPORTFORMAT-TYPES:ReportFormatQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportformatQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORTFORMAT-TYPES:ReportFormatQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportfieldExecute" -->
+            <element name="reportfieldExecute">
+                    <complexType>
+                            <sequence>
+                                    <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                                    <element name="cmd" type="ADMIN-TYPES:ReportFieldCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                                    <element name="attributeSet" type="REPORTFIELD-TYPES:ReportFieldAttributeSet" minOccurs="1" maxOccurs="1"/>
+                            </sequence>
+                    </complexType>
+            </element>
+
+            <element name="reportfieldExecuteResponse">
+                    <complexType>
+                            <sequence>
+                                    <element name="results" type="REPORTFIELD-TYPES:ReportFieldResults" minOccurs="1" maxOccurs="1"/>
+                            </sequence>
+                    </complexType>
+            </element>
+
+            <!-- "reportfieldQuery" -->
+            <element name="reportfieldQuery">
+                    <complexType>
+                            <sequence>
+                                    <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                                    <element name="attributeSet" type="REPORTFIELD-TYPES:ReportFieldAttributeSet" minOccurs="1" maxOccurs="1"/>
+                                    <element name="fieldSet" type="REPORTFIELD-TYPES:ReportFieldFieldSet" minOccurs="0" maxOccurs="1"/>
+                                    <element name="queryOptions" type="REPORTFIELD-TYPES:ReportFieldQueryOptions" minOccurs="0" maxOccurs="1"/>
+                            </sequence>
+                    </complexType>
+            </element>
+
+            <element name="reportfieldQueryResponse">
+                    <complexType>
+                            <sequence>
+                                    <element name="results" type="REPORTFIELD-TYPES:ReportFieldQueryResults" minOccurs="1" maxOccurs="1"/>
+                            </sequence>
+                    </complexType>
+            </element>
+
+
+            <!-- "reportExecute" -->
+            <element name="reportExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ReportCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORT-TYPES:ReportAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORT-TYPES:ReportResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportQuery" -->
+            <element name="reportQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORT-TYPES:ReportAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="REPORT-TYPES:ReportFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="REPORT-TYPES:ReportQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORT-TYPES:ReportQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userattributeExecute" -->
+            <element name="userattributeExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:UserAttributeCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USER-ATTRIBUTE-TYPES:UserAttributeAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userattributeExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USER-ATTRIBUTE-TYPES:UserAttributeResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userattributeQuery" -->
+            <element name="userattributeQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USER-ATTRIBUTE-TYPES:UserAttributeAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="USER-ATTRIBUTE-TYPES:UserAttributeFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="USER-ATTRIBUTE-TYPES:UserAttributeQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userattributeQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USER-ATTRIBUTE-TYPES:UserAttributeQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "dpxfileExecute" -->
+            <element name="dpxfileExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:DPXFileCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DPXFILE-TYPES:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="dpxfileExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DPXFILE-TYPES:DPXFileResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "dpxfileuploadmime" -->
+            <element name="dpxfileuploadmime">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DPXFILE-TYPES:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="dpxfileuploadmimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DPXFILE-TYPES:DPXFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "dpxfileuploaddime" -->
+            <element name="dpxfileuploaddime">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DPXFILE-TYPES:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="dpxfileuploaddimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DPXFILE-TYPES:DPXFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+          <!-- "dpxfileuploadmtom" -->
+            <element name="dpxfileuploadmtom">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="DPXFILE-TYPES:DPXFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="dpxfileData" type="xsd:hexBinary" xmime:expectedContentTypes="application/octet-stream"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="dpxfileuploadmtomResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="DPXFILE-TYPES:DPXFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+          <!-- "reportdownloadmtom" -->
+            <element name="reportdownloadmtom">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORT-TYPES:ReportAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportdownloadmtomResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORT-TYPES:ReportResults" minOccurs="1" maxOccurs="1"/>
+                        <element name="reportFile" type="xop:Include" xmime:expectedContentTypes="application/octet-stream" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+                        <!-- "reportfiledownloadmtom" -->
+            <element name="reportfiledownloadmtom">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORTFILE-TYPES:ReportFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportfiledownloadmtomResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORTFILE-TYPES:ReportFileResults" minOccurs="1" maxOccurs="1"/>
+                        <element name="reportFile" type="xop:Include" xmime:expectedContentTypes="application/octet-stream" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "sessionalive" -->
+            <element name="sessionalive">
+                <complexType>
+                    <sequence>
+                        <element name="attributeSet" type="CREDENTIAL-TYPES:CredentialAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="sessionaliveResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="CREDENTIAL-TYPES:CredentialResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "adminSessionExecute" -->
+            <element name="adminSessionExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:AdminSessionCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="ADMINSESSION-TYPES:AdminSessionAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="adminSessionExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="ADMINSESSION-TYPES:AdminSessionResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "adminSessionQuery" -->
+            <element name="adminSessionQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="ADMINSESSION-TYPES:AdminSessionAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="ADMINSESSION-TYPES:AdminSessionFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="ADMINSESSION-TYPES:AdminSessionQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="adminSessionQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="ADMINSESSION-TYPES:AdminSessionQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "offlinedataExecute" -->
+            <element name="offlinedataExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:OfflineDataCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="OFFLINEDATA-TYPES:OfflineDataAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="offlinedataExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="OFFLINEDATA-TYPES:OfflineDataResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "offlinedataQuery" -->
+            <element name="offlinedataQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="OFFLINEDATA-TYPES:OfflineDataAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="OFFLINEDATA-TYPES:OfflineDataFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="OFFLINEDATA-TYPES:OfflineDataQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="offlinedataQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="OFFLINEDATA-TYPES:OfflineDataQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "radiusDictdataExecute" -->
+            <element name="radiusDictExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:RadiusDictCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="RADIUSDICT-TYPES:RadiusDictAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="radiusDictExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="RADIUSDICT-TYPES:RadiusDictResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "radiusDictQuery" -->
+            <element name="radiusDictQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="RADIUSDICT-TYPES:RadiusDictAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="RADIUSDICT-TYPES:RadiusDictFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="RADIUSDICT-TYPES:RadiusDictQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="radiusDictQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="RADIUSDICT-TYPES:RadiusDictQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "backEndServerGroupdataExecute" -->
+            <element name="backEndServerGroupExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:BackEndServerGroupCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="backEndServerGroupExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "backEndServerGroupQuery" -->
+            <element name="backEndServerGroupQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="backEndServerGroupQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="BACKENDSERVERGROUP-TYPES:BackEndServerGroupQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userfileExecute" -->
+            <element name="userfileExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:UserFileCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USERFILE-TYPES:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="userfileExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USERFILE-TYPES:UserFileResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userfileuploadmime" -->
+            <element name="userfileuploadmime">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USERFILE-TYPES:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userfileuploadmimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USERFILE-TYPES:UserFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "userfileuploaddime" -->
+            <element name="userfileuploaddime">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USERFILE-TYPES:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userfileuploaddimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USERFILE-TYPES:UserFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+          <!-- "userfileuploadmtom" -->
+            <element name="userfileuploadmtom">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="USERFILE-TYPES:UserFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="userfileData" type="xsd:hexBinary" xmime:expectedContentTypes="application/octet-stream"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="userfileuploadmtomResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="USERFILE-TYPES:UserFileUploadResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "taskExecute" -->
+            <element name="taskExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:TaskCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="TASK-TYPES:TaskAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="taskExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="TASK-TYPES:TaskResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "taskQuery" -->
+            <element name="taskQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="TASK-TYPES:TaskAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="TASK-TYPES:TaskFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="TASK-TYPES:TaskQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="taskQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="TASK-TYPES:TaskQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "keyExecute" -->
+            <element name="keyExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:KeyCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="KEY-TYPES:KeyAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="keyExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="KEY-TYPES:KeyResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "keyQuery" -->
+            <element name="keyQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="KEY-TYPES:KeyAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="KEY-TYPES:KeyFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="KEY-TYPES:KeyQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="keyQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="KEY-TYPES:KeyQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportFileExecute" -->
+            <element name="reportFileExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:ReportFileCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORTFILE-TYPES:ReportFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportFileExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORTFILE-TYPES:ReportFileResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "reportFileQuery" -->
+            <element name="reportFileQuery">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="REPORTFILE-TYPES:ReportFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+                        <element name="fieldSet" type="REPORTFILE-TYPES:ReportFileFieldSet" minOccurs="0" maxOccurs="1"/>
+                        <element name="queryOptions" type="REPORTFILE-TYPES:ReportFileQueryOptions" minOccurs="0" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="reportFileQueryResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="REPORTFILE-TYPES:ReportFileQueryResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- "timeZoneListExecute" -->
+            <element name="timeZoneListExecute">
+                <complexType>
+                    <sequence>
+                        <element name="sessionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <element name="cmd" type="ADMIN-TYPES:TimeZoneListCmdIDEnum" minOccurs="1" maxOccurs="1"/>
+                        <element name="attributeSet" type="TIMEZONELIST-TYPES:TimeZoneListAttributeSet" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="timeZoneListExecuteResponse">
+                <complexType>
+                    <sequence>
+                        <element name="results" type="TIMEZONELIST-TYPES:TimeZoneListResults" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+<!-- "logon" messages -->
+    <message name="logonInput">
+        <part name="parameters" element="ADMIN-TYPES:logon"/>
+    </message>
+
+    <message name="logonOutput">
+        <part name="parameters" element="ADMIN-TYPES:logonResponse"/>
+    </message>
+
+<!-- "logoff" messages -->
+    <message name="logoffInput">
+        <part name="parameters" element="ADMIN-TYPES:logoff"/>
+    </message>
+
+    <message name="logoffOutput">
+        <part name="parameters" element="ADMIN-TYPES:logoffResponse"/>
+    </message>
+
+<!-- "userExecute" messages -->
+    <message name="userExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:userExecute"/>
+    </message>
+
+    <message name="userExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:userExecuteResponse"/>
+    </message>
+
+<!-- "userQuery" messages -->
+    <message name="userQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:userQuery"/>
+    </message>
+
+    <message name="userQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:userQueryResponse"/>
+    </message>
+
+<!-- "backendExecute" messages -->
+    <message name="backendExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:backendExecute"/>
+    </message>
+
+    <message name="backendExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:backendExecuteResponse"/>
+    </message>
+
+<!-- "backendQuery" messages -->
+    <message name="backendQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:backendQuery"/>
+    </message>
+
+    <message name="backendQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:backendQueryResponse"/>
+    </message>
+
+<!-- "componentExecute" messages -->
+    <message name="componentExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:componentExecute"/>
+    </message>
+
+    <message name="componentExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:componentExecuteResponse"/>
+    </message>
+
+<!-- "componentQuery" messages -->
+    <message name="componentQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:componentQuery"/>
+    </message>
+
+    <message name="componentQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:componentQueryResponse"/>
+    </message>
+
+<!-- "configurationExecute" messages -->
+    <message name="configurationExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:configurationExecute"/>
+    </message>
+
+    <message name="configurationExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:configurationExecuteResponse"/>
+    </message>
+
+<!-- "configurationQuery" messages -->
+    <message name="configurationQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:configurationQuery"/>
+    </message>
+
+    <message name="configurationQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:configurationQueryResponse"/>
+    </message>
+
+<!-- "digipassExecute" messages -->
+    <message name="digipassExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:digipassExecute"/>
+    </message>
+
+    <message name="digipassExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:digipassExecuteResponse"/>
+    </message>
+
+<!-- "digipassQuery" messages -->
+    <message name="digipassQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:digipassQuery"/>
+    </message>
+
+    <message name="digipassQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:digipassQueryResponse"/>
+    </message>
+
+<!-- "domainExecute" messages -->
+    <message name="domainExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:domainExecute"/>
+    </message>
+
+    <message name="domainExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:domainExecuteResponse"/>
+    </message>
+
+<!-- "domainQuery" messages -->
+    <message name="domainQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:domainQuery"/>
+    </message>
+
+    <message name="domainQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:domainQueryResponse"/>
+    </message>
+
+<!-- "orgunitExecute" messages -->
+    <message name="orgunitExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:orgunitExecute"/>
+    </message>
+
+    <message name="orgunitExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:orgunitExecuteResponse"/>
+    </message>
+
+<!-- "orgunitQuery" messages -->
+    <message name="orgunitQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:orgunitQuery"/>
+    </message>
+
+    <message name="orgunitQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:orgunitQueryResponse"/>
+    </message>
+
+<!-- "digipassapplExecute" messages -->
+    <message name="digipassapplExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:digipassapplExecute"/>
+    </message>
+
+    <message name="digipassapplExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:digipassapplExecuteResponse"/>
+    </message>
+
+<!-- "digipassapplQuery" messages -->
+    <message name="digipassapplQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:digipassapplQuery"/>
+    </message>
+
+    <message name="digipassapplQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:digipassapplQueryResponse"/>
+    </message>
+
+<!-- "policyExecute" messages -->
+    <message name="policyExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:policyExecute"/>
+    </message>
+
+    <message name="policyExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:policyExecuteResponse"/>
+    </message>
+
+<!-- "policyQuery" messages -->
+    <message name="policyQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:policyQuery"/>
+    </message>
+
+    <message name="policyQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:policyQueryResponse"/>
+    </message>
+
+<!-- "replicationserverExecute" messages -->
+    <message name="replicationserverExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:replicationserverExecute"/>
+    </message>
+
+    <message name="replicationserverExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:replicationserverExecuteResponse"/>
+    </message>
+
+<!-- "replicationserverQuery" messages -->
+    <message name="replicationserverQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:replicationserverQuery"/>
+    </message>
+
+    <message name="replicationserverQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:replicationserverQueryResponse"/>
+    </message>
+
+<!-- "reportformatExecute" messages -->
+    <message name="reportformatExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:reportformatExecute"/>
+    </message>
+
+    <message name="reportformatExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportformatExecuteResponse"/>
+    </message>
+
+<!-- "reportformatQuery" messages -->
+    <message name="reportformatQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:reportformatQuery"/>
+    </message>
+
+    <message name="reportformatQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportformatQueryResponse"/>
+    </message>
+
+<!-- "reportfieldExecute" messages -->
+    <message name="reportfieldExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:reportfieldExecute"/>
+    </message>
+
+    <message name="reportfieldExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportfieldExecuteResponse"/>
+    </message>
+
+<!-- "reportfieldQuery" messages -->
+    <message name="reportfieldQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:reportfieldQuery"/>
+    </message>
+
+    <message name="reportfieldQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportfieldQueryResponse"/>
+    </message>
+
+
+<!-- "reportExecute" messages -->
+    <message name="reportExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:reportExecute"/>
+    </message>
+
+    <message name="reportExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportExecuteResponse"/>
+    </message>
+
+<!-- "reportQuery" messages -->
+    <message name="reportQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:reportQuery"/>
+    </message>
+
+    <message name="reportQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportQueryResponse"/>
+    </message>
+
+<!-- "userattributeExecute" messages -->
+    <message name="userattributeExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:userattributeExecute"/>
+    </message>
+
+    <message name="userattributeExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:userattributeExecuteResponse"/>
+    </message>
+
+<!-- "userattributeQuery" messages -->
+    <message name="userattributeQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:userattributeQuery"/>
+    </message>
+
+    <message name="userattributeQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:userattributeQueryResponse"/>
+    </message>
+
+<!-- "dpxfileExecute" messages -->
+    <message name="dpxfileExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileExecute"/>
+    </message>
+
+    <message name="dpxfileExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileExecuteResponse"/>
+    </message>
+
+<!-- "dpxfileuploadmime" messages -->
+    <message name="dpxfileuploadmimeInput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploadmime"/>
+        <part name="DPXFile" type="xsd:base64Binary" />
+    </message>
+
+    <message name="dpxfileuploadmimeOutput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploadmimeResponse"/>
+    </message>
+
+<!-- "dpxfileuploaddime" messages -->
+    <message name="dpxfileuploaddimeInput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploaddime"/>
+    </message>
+
+    <message name="dpxfileuploaddimeOutput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploaddimeResponse"/>
+    </message>
+
+<!-- "dpxfileuploadmtom" messages -->
+    <message name="dpxfileuploadmtomInput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploadmtom"/>
+    </message>
+
+    <message name="dpxfileuploadmtomOutput">
+        <part name="parameters" element="ADMIN-TYPES:dpxfileuploadmtomResponse"/>
+    </message>
+
+<!-- "reportdownloadmtom" messages -->
+    <message name="reportdownloadmtomInput">
+        <part name="parameters" element="ADMIN-TYPES:reportdownloadmtom"/>
+    </message>
+
+    <message name="reportdownloadmtomOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportdownloadmtomResponse"/>
+    </message>
+
+<!-- "reportfiledownloadmtom" messages -->
+        <message name="reportfiledownloadmtomInput">
+        <part name="parameters" element="ADMIN-TYPES:reportfiledownloadmtom"/>
+    </message>
+
+    <message name="reportfiledownloadmtomOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportfiledownloadmtomResponse"/>
+    </message>
+
+<!-- "sessionalive" messages -->
+    <message name="sessionaliveInput">
+        <part name="parameters" element="ADMIN-TYPES:sessionalive"/>
+    </message>
+
+    <message name="sessionaliveOutput">
+        <part name="parameters" element="ADMIN-TYPES:sessionaliveResponse"/>
+    </message>
+
+<!-- "adminSessionExecute" messages -->
+    <message name="adminSessionExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:adminSessionExecute"/>
+    </message>
+
+    <message name="adminSessionExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:adminSessionExecuteResponse"/>
+    </message>
+
+<!-- "adminSessionQuery" messages -->
+    <message name="adminSessionQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:adminSessionQuery"/>
+    </message>
+
+    <message name="adminSessionQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:adminSessionQueryResponse"/>
+    </message>
+
+
+<!-- "offlinedataExecute" messages -->
+    <message name="offlinedataExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:offlinedataExecute"/>
+    </message>
+
+    <message name="offlinedataExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:offlinedataExecuteResponse"/>
+    </message>
+
+<!-- "offlinedataQuery" messages -->
+    <message name="offlinedataQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:offlinedataQuery"/>
+    </message>
+
+    <message name="offlinedataQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:offlinedataQueryResponse"/>
+    </message>
+
+<!-- "radiusDictExecute" messages -->
+    <message name="radiusdictExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:radiusDictExecute"/>
+    </message>
+
+    <message name="radiusdictExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:radiusDictExecuteResponse"/>
+    </message>
+
+<!-- "radiusDictQuery" messages -->
+    <message name="radiusdictQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:radiusDictQuery"/>
+    </message>
+
+    <message name="radiusdictQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:radiusDictQueryResponse"/>
+    </message>
+
+<!-- "backEndServerGroupExecute" messages -->
+    <message name="backendservergroupExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:backEndServerGroupExecute"/>
+    </message>
+
+    <message name="backendservergroupExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:backEndServerGroupExecuteResponse"/>
+    </message>
+
+<!-- "backEndServerGroupQuery" messages -->
+    <message name="backendservergroupQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:backEndServerGroupQuery"/>
+    </message>
+
+    <message name="backendservergroupQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:backEndServerGroupQueryResponse"/>
+    </message>
+
+<!-- "userfileExecute" messages -->
+    <message name="userfileExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:userfileExecute"/>
+    </message>
+
+    <message name="userfileExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:userfileExecuteResponse"/>
+    </message>
+
+<!-- "userfileuploadmime" messages -->
+    <message name="userfileuploadmimeInput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploadmime"/>
+        <part name="UserFile" type="xsd:base64Binary" />
+    </message>
+
+    <message name="userfileuploadmimeOutput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploadmimeResponse"/>
+    </message>
+
+<!-- "userfileuploaddime" messages -->
+    <message name="userfileuploaddimeInput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploaddime"/>
+    </message>
+
+    <message name="userfileuploaddimeOutput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploaddimeResponse"/>
+    </message>
+
+<!-- "userfileuploadmtom" messages -->
+    <message name="userfileuploadmtomInput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploadmtom"/>
+    </message>
+
+    <message name="userfileuploadmtomOutput">
+        <part name="parameters" element="ADMIN-TYPES:userfileuploadmtomResponse"/>
+    </message>
+
+<!-- "taskExecute" messages -->
+    <message name="taskExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:taskExecute"/>
+    </message>
+
+    <message name="taskExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:taskExecuteResponse"/>
+    </message>
+
+<!-- "taskQuery" messages -->
+    <message name="taskQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:taskQuery"/>
+    </message>
+
+    <message name="taskQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:taskQueryResponse"/>
+    </message>
+
+<!-- "keyExecute" messages -->
+    <message name="keyExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:keyExecute"/>
+    </message>
+
+    <message name="keyExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:keyExecuteResponse"/>
+    </message>
+
+<!-- "keyQuery" messages -->
+    <message name="keyQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:keyQuery"/>
+    </message>
+
+    <message name="keyQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:keyQueryResponse"/>
+    </message>
+
+<!-- "reportFileExecute" messages -->
+    <message name="reportFileExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:reportFileExecute"/>
+    </message>
+
+    <message name="reportFileExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportFileExecuteResponse"/>
+    </message>
+
+<!-- "reportFileQuery" messages -->
+    <message name="reportFileQueryInput">
+        <part name="parameters" element="ADMIN-TYPES:reportFileQuery"/>
+    </message>
+
+    <message name="reportFileQueryOutput">
+        <part name="parameters" element="ADMIN-TYPES:reportFileQueryResponse"/>
+    </message>
+
+    <!-- "timeZoneListExecute" messages -->
+    <message name="timeZoneListExecuteInput">
+        <part name="parameters" element="ADMIN-TYPES:timeZoneListExecute"/>
+    </message>
+
+    <message name="timeZoneListExecuteOutput">
+        <part name="parameters" element="ADMIN-TYPES:timeZoneListExecuteResponse"/>
+    </message>
+
+    <portType name="AdministrationPortType">
+        <operation name="logon">
+            <documentation>Perform a logon</documentation>
+            <input message="ADMIN-SCENARIO:logonInput"/>
+            <output message="ADMIN-SCENARIO:logonOutput"/>
+        </operation>
+
+        <operation name="logoff">
+            <documentation>Perform a logoff</documentation>
+            <input message="ADMIN-SCENARIO:logoffInput"/>
+            <output message="ADMIN-SCENARIO:logoffOutput"/>
+        </operation>
+
+        <operation name="userExecute">
+            <documentation>Perform user command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:userExecuteInput"/>
+            <output message="ADMIN-SCENARIO:userExecuteOutput"/>
+        </operation>
+
+        <operation name="userQuery">
+            <documentation>Perform user query</documentation>
+            <input message="ADMIN-SCENARIO:userQueryInput"/>
+            <output message="ADMIN-SCENARIO:userQueryOutput"/>
+        </operation>
+
+        <operation name="backendExecute">
+            <documentation>Perform backend command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:backendExecuteInput"/>
+            <output message="ADMIN-SCENARIO:backendExecuteOutput"/>
+        </operation>
+
+        <operation name="backendQuery">
+            <documentation>Perform backend query</documentation>
+            <input message="ADMIN-SCENARIO:backendQueryInput"/>
+            <output message="ADMIN-SCENARIO:backendQueryOutput"/>
+        </operation>
+
+        <operation name="componentExecute">
+            <documentation>Perform component command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:componentExecuteInput"/>
+            <output message="ADMIN-SCENARIO:componentExecuteOutput"/>
+        </operation>
+
+        <operation name="componentQuery">
+            <documentation>Perform component query</documentation>
+            <input message="ADMIN-SCENARIO:componentQueryInput"/>
+            <output message="ADMIN-SCENARIO:componentQueryOutput"/>
+        </operation>
+
+        <operation name="configurationExecute">
+            <documentation>Perform configuration command such as update or view</documentation>
+            <input message="ADMIN-SCENARIO:configurationExecuteInput"/>
+            <output message="ADMIN-SCENARIO:configurationExecuteOutput"/>
+        </operation>
+
+        <operation name="configurationQuery">
+            <documentation>Perform configuration query</documentation>
+            <input message="ADMIN-SCENARIO:configurationQueryInput"/>
+            <output message="ADMIN-SCENARIO:configurationQueryOutput"/>
+        </operation>
+
+        <operation name="digipassExecute">
+            <documentation>Perform digipass command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:digipassExecuteInput"/>
+            <output message="ADMIN-SCENARIO:digipassExecuteOutput"/>
+        </operation>
+
+        <operation name="digipassQuery">
+            <documentation>Perform digipass query</documentation>
+            <input message="ADMIN-SCENARIO:digipassQueryInput"/>
+            <output message="ADMIN-SCENARIO:digipassQueryOutput"/>
+        </operation>
+
+        <operation name="domainExecute">
+            <documentation>Perform domain command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:domainExecuteInput"/>
+            <output message="ADMIN-SCENARIO:domainExecuteOutput"/>
+        </operation>
+
+        <operation name="domainQuery">
+            <documentation>Perform domain query</documentation>
+            <input message="ADMIN-SCENARIO:domainQueryInput"/>
+            <output message="ADMIN-SCENARIO:domainQueryOutput"/>
+        </operation>
+
+        <operation name="orgunitExecute">
+            <documentation>Perform orgunit command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:orgunitExecuteInput"/>
+            <output message="ADMIN-SCENARIO:orgunitExecuteOutput"/>
+        </operation>
+
+        <operation name="orgunitQuery">
+            <documentation>Perform orgunit query</documentation>
+            <input message="ADMIN-SCENARIO:orgunitQueryInput"/>
+            <output message="ADMIN-SCENARIO:orgunitQueryOutput"/>
+        </operation>
+
+        <operation name="digipassapplExecute">
+            <documentation>Perform digipassappl command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:digipassapplExecuteInput"/>
+            <output message="ADMIN-SCENARIO:digipassapplExecuteOutput"/>
+        </operation>
+
+        <operation name="digipassapplQuery">
+            <documentation>Perform digipassappl query</documentation>
+            <input message="ADMIN-SCENARIO:digipassapplQueryInput"/>
+            <output message="ADMIN-SCENARIO:digipassapplQueryOutput"/>
+        </operation>
+
+        <operation name="policyExecute">
+            <documentation>Perform policy command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:policyExecuteInput"/>
+            <output message="ADMIN-SCENARIO:policyExecuteOutput"/>
+        </operation>
+
+        <operation name="policyQuery">
+            <documentation>Perform policy query</documentation>
+            <input message="ADMIN-SCENARIO:policyQueryInput"/>
+            <output message="ADMIN-SCENARIO:policyQueryOutput"/>
+        </operation>
+
+        <operation name="replicationserverExecute">
+            <documentation>Perform replication command </documentation>
+            <input message="ADMIN-SCENARIO:replicationserverExecuteInput"/>
+            <output message="ADMIN-SCENARIO:replicationserverExecuteOutput"/>
+        </operation>
+
+        <operation name="replicationserverQuery">
+            <documentation>Perform replication query</documentation>
+            <input message="ADMIN-SCENARIO:replicationserverQueryInput"/>
+            <output message="ADMIN-SCENARIO:replicationserverQueryOutput"/>
+        </operation>
+
+        <operation name="reportformatExecute">
+            <documentation>Perform reportformat command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:reportformatExecuteInput"/>
+            <output message="ADMIN-SCENARIO:reportformatExecuteOutput"/>
+        </operation>
+
+        <operation name="reportformatQuery">
+            <documentation>Perform reportformat query</documentation>
+            <input message="ADMIN-SCENARIO:reportformatQueryInput"/>
+            <output message="ADMIN-SCENARIO:reportformatQueryOutput"/>
+        </operation>
+
+        <operation name="reportfieldExecute">
+            <documentation>Perform reportfield command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:reportfieldExecuteInput"/>
+            <output message="ADMIN-SCENARIO:reportfieldExecuteOutput"/>
+        </operation>
+
+        <operation name="reportfieldQuery">
+            <documentation>Perform reportfield query</documentation>
+            <input message="ADMIN-SCENARIO:reportfieldQueryInput"/>
+            <output message="ADMIN-SCENARIO:reportfieldQueryOutput"/>
+        </operation>
+
+        <operation name="reportExecute">
+            <documentation>Perform report command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:reportExecuteInput"/>
+            <output message="ADMIN-SCENARIO:reportExecuteOutput"/>
+        </operation>
+
+        <operation name="reportQuery">
+            <documentation>Perform report query</documentation>
+            <input message="ADMIN-SCENARIO:reportQueryInput"/>
+            <output message="ADMIN-SCENARIO:reportQueryOutput"/>
+        </operation>
+
+        <operation name="userattributeExecute">
+            <documentation>Perform userattribute command such as create, delete, update, view</documentation>
+            <input message="ADMIN-SCENARIO:userattributeExecuteInput"/>
+            <output message="ADMIN-SCENARIO:userattributeExecuteOutput"/>
+        </operation>
+
+        <operation name="userattributeQuery">
+            <documentation>Perform userattribute query</documentation>
+            <input message="ADMIN-SCENARIO:userattributeQueryInput"/>
+            <output message="ADMIN-SCENARIO:userattributeQueryOutput"/>
+        </operation>
+
+        <operation name="dpxfileExecute">
+            <documentation>Perform import DPX command such as import_file, quuery status and abort</documentation>
+            <input message="ADMIN-SCENARIO:dpxfileExecuteInput"/>
+            <output message="ADMIN-SCENARIO:dpxfileExecuteOutput"/>
+        </operation>
+
+        <operation name="dpxfileuploadmime">
+            <documentation>Perform upload DPX file to IDENTIKEY Authentication Server. Attachment type is MIME</documentation>
+            <input message="ADMIN-SCENARIO:dpxfileuploadmimeInput"/>
+            <output message="ADMIN-SCENARIO:dpxfileuploadmimeOutput"/>
+        </operation>
+
+        <operation name="dpxfileuploaddime">
+            <documentation>Perform upload DPX file to IDENTIKEY Authentication Server. Attachment type is DIME.
+                           HTTP Content-type header field must specify &quot;application/dime&quot;</documentation>
+            <input message="ADMIN-SCENARIO:dpxfileuploaddimeInput"/>
+            <output message="ADMIN-SCENARIO:dpxfileuploaddimeOutput"/>
+        </operation>
+
+        <operation name="dpxfileuploadmtom">
+            <documentation>Perform upload DPX file to IDENTIKEY Authentication Server. Attachment type is MTOM.</documentation>
+            <input message="ADMIN-SCENARIO:dpxfileuploadmtomInput"/>
+            <output message="ADMIN-SCENARIO:dpxfileuploadmtomOutput"/>
+        </operation>
+
+        <operation name="reportdownloadmtom">
+            <documentation>Download the report from IDENTIKEY Authentication Server as MTOM attachment</documentation>
+            <input message="ADMIN-SCENARIO:reportdownloadmtomInput"/>
+            <output message="ADMIN-SCENARIO:reportdownloadmtomOutput"/>
+        </operation>
+
+                <operation name="reportfiledownloadmtom">
+            <documentation>Download the reportfile from IDENTIKEY Authentication Server as MTOM attachment</documentation>
+            <input message="ADMIN-SCENARIO:reportfiledownloadmtomInput"/>
+            <output message="ADMIN-SCENARIO:reportfiledownloadmtomOutput"/>
+        </operation>
+
+        <operation name="sessionalive">
+            <documentation>Activate the administration session if the session has reached its idle time</documentation>
+            <input message="ADMIN-SCENARIO:sessionaliveInput"/>
+            <output message="ADMIN-SCENARIO:sessionaliveOutput"/>
+        </operation>
+
+        <operation name="adminSessionExecute">
+            <documentation>Perform adminSession command delete</documentation>
+            <input message="ADMIN-SCENARIO:adminSessionExecuteInput"/>
+            <output message="ADMIN-SCENARIO:adminSessionExecuteOutput"/>
+        </operation>
+
+        <operation name="adminSessionQuery">
+            <documentation>Perform adminSession query</documentation>
+            <input message="ADMIN-SCENARIO:adminSessionQueryInput"/>
+            <output message="ADMIN-SCENARIO:adminSessionQueryOutput"/>
+        </operation>
+
+        <operation name="offlinedataExecute">
+            <documentation>Perform offlinedata command such as delete, view</documentation>
+            <input message="ADMIN-SCENARIO:offlinedataExecuteInput"/>
+            <output message="ADMIN-SCENARIO:offlinedataExecuteOutput"/>
+        </operation>
+
+        <operation name="offlinedataQuery">
+            <documentation>Perform offlinedata query</documentation>
+            <input message="ADMIN-SCENARIO:offlinedataQueryInput"/>
+            <output message="ADMIN-SCENARIO:offlinedataQueryOutput"/>
+        </operation>
+
+        <operation name="radiusdictExecute">
+            <documentation>Perform radius dictionary command such as get enumeration values</documentation>
+            <input message="ADMIN-SCENARIO:radiusdictExecuteInput"/>
+            <output message="ADMIN-SCENARIO:radiusdictExecuteOutput"/>
+        </operation>
+
+        <operation name="radiusdictQuery">
+            <documentation>Perform radius dictionary query</documentation>
+            <input message="ADMIN-SCENARIO:radiusdictQueryInput"/>
+            <output message="ADMIN-SCENARIO:radiusdictQueryOutput"/>
+        </operation>
+
+        <operation name="backendservergroupExecute">
+            <documentation>Perform backend server group command</documentation>
+            <input message="ADMIN-SCENARIO:backendservergroupExecuteInput"/>
+            <output message="ADMIN-SCENARIO:backendservergroupExecuteOutput"/>
+        </operation>
+
+        <operation name="backendservergroupQuery">
+            <documentation>Perform backend server group query</documentation>
+            <input message="ADMIN-SCENARIO:backendservergroupQueryInput"/>
+            <output message="ADMIN-SCENARIO:backendservergroupQueryOutput"/>
+        </operation>
+
+        <operation name="userfileExecute">
+            <documentation>Perform import user command such as import_file, quuery status and abort</documentation>
+            <input message="ADMIN-SCENARIO:userfileExecuteInput"/>
+            <output message="ADMIN-SCENARIO:userfileExecuteOutput"/>
+        </operation>
+
+        <operation name="userfileuploadmime">
+            <documentation>Perform upload user file to IDENTIKEY Authentication Server. Attachment type is MIME</documentation>
+            <input message="ADMIN-SCENARIO:userfileuploadmimeInput"/>
+            <output message="ADMIN-SCENARIO:userfileuploadmimeOutput"/>
+        </operation>
+
+      <operation name="userfileuploaddime">
+            <documentation>Perform upload user file to IDENTIKEY Authentication Server. Attachment type is DIME.
+                           HTTP Content-type header field must specify &quot;application/dime&quot;</documentation>
+            <input message="ADMIN-SCENARIO:userfileuploaddimeInput"/>
+            <output message="ADMIN-SCENARIO:userfileuploaddimeOutput"/>
+        </operation>
+
+      <operation name="userfileuploadmtom">
+            <documentation>Perform upload user file to IDENTIKEY Authentication Server. Attachment type is MTOM.</documentation>
+            <input message="ADMIN-SCENARIO:userfileuploadmtomInput"/>
+            <output message="ADMIN-SCENARIO:userfileuploadmtomOutput"/>
+        </operation>
+
+        <operation name="taskExecute">
+            <documentation>Perform task command</documentation>
+            <input message="ADMIN-SCENARIO:taskExecuteInput"/>
+            <output message="ADMIN-SCENARIO:taskExecuteOutput"/>
+        </operation>
+
+        <operation name="taskQuery">
+            <documentation>Perform task query</documentation>
+            <input message="ADMIN-SCENARIO:taskQueryInput"/>
+            <output message="ADMIN-SCENARIO:taskQueryOutput"/>
+        </operation>
+
+        <operation name="keyExecute">
+            <documentation>Perform key command</documentation>
+            <input message="ADMIN-SCENARIO:keyExecuteInput"/>
+            <output message="ADMIN-SCENARIO:keyExecuteOutput"/>
+        </operation>
+
+        <operation name="keyQuery">
+            <documentation>Perform key query</documentation>
+            <input message="ADMIN-SCENARIO:keyQueryInput"/>
+            <output message="ADMIN-SCENARIO:keyQueryOutput"/>
+        </operation>
+
+        <operation name="reportFileExecute">
+            <documentation>Perform reportFile command</documentation>
+            <input message="ADMIN-SCENARIO:reportFileExecuteInput"/>
+            <output message="ADMIN-SCENARIO:reportFileExecuteOutput"/>
+        </operation>
+
+        <operation name="reportFileQuery">
+            <documentation>Perform reportFile query</documentation>
+            <input message="ADMIN-SCENARIO:reportFileQueryInput"/>
+            <output message="ADMIN-SCENARIO:reportFileQueryOutput"/>
+        </operation>
+
+        <operation name="timeZoneListExecute">
+            <documentation>Perform TimeZoneList command</documentation>
+            <input message="ADMIN-SCENARIO:timeZoneListExecuteInput"/>
+            <output message="ADMIN-SCENARIO:timeZoneListExecuteOutput"/>
+        </operation>
+    </portType>
+
+    <binding name="Administration" type="ADMIN-SCENARIO:AdministrationPortType">
+        <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <operation name="logon">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="logoff">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="backendExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="backendQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="componentExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="componentQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="configurationExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="configurationQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="digipassExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="digipassQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="domainExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="domainQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="orgunitExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="orgunitQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="digipassapplExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="digipassapplQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="policyExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="policyQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="replicationserverExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="replicationserverQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportformatExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportformatQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportfieldExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportfieldQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userattributeExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userattributeQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="dpxfileExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="dpxfileuploadmime">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <mime:multipartRelated>
+                    <mime:part>
+                        <SOAP:body parts="parameters" use="literal"/>
+                    </mime:part>
+                    <mime:part>
+                        <mime:content part="DPXFile" type="*/*"/>
+                    </mime:part>
+                </mime:multipartRelated>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="dpxfileuploaddime">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+                <dime:message layout="http://schemas.xmlsoap.org/ws/2002/04/dime/closed-layout" required="true"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="dpxfileuploadmtom">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportdownloadmtom">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+                <operation name="reportfiledownloadmtom">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="sessionalive">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="adminSessionExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="adminSessionQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="offlinedataExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="offlinedataQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="radiusdictExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="radiusdictQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="backendservergroupExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="backendservergroupQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userfileExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userfileuploadmime">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <mime:multipartRelated>
+                    <mime:part>
+                        <SOAP:body parts="parameters" use="literal"/>
+                    </mime:part>
+                    <mime:part>
+                        <mime:content part="UserFile" type="*/*"/>
+                    </mime:part>
+                </mime:multipartRelated>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userfileuploaddime">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+                <dime:message layout="http://schemas.xmlsoap.org/ws/2002/04/dime/closed-layout" required="true"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="userfileuploadmtom">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="taskExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="taskQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="keyExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="keyQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportFileExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="reportFileQuery">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="timeZoneListExecute">
+            <SOAP:operation soapAction="" style="document"/>
+            <input>
+                <SOAP:body use="literal"/>
+            </input>
+            <output>
+                <SOAP:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="Administration">
+        <documentation>The IDENTIKEY Authentication Server administration scenario web services</documentation>
+        <port name="AdministrationPortType" binding="ADMIN-SCENARIO:Administration">
+            <SOAP:address location="http://localhost:8888"/>
+        </port>
+    </service>
+
+</definitions>

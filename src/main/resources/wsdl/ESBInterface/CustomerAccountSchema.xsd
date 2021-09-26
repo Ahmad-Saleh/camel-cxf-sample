@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.oab.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q1="www.oab.com" xmlns:tns="http://www.oab.com">
+  <xsd:include schemaLocation="GlobalSchema.xsd"/>
+  <xsd:element name="customerSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:civilId"/>
+        <xsd:element ref="tns:phoneNumber"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="1" ref="tns:name"/>
+        <xsd:element ref="tns:arabicName"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element ref="tns:customerType"/>
+        <xsd:element ref="tns:closed"/>
+        <xsd:element ref="tns:deceasedOrLiquidation"/>
+        <xsd:element ref="tns:inactive"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="accountSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+        <xsd:element ref="tns:shortName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicShortName"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element ref="tns:accountType"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element minOccurs="1" ref="tns:closed"/>
+        <xsd:element minOccurs="1" ref="tns:deceasedOrLiquidation"/>
+        <xsd:element minOccurs="1" ref="tns:blocked"/>
+        <xsd:element minOccurs="1" ref="tns:inactive"/>
+        <xsd:element ref="tns:joint"/>
+        <xsd:element minOccurs="0" ref="tns:primaryCustomer"/>
+        <xsd:element minOccurs="0" ref="tns:jointRelation"/>
+        <xsd:element minOccurs="0" ref="tns:statusBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentStatusBalance"/>
+        <xsd:element minOccurs="0" ref="tns:ledgerBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentLedgerBalance"/>
+        <xsd:element minOccurs="0" ref="tns:ledgerBalanceDate"/>
+        <xsd:element minOccurs="0" ref="tns:currentAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentCurrentAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:iban"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCustomerInformation;XSDElementDeclaration=2$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="1" ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerInformation;XSDElementDeclaration=3$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customerClass"/>
+        <xsd:element minOccurs="1" ref="tns:name"/>
+        <xsd:element minOccurs="1" ref="tns:arabicName"/>
+        <xsd:element ref="tns:shortName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicShortName"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element ref="tns:customerType"/>
+        <xsd:element ref="tns:customerCategory"/>
+        <xsd:element ref="tns:closed"/>
+        <xsd:element ref="tns:deceasedOrLiquidation"/>
+        <xsd:element ref="tns:inactive"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+        <xsd:element minOccurs="0" ref="tns:parentCountry"/>
+        <xsd:element minOccurs="0" ref="tns:riskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:residenceCountry"/>
+        <xsd:element minOccurs="0" ref="tns:internalRiskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:customerOpenDate"/>
+        <xsd:element minOccurs="0" ref="tns:customerCloseDate"/>
+        <xsd:element minOccurs="0" ref="tns:lastUpdateDate"/>
+        <xsd:element minOccurs="0" ref="tns:group"/>
+        <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:group name="CustomerAccount">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRGlobalGroup composition="message"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ref="tns:GetCustomerInformation"/>
+      <xsd:element ref="tns:CustomerInformation"/>
+      <xsd:element ref="tns:ListCustomerAccounts"/>
+      <xsd:element ref="tns:CustomerAccounts"/>
+      <xsd:element ref="tns:Customers"/>
+      <xsd:element ref="tns:ListCustomers"/>
+      <xsd:element ref="tns:GetCustomerAdditionalInformation"/>
+      <xsd:element ref="tns:CustomerAdditionalInformation"/>
+      <xsd:element ref="tns:GetCustomerAccountAddress"/>
+      <xsd:element ref="tns:CustomerAccountAddress"/>
+      <xsd:element ref="tns:GetAccountInformation"/>
+      <xsd:element ref="tns:AccountInformation"/>
+      <xsd:element ref="tns:GetAccountBalance"/>
+      <xsd:element ref="tns:AccountBalance"/>
+      <xsd:element ref="tns:GetCustomerEmploymentInformation"/>
+      <xsd:element ref="tns:CustomerEmploymentInformation"/>
+      <xsd:element ref="tns:OpenCustomerAccount"/>
+      <xsd:element ref="tns:CustomerAccount"/>
+      <xsd:element ref="tns:GetTransactionInformation"/>
+      <xsd:element ref="tns:TransactionInformation"/>
+      <xsd:element ref="tns:UpdateCustomerAccountAddress"/>
+      <xsd:element ref="tns:ListAccountTransactions"/>
+      <xsd:element ref="tns:AccountTransactions"/>
+      <xsd:element ref="tns:GroupEntities"/>
+      <xsd:element ref="tns:ListGroupEntities"/>
+      <xsd:element ref="tns:GetAccountInterest"/>
+      <xsd:element ref="tns:AccountInterest"/>
+      <xsd:element ref="tns:AddNewIndividualCustomer"/>
+      <xsd:element ref="tns:NewCustomer"/>
+      <xsd:element ref="tns:CustomerRegistration"/>
+      <xsd:element ref="tns:RegisteredCustomer"/>
+      <xsd:element ref="tns:UpdateFATCAQuestions"/>
+      <xsd:element ref="tns:AddNewIndividualCustomerApplication"/>
+      <xsd:element ref="tns:NewCustomerApplication"/>
+      <xsd:element ref="tns:ListCustomerGroupLimits"/>
+      <xsd:element ref="tns:CustomerGroupLimits"/>
+      <xsd:element ref="tns:ListAccountTurnover"/>
+      <xsd:element ref="tns:AccountTurnover"/>
+      <xsd:element ref="tns:ListCompanyShareholders"/>
+      <xsd:element ref="tns:CompanyShareholders"/>
+      <xsd:element ref="tns:ListCountryLimits"/>
+      <xsd:element ref="tns:CountryLimits"/>
+    </xsd:choice>
+  </xsd:group>
+  <xsd:element name="ListCustomerAccounts">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerAccounts;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:element ref="tns:accountBasicNumber"/>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerAccounts">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerAccounts;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:accountSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Customers">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Customers;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:customerSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomers">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomers;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:choice maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:civilId"/>
+          <xsd:element ref="tns:phoneNumber"/>
+        </xsd:choice>
+      </xsd:choice>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerAdditionalInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerAdditionalInformation;XSDElementDeclaration=8$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:civilId"/>
+        <xsd:element minOccurs="0" ref="tns:civilIdExpiry"/>
+        <xsd:element minOccurs="0" ref="tns:documentId"/>
+        <xsd:element minOccurs="0" ref="tns:documentType"/>
+        <xsd:element minOccurs="0" ref="tns:documentIssueDate"/>
+        <xsd:element minOccurs="0" ref="tns:documentExpiryDate"/>
+        <xsd:element minOccurs="0" ref="tns:gender"/>
+        <xsd:element minOccurs="0" ref="tns:nationality"/>
+        <xsd:element minOccurs="0" ref="tns:otherNationalities"/>
+        <xsd:element minOccurs="0" ref="tns:birthDate"/>
+		<xsd:element minOccurs="0" ref="tns:socialStatus"/>
+        <xsd:element minOccurs="0" ref="tns:title"/>
+        <xsd:element minOccurs="0" ref="tns:statementByEmail"/>
+        <xsd:element minOccurs="0" ref="tns:companyCategory"/>
+        <xsd:element minOccurs="0" ref="tns:homeOwnership"/>
+        <xsd:element minOccurs="0" ref="tns:carOwnership"/>
+		<xsd:element minOccurs="0" ref="tns:updateGSM"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerAdditionalInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCustomerAdditionalInformation;XSDElementDeclaration=9$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerAccountAddress">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCustomerAccountAddress;XSDElementDeclaration=10$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:element ref="tns:account"/>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerAccountAddress">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerAccountAddress;XSDElementDeclaration=11$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:address"/>
+        <xsd:element minOccurs="0" ref="tns:addressCountry"/>
+        <xsd:element minOccurs="0" ref="tns:city"/>
+        <xsd:element minOccurs="0" ref="tns:buildingVillaNumber"/>
+        <xsd:element minOccurs="0" ref="tns:flatNumber"/>
+        <xsd:element minOccurs="0" ref="tns:wayNumber"/>
+        <xsd:element minOccurs="0" ref="tns:street"/>
+        <xsd:element minOccurs="0" ref="tns:landmark"/>
+        <xsd:element ref="tns:contacts"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+        <xsd:element minOccurs="0" ref="tns:POBox"/>
+        <xsd:element minOccurs="0" ref="tns:postalCode"/>
+        <xsd:element minOccurs="0" ref="tns:areaCode"/>
+        <xsd:element minOccurs="0" ref="tns:swift"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetAccountInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetAccountInformation;XSDElementDeclaration=12$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountInformation;XSDElementDeclaration=13$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:shortName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicShortName"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+        <xsd:element minOccurs="0" ref="tns:iban"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:accountType"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:closed"/>
+        <xsd:element ref="tns:deceasedOrLiquidation"/>
+        <xsd:element ref="tns:blocked"/>
+        <xsd:element ref="tns:inactive"/>
+        <xsd:element ref="tns:internalAccount"/>
+        <xsd:element ref="tns:jointAccount"/>
+        <xsd:element minOccurs="0" ref="tns:residenceCountry"/>
+        <xsd:element minOccurs="0" ref="tns:parentCountry"/>
+        <xsd:element minOccurs="0" ref="tns:riskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:internalRiskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:statementFrequency"/>
+        <xsd:element minOccurs="0" ref="tns:lastStatementNumber"/>
+        <xsd:element minOccurs="0" ref="tns:lastStatementDate"/>
+        <xsd:element minOccurs="0" ref="tns:nextStatementDate"/>
+        <xsd:element minOccurs="0" ref="tns:previousStatementBalance"/>
+        <xsd:element minOccurs="0" ref="tns:lastEntryDate"/>
+        <xsd:element minOccurs="0" ref="tns:accountOpenDate"/>
+        <xsd:element minOccurs="0" ref="tns:accountClosedDate"/>
+        <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetAccountBalance">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetAccountBalance;XSDElementDeclaration=14$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountBalance">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountBalance;XSDElementDeclaration=15$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+	    <xsd:element minOccurs="0" ref="tns:currency"/>
+		<xsd:element minOccurs="0" ref="tns:equivalentCurrency"/>
+        <xsd:element minOccurs="0" ref="tns:statusBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentStatusBalance"/>
+        <xsd:element minOccurs="0" ref="tns:ledgerBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentLedgerBalance"/>
+        <xsd:element minOccurs="0" ref="tns:ledgerBalanceDate"/>
+        <xsd:element minOccurs="0" ref="tns:currentAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentCurrentAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:previousAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentPreviousAvailableBalance"/>
+        <xsd:element minOccurs="0" ref="tns:overdraftLimit"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentOverdraftLimit"/>
+        <xsd:element minOccurs="0" ref="tns:overdraftLimitExpiryDate"/>
+        <xsd:element minOccurs="0" ref="tns:reservedBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentReservedBalance"/>
+        <xsd:element minOccurs="0" ref="tns:currentClearedBalance"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentCurrentClearedBalance"/>
+        <xsd:element minOccurs="0" ref="tns:clearingToday"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentClearingToday"/>
+        <xsd:element minOccurs="0" ref="tns:clearingTomorrow"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentClearingTomorrow"/>
+        <xsd:element minOccurs="0" ref="tns:clearingAfterTomorrow"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentClearingAfterTomorrow"/>
+        <xsd:element minOccurs="0" ref="tns:shadowDebit"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentShadowDebit"/>
+        <xsd:element minOccurs="0" ref="tns:shadowCredit"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentShadowCredit"/>
+        <xsd:element minOccurs="0" ref="tns:shadowAdjustments"/>
+        <xsd:element minOccurs="0" ref="tns:equivalentShadowAdjustments"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerEmploymentInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetCustomerEmploymentInformation;XSDElementDeclaration=16$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerEmploymentInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerEmploymentInformation;XSDElementDeclaration=17$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:employer"/>
+        <xsd:element minOccurs="0" ref="tns:grade"/>
+        <xsd:element minOccurs="0" ref="tns:sector"/>
+        <xsd:element minOccurs="0" ref="tns:country"/>
+        <xsd:element ref="tns:group"/>
+        <xsd:element minOccurs="0" ref="tns:jobTitle"/>
+        <xsd:element minOccurs="0" ref="tns:hiringDate"/>
+        <xsd:element minOccurs="0" ref="tns:salary"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="OpenCustomerAccount">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/OpenCustomerAccount;XSDElementDeclaration=18$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:accountType"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:shortName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicShortName"/>
+        <xsd:element minOccurs="0" ref="tns:branch"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerAccount">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerAccount;XSDElementDeclaration=19$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+        <xsd:element minOccurs="0" ref="tns:iban"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="TransactionInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/TransactionInformation;XSDElementDeclaration=20$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:timeStamp"/>
+        <xsd:element minOccurs="1" ref="tns:source"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetTransactionInformation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetTransactionInformation;XSDElementDeclaration=21$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListAccountTransactions">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListAccountTransactions;XSDElementDeclaration=22$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+        <xsd:choice minOccurs="0">
+          <xsd:element ref="tns:statementNumber"/>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:fromDate"/>
+            <xsd:element minOccurs="0" ref="tns:toDate"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:numberOfRecords"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountTransactions">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountTransactions;XSDElementDeclaration=23$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:transaction"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UpdateCustomerAccountAddress">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/UpdateCustomerAccountAddress;XSDElementDeclaration=24$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:element ref="tns:account"/>
+        </xsd:choice>
+        <xsd:element minOccurs="0" ref="tns:address"/>
+        <xsd:element minOccurs="0" ref="tns:addressCountry"/>
+        <xsd:element minOccurs="0" ref="tns:city"/>
+        <xsd:element minOccurs="0" ref="tns:buildingVillaNumber"/>
+        <xsd:element minOccurs="0" ref="tns:flatNumber"/>
+        <xsd:element minOccurs="0" ref="tns:wayNumber"/>
+        <xsd:element minOccurs="0" ref="tns:street"/>
+        <xsd:element minOccurs="0" ref="tns:landmark"/>
+        <xsd:element minOccurs="0" ref="tns:contacts"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+        <xsd:element minOccurs="0" ref="tns:POBox"/>
+        <xsd:element minOccurs="0" ref="tns:postalCode"/>
+        <xsd:element minOccurs="0" ref="tns:areaCode"/>
+        <xsd:element minOccurs="0" ref="tns:swift"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListGroupEntities">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListGroupEntities;XSDElementDeclaration=25$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:group"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GroupEntities">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GroupEntities;XSDElementDeclaration=26$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:entity"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetAccountInterest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/GetAccountInterest;XSDElementDeclaration=27$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountInterest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountInterest;XSDElementDeclaration=28$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:interestSummary"/>
+        <xsd:element minOccurs="0" ref="tns:tierSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="customerInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:arabicName"/>
+        <xsd:element minOccurs="0" ref="tns:shortName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicShortName"/>
+        <xsd:element minOccurs="0" ref="tns:firstName"/>
+        <xsd:element minOccurs="0" ref="tns:secondName"/>
+        <xsd:element minOccurs="0" ref="tns:thirdName"/>
+        <xsd:element minOccurs="0" ref="tns:lastName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicFirstName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicSecondName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicThirdName"/>
+        <xsd:element minOccurs="0" ref="tns:arabicLastName"/>
+        <xsd:element minOccurs="0" ref="tns:language"/>
+        <xsd:element ref="tns:gender"/>
+        <xsd:element ref="tns:nationality"/>
+        <xsd:element minOccurs="0" ref="tns:otherNationalities"/>
+        <xsd:element ref="tns:birthDate"/>
+        <xsd:element ref="tns:countryOfBirth"/>
+        <xsd:element minOccurs="0" ref="tns:placeOfBirth"/>
+        <xsd:element minOccurs="0" ref="tns:cityOfBirth"/>
+        <xsd:element minOccurs="0" ref="tns:socialStatus"/>
+        <xsd:element minOccurs="0" ref="tns:title"/>
+        <xsd:element minOccurs="0" ref="tns:customerType"/>
+        <xsd:element ref="tns:branch"/>
+        <xsd:element minOccurs="0" ref="tns:parentCountry"/>
+        <xsd:element minOccurs="0" ref="tns:riskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:residenceCountry"/>
+        <xsd:element minOccurs="0" ref="tns:internalRiskCountry"/>
+        <xsd:element minOccurs="0" ref="tns:group"/>
+        <xsd:element ref="tns:customerIdentifications"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="guardian">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+        <xsd:element minOccurs="0" ref="tns:privilagedType"/>
+        <xsd:element minOccurs="0" ref="tns:authorizationType"/>
+        <xsd:element minOccurs="0" ref="tns:relation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="customerAddress">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:addressType"/>
+        <xsd:element minOccurs="0" ref="tns:addressCountry"/>
+        <xsd:element minOccurs="0" ref="tns:city"/>
+        <xsd:element minOccurs="0" ref="tns:buildingVillaNumber"/>
+        <xsd:element minOccurs="0" ref="tns:flatNumber"/>
+        <xsd:element minOccurs="0" ref="tns:wayNumber"/>
+        <xsd:element minOccurs="0" ref="tns:street"/>
+        <xsd:element minOccurs="0" ref="tns:landmark"/>
+        <xsd:element minOccurs="0" ref="tns:contacts"/>
+        <xsd:element minOccurs="0" ref="tns:email"/>
+        <xsd:element minOccurs="0" ref="tns:POBox"/>
+        <xsd:element minOccurs="0" ref="tns:postalCode"/>
+        <xsd:element minOccurs="0" ref="tns:areaCode"/>
+        <xsd:element minOccurs="0" ref="tns:swift"/>
+        <xsd:element minOccurs="0" ref="tns:contactMethod"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="powerOfAttorneyInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:arabicName"/>
+        <xsd:element minOccurs="1" ref="tns:customer"/>
+        <xsd:element minOccurs="1" ref="tns:relation"/>
+        <xsd:element minOccurs="0" ref="tns:type"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+        <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:document"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="heirsInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice maxOccurs="1" minOccurs="1">
+          <xsd:element minOccurs="1" ref="tns:name"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:firstName"/>
+            <xsd:element minOccurs="0" ref="tns:secondName"/>
+            <xsd:element minOccurs="0" ref="tns:thirdName"/>
+            <xsd:element minOccurs="0" ref="tns:lastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:choice maxOccurs="1" minOccurs="0">
+          <xsd:element minOccurs="1" ref="tns:arabicName"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:arabicFirstName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicSecondName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicThirdName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicLastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:document"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:authorizerInformation"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:inheritorInformation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="authorizerInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice maxOccurs="1" minOccurs="1">
+          <xsd:element minOccurs="1" ref="tns:name"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:firstName"/>
+            <xsd:element minOccurs="0" ref="tns:secondName"/>
+            <xsd:element minOccurs="0" ref="tns:thirdName"/>
+            <xsd:element minOccurs="0" ref="tns:lastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:choice maxOccurs="1" minOccurs="0">
+          <xsd:element minOccurs="1" ref="tns:arabicName"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:arabicFirstName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicSecondName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicThirdName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicLastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:document"/>
+        <xsd:element minOccurs="0" ref="tns:narratives"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="inheritorInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice maxOccurs="1" minOccurs="1">
+          <xsd:element minOccurs="1" ref="tns:name"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:firstName"/>
+            <xsd:element minOccurs="0" ref="tns:secondName"/>
+            <xsd:element minOccurs="0" ref="tns:thirdName"/>
+            <xsd:element minOccurs="0" ref="tns:lastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:choice maxOccurs="1" minOccurs="0">
+          <xsd:element minOccurs="1" ref="tns:arabicName"/>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element minOccurs="0" ref="tns:arabicFirstName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicSecondName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicThirdName"/>
+            <xsd:element minOccurs="0" ref="tns:arabicLastName"/>
+          </xsd:sequence>
+        </xsd:choice>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:document"/>
+        <xsd:element minOccurs="0" ref="tns:gender"/>
+        <xsd:element minOccurs="0" ref="tns:birthDate"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="employmentInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:employer"/>
+        <xsd:element minOccurs="0" ref="tns:sector"/>
+        <xsd:element minOccurs="0" ref="tns:country"/>
+        <xsd:element minOccurs="0" ref="tns:group"/>
+        <xsd:element minOccurs="0" ref="tns:occupation"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:occupationType"/>
+        <xsd:element minOccurs="0" ref="tns:jobTitle"/>
+        <xsd:element minOccurs="0" ref="tns:hiringDate"/>
+        <xsd:element ref="tns:salary"/>
+        <xsd:element minOccurs="0" ref="tns:currency"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="tin">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="tns:id"/>
+        <xsd:element ref="tns:country"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="enclosureReason">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="tns:country"/>
+        <xsd:element ref="tns:reasonCode"/>
+        <xsd:element ref="tns:narratives"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="incomeInformation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" maxOccurs="unbounded" ref="tns:income"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="income">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="tns:amount"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:text"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="expectedTransaction">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="tns:amount"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:country"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="taxInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice maxOccurs="unbounded" minOccurs="1">
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:tin"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:enclosureReason"/>
+        </xsd:choice>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="prominentRelation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="tns:name"/>
+        <xsd:element minOccurs="1" ref="tns:relation"/>
+        <xsd:element minOccurs="1" ref="tns:organisationName"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:familyMembers"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:code"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="familyMembers">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" ref="tns:name"/>
+        <xsd:element minOccurs="1" ref="tns:relation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="screeningInformation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="tns:otherBeneficialOwner"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:expectedTransaction"/>
+        <xsd:element minOccurs="0" ref="tns:dealingWithOtherBanks"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="otherBeneficialOwner">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:documentId"/>
+        <xsd:element minOccurs="0" ref="tns:expiryDate"/>
+        <xsd:element minOccurs="0" ref="tns:relation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="dealingWithOtherBanks">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:swift"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AddNewIndividualCustomer">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AddNewIndividualCustomer;XSDElementDeclaration=32$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:customerInformation"/>
+        <xsd:element maxOccurs="unbounded" ref="tns:customerAddress"/>
+        <xsd:element minOccurs="0" ref="tns:employmentInformation"/>
+        <xsd:element minOccurs="0" ref="tns:guardian"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:powerOfAttorneyInformation"/>
+        <xsd:element minOccurs="0" ref="tns:heirsInformation"/>
+        <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+        <xsd:element minOccurs="0" ref="tns:fatca"/>
+        <xsd:element minOccurs="0" ref="tns:reasonOfOpening"/>
+        <xsd:element minOccurs="0" ref="tns:incomeInformation"/>
+        <xsd:element minOccurs="0" ref="tns:taxInformation"/>
+        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="tns:prominentRelation"/>
+        <xsd:element minOccurs="0" ref="tns:screeningInformation"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewCustomer">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/NewCustomer;XSDElementDeclaration=33$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerRegistration">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerRegistration;XSDElementDeclaration=34$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:externalReference"/>
+        <xsd:element ref="tns:customer"/>
+        <xsd:element ref="tns:lineOfBusiness"/>
+        <xsd:element minOccurs="0" ref="tns:services"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="RegisteredCustomer">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/RegisteredCustomer;XSDElementDeclaration=35$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element minOccurs="0" ref="tns:data"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="UpdateFATCAQuestions">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/UpdateFATCAQuestions;XSDElementDeclaration=36$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+        <xsd:element maxOccurs="unbounded" ref="tns:question"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AddNewIndividualCustomerApplication">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AddNewIndividualCustomerApplication;XSDElementDeclaration=37$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:externalReference"/>
+        <xsd:element ref="tns:customerInformation"/>
+        <xsd:element ref="tns:customerAddress"/>
+        <xsd:element minOccurs="0" ref="tns:employmentInformation"/>
+        <xsd:element minOccurs="0" ref="tns:otherDetails"/>
+        <xsd:element ref="tns:fatca"/>
+        <xsd:element ref="tns:accountInformation"/>
+        <xsd:element minOccurs="0" ref="tns:attachment"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="fatca">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" ref="tns:question"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="attachment">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" ref="tns:fileLocation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewCustomerApplication">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/NewCustomerApplication;XSDElementDeclaration=40$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:reference"/>
+        <xsd:element minOccurs="0" ref="tns:processId"/>
+        <xsd:element minOccurs="0" ref="tns:flowURL"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="accountInformation">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:accountType"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element minOccurs="0" ref="tns:statementFrequency"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCustomerGroupLimits">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCustomerGroupLimits;XSDElementDeclaration=42$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:choice>
+          <xsd:element ref="tns:customer"/>
+          <xsd:element ref="tns:group"/>
+        </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CustomerGroupLimits">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerGroupLimits;XSDElementDeclaration=43$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:limitSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="limitSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:limitCategory"/>
+        <xsd:element ref="tns:limitAmount"/>
+        <xsd:element ref="tns:riskAmount"/>
+        <xsd:element minOccurs="0" ref="tns:outstandingAmount"/>
+        <xsd:element ref="tns:availableAmount"/>
+        <xsd:element ref="tns:currency"/>
+        <xsd:element ref="tns:expiryDate"/>
+        <xsd:element minOccurs="0" ref="tns:numberOfDaysOverdue"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListAccountTurnover">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListAccountTurnover;XSDElementDeclaration=45$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:account"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="turnoverSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:debitTurnover"/>
+        <xsd:element minOccurs="0" ref="tns:debitEntries"/>
+        <xsd:element ref="tns:creditTurnover"/>
+        <xsd:element minOccurs="0" ref="tns:creditEntries"/>
+        <xsd:element ref="tns:date"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="AccountTurnover">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AccountTurnover;XSDElementDeclaration=47$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="13" minOccurs="0" ref="tns:turnoverSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="shareholdersSummary">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customerClass"/>
+        <xsd:element minOccurs="0" ref="tns:customer"/>
+        <xsd:element ref="tns:name"/>
+        <xsd:element minOccurs="0" ref="tns:arabicName"/>
+        <xsd:element minOccurs="0" ref="tns:percentage"/>
+        <xsd:element ref="tns:authorizationDetails"/>
+        <xsd:element ref="tns:authorizedSignature"/>
+        <xsd:element minOccurs="0" ref="tns:nationality"/>
+        <xsd:element minOccurs="0" ref="tns:jobTitle"/>
+        <xsd:element minOccurs="0" ref="tns:companyCategory"/>
+        <xsd:element minOccurs="0" ref="tns:birthDate"/>
+        <xsd:element minOccurs="0" ref="tns:countryOfBirth"/>
+        <xsd:element minOccurs="0" ref="tns:customerIdentifications"/>
+        <xsd:element minOccurs="0" ref="tns:customerAddress"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCompanyShareholders">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCompanyShareholders;XSDElementDeclaration=49$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:customer"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CompanyShareholders">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CompanyShareholders;XSDElementDeclaration=50$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:shareholdersSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ListCountryLimits">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/ListCountryLimits;XSDElementDeclaration=51$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element ref="tns:country"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CountryLimits">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CountryLimits;XSDElementDeclaration=52$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:limitSummary"/>
+      </xsd:sequence>
+      <xsd:attribute ref="tns:optionIdentifier"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

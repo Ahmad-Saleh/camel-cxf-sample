@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFileTypes.xsd"
+        xmlns:tns="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/ReportFileTypes.xsd"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:BASIC-TYPES="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified">
+
+    <import namespace="http://www.vasco.com/IdentikeyServer/IdentikeyTypes/BasicTypes.xsd" schemaLocation="BasicTypes.xsd" />
+
+    <simpleType name="ReportFileAttributeIDEnum">
+        <restriction base="xsd:string">
+            <enumeration value="REPORTFILEFLD_REPORTFILE_ID"/>
+            <enumeration value="REPORTFILEFLD_SERVER_ID"/>
+            <enumeration value="REPORTFILEFLD_DOMAIN_NAME"/>
+            <enumeration value="REPORTFILEFLD_USER_ID"/>
+            <enumeration value="REPORTFILEFLD_DESCRIPTION"/>
+            <enumeration value="REPORTFILEFLD_SETTINGS"/>
+            <enumeration value="REPORTFILEFLD_SIZE"/>
+            <enumeration value="REPORTFILEFLD_PERIOD_START"/>
+            <enumeration value="REPORTFILEFLD_PERIOD_END"/>
+            <enumeration value="REPORTFILEFLD_CREATE_TIME"/>
+            <enumeration value="REPORTFILEFLD_MODIFY_TIME"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ReportFileAttribute">
+        <sequence>
+            <element name="attributeOptions" type="BASIC-TYPES:AttributeOptions" minOccurs="0" maxOccurs="1"/>
+            <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+            <element name="attributeID" type="tns:ReportFileAttributeIDEnum" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileAttributeSet">
+        <sequence>
+            <element name="attributes" type="tns:ReportFileAttribute" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportFileAttributeSet" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+            <element name="errorList" type="BASIC-TYPES:RecordErrorList" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileFieldSet">
+        <sequence>
+            <element name="attributeID" type="tns:ReportFileAttributeIDEnum" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileAttributeList">
+        <sequence>
+            <element name="attributeList" type="tns:ReportFileAttributeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileQueryResults">
+        <sequence>
+            <element name="resultCodes" type="BASIC-TYPES:ResultCodes" minOccurs="1" maxOccurs="1"/>
+            <element name="resultAttribute" type="tns:ReportFileAttributeList" minOccurs="1" maxOccurs="1"/>
+            <element name="resultCount" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+            <element name="errorStack" type="BASIC-TYPES:ErrorStack" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ReportFileQueryOptions">
+        <complexContent>
+            <extension base="BASIC-TYPES:QueryOptions">
+                <sequence>
+                    <element name="sortfieldid" type="tns:ReportFileAttributeIDEnum" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>
